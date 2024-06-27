@@ -86,9 +86,9 @@ Gráficos dinámicos:
 		Alt + JCV
 		
 Fórmulas condicionales
-	=SUMAR.SI()				: suma celdas si se cumple una condición
+	=SUMAR.SI()		: suma celdas si se cumple una condición
 	=SUMAR.SI.CONJUNTO()	: suma celdas si se cumple una o varias condiciones
-	=PROMEDIO.SI			: promedio de celdas si se cumple una condición
+	=PROMEDIO.SI		: promedio de celdas si se cumple una condición
 	=PROMEDIO.SI.CONJUNTO()	: promedio de celdas si se cumple una o varias condiciones
 	
 Indice y coincidir:
@@ -98,4 +98,6 @@ Indice y coincidir:
 	Aplicación en una tabla:
 	A partir de dos elementos, primera fila (países) y primera columna (serv streaming) se puede buscar un dato en específicos
 	=INDICE(Matriz con los números,COINDICIR(país a buscar, primera columna, 0),COINDICIR(serv streaming a buscar,primera fila,0))
+	
+BMSUMA (Suma en una base de datos):
 	
