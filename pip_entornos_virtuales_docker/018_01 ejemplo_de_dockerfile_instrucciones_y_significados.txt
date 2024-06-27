@@ -1,0 +1,21 @@
+# Versión de python a instalar en el contenedor
+FROM python:3.10
+
+# Crea un directorio dentro del contenedor
+WORKDIR /app
+
+# Copiar el requirements.txt al contenedor
+COPY requirements.txt /app/requirements.txt
+
+# Instalar todas las dependencias listadas en requirements
+    # La caché es un mecanismo de almacenamiento temporal que guarda copias de datos o archivos para acelerar el acceso futuro a esos datos
+    # --no-cache-dir    pip no usa archivos en caché
+    # --upgrade         actualiza las dependencias (no es que actualice a la versión más nueva si no la actualiza a la versión especificada en requirements.txt)
+RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
+
+# Copiar todos los archivos de mi proyecto (directorio actual, donde se encuentra el Dockerfile) al contenedor
+COPY . /app/
+
+# Ejecución de comando en la terminal cuando el contenedor ejecute el programa
+# este código mantiene activo el programa
+CMD bash -c "while true; do sleep 1; done"

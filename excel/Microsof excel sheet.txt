@@ -1,0 +1,101 @@
+Microsof excel sheet
+
+Días, meses y años:
+	=MES
+	=DIA
+	=AÑO
+	=HOY()
+	=DIASEM(celda, tipo): tipo establece qué número de la semana es el lunes y el domingo
+
+Agrupar:
+	Seleccionar celdas completas
+		Atl + DAAA
+		
+Desagrupar:
+	Seleccionar celdas completas
+		Atl + DJD
+
+Filtro de datos:
+Segmentación de datos: Forma más dinámica mediante selección de criterios:
+	En la celda de una tabla:
+		Alt + B2NN
+Filtro sencillo:
+	Sobre la cabeceras:
+		Ctrl + Shift + L
+		
+Subtotal: Junto con los filtros se Subtotal, que son rápidos cálculos aritmétios
+		=SUBTOTALES(Operador, Rango)
+			Al ejecutarla el filtro, realizará la operación del rango filtrado
+		
+Tablas:
+
+Creación de tabla:
+	Seleccionar todos los datos con sus cabeceras
+	Alt + B2Ñ	
+Deshacer tabla:
+	Alt + JTV
+
+Ordenar datos de una tabla:
+	En la celda de una tabla:
+		Alt + DO2
+		
+Validación de datos
+	En la celda:
+		Alt + DVVV
+		Opciones:
+		1) En caso de personalizar la validación de datos con opciones específicas, usar el siguiente ejemplo de fórmula 
+		=(O(G3="sí",G3="no"))
+		2) Configuración/Permitir Lista y en Origen, podemos seleccionar un rango de celdas
+		3) Mensaje de error/Mostrar mensaje de error si se introducen datos no válidos.
+		Rodear con un círculo:
+		Alt + DVVN
+		
+Formato condicionado:
+	Formatos rápidos y personalizados para visualizar condiciones en porcentajes de límites específicos
+		Alt + ORO
+		
+Analizar datos automáticamente por EXCEL
+	Seleccionar la tabla:
+		Alt + OFE
+		
+Tablas dinámicas
+	Seleccionar la tabla:
+		Alt + B2VT
+		
+	Volver a mostrar los datos para la tabla dinámica:
+		Alt + JTL
+		
+	Insertar escala de tiempo
+		Alt + JTO
+		
+	Campos calculados: en una celda de la tabla dinámica
+		Alt + JTJM
+		
+Gráficos normales:
+	Seleccionar tabla:
+		Alt + B2LS
+	
+	Mover tabla a una nueva hoja:
+		Alt + JCV
+		
+Gráficos dinámicos:
+	Seleccionar tabla:
+		Alt + B2GO
+
+	Mover tabla a una nueva hoja:
+		Alt + JCV
+		
+Fórmulas condicionales
+	=SUMAR.SI()				: suma celdas si se cumple una condición
+	=SUMAR.SI.CONJUNTO()	: suma celdas si se cumple una o varias condiciones
+	=PROMEDIO.SI			: promedio de celdas si se cumple una condición
+	=PROMEDIO.SI.CONJUNTO()	: promedio de celdas si se cumple una o varias condiciones
+	
+Indice y coincidir:
+	=INDICE(MATRIZ,no_fila,no_columna): devuelve un elemento de una matriz como en MATLAB
+	=COINCIDIR("Palabra a buscar", Fila o columna,0): devuelve el número de índice donde esté esa palabra a buscar
+	
+	Aplicación en una tabla:
+	A partir de dos elementos, primera fila (países) y primera columna (serv streaming) se puede buscar un dato en específicos
+	=INDICE(Matriz con los números,COINDICIR(país a buscar, primera columna, 0),COINDICIR(serv streaming a buscar,primera fila,0))
+	

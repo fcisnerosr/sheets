@@ -1,0 +1,76 @@
+Pip (pip install packages)
+
+Instalar librerias en python
+	pip install matplotlib
+	pip install numpy
+	
+en pypi.org se encuentran librerias y su versión correspondiente
+
+instalador de paquetes de python3
+	pip3 -v		Verificar qué instalador de paquetes tenemos
+	
+lista de librerias (dependencias) globalmente en equipo
+	pip3 freeze	
+
+Entorno virtual en python
+
+Objetivo: aislar los proyectos de python para que tengan su propias versiones de dependencias, es decir, librerías o paquetes. De modo que se crea su propio ambiente con el cual fue creado para evitar problemas a futuro de versiones más recientes de las dependencias.
+
+	Mostrar ubicación desde donde se ejecuta el binario
+		which python3
+		which pip3
+		
+	Para reinstalar otra versión de una librería distinta:
+		pip3 install matploblib==3.5.0	Desinstala la versión que se tenga e instala la 3.5.0
+		
+	En WSL y en Linux se debe instalar el siguiente paquete:
+		sudo apt install -y python3-venv
+	
+Instalar y activar el Virtual enviroment
+Ingresar a cada proyecto y ejecutar:
+	python3 -m venv env: "env" es el nombre del ambiente virtual, y es un nombre particular que uno le da
+	
+	Activar el entorno virtual:
+		source env/bin/activate
+		
+		*Se muestra (env) siempre junto a
+		(env) fcisnerosr@DESKTOP-G70246D:~/
+
+	Para desactivarlo:
+		deactivate
+		*Se borra la etiqueta (env) en la terminal junto a mi usuario*
+		
+	Activado el ambiente (env) y ejecutar: which python3 se muestra que se ejecuta desde el mismo proyecto en su propio ambiente virtual:
+	Ejemplos:
+		which python3
+		/home/fcisnerosr/curso-python-pip/proyect-csv/app/env/bin/python3
+		which pip3
+		/home/fcisnerosr/curso-python-pip/proyect-csv/app/env/bin/pip3
+		
+	Si no se ha instalado nada al ejecutar lo siguiente no mostraría nada:
+		pip3 freeze
+		
+	Para instalar despendendencias propias en mi entorno virtual:
+	Con el (env) activado:
+		source env/bin/activate: para activar el entorno virtual
+		pip3 install matploblib: para instalar la dependencia
+		pip3 install matploblib==3.5.0: para instalar una versión en específica
+		pip3 freeze: para verificar las dependencias instaladas en ese entorno virtual
+		
+Instalar automáticamente las dependencias de un proyecto
+	Debe estar creado requirements.txt, que contendrá todas librerías en particular que necesita mi proyecto
+	Si el proyecto es nuestro, nosotros debemos crearlo:
+		pip3 freeze > requirements.txt
+	NOTA IMPORTANTE: Siempre que se actualice una librería o se agrege una nueva, es necesario ejecutar "pip3 freeze > requirements.txt" para que el .txt esté siempre actualizado
+	
+	Si el proyecto no es nuestro, el dueño habrá tenido que crear requirements.txt, solo debo instalarlo mediante:
+		pip3 install -r requirements.txt
+		
+Docker
+	docker-compose build: usado para contruir el contenedor con las instrucciones "docker-compose.yml"
+	
+FastAPI
+	para instalarlo:
+		pip3 install fastapi
+		
+		pip3 install "uvicorn[standard]"

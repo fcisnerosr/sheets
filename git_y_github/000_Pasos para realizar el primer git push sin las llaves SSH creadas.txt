@@ -1,0 +1,98 @@
+Pasos para realizar el primer git push sin las llaves SSH creadas
+
+En caso de tener las llaves SSH configuradas pasar al paso 5
+1.- Configuraciones previas globales
+	Cambiar el email:
+		git config --global user.email "mail_de_github@mail.es"
+	
+	Verificar el email:
+		git config user.email
+
+2.- Configuración de llaves asociadas a cada equipo de cómputo (solo se hace una vez)
+	Si nunca se ha creado las llaves en un equipo
+	Creación de carpeta oculta .ssh
+		ssh-keygen -t rsa -b 4096 -C "mail_de_github@mail.es"
+			* NOTA *
+				Para proyectos creados en Windows la llave está en:
+					/c/Users/fcisn/.ssh/id_rsa
+	Copiar clave publica
+		cd .shh
+		cat .id_rsa.pub
+		*copiar la llave*
+	
+3.- Agregar la llave pública a github
+	ir a la sección de "Add new SSH Key"
+		https://github.com/ -> ícono de usuario -> Settings -> SSH and GPG keys -> New SSH key
+		
+	Añadir Title y pegar la llave en la sección de Key
+	
+4.- Comprobar si fue añadida la llave
+	En la carpeta ~
+		ssh -T git@github.com
+		
+5.- Crear el repositorio en github (Paso obligatorio)
+		https://github.com/ -> ícono de usuario -> Your repositories -> New repositorie -> nombre -> crear
+		
+
+Opciones:
+Op.1.- Crea un nuevo repositorio desde la línea de comandos
+	Pasos:
+		echo "# (nombre del repositorio)" >> READ.md (le añade un encabezado a READ.md y crea el archivo)
+		git init
+		git add READ.md
+		git commit -m "first commit"
+		git branch -M main	(cambia el nombre a main)
+		git remote add origin git@github.com:(usuario)/(nombre del repositorio).git (Crea un nuevo 'origin' remoto (ruta) del repositorio local)
+		git remote			(Verificas que fue correcamente creado)
+		git remote -v 		(Verificas el fetch y el push a ejecutar)
+		git push -u origin main
+			Errores que pueden salir:
+				En caso de comenter un error, remueves la ruta remota con:
+					git remote remove origin
+					
+				En caso de no tener a main asociada a una rama remota:
+					git pull
+					git push --set-upstream origin main
+1.1 .- Los pasos anteriores ocacionan un conflicto entre la rama creada desde Github y la creada en memoria local
+	Para solucionar se debe ejecutar un pull para extraer todos los commits remotos:
+		git config pull.rebase false	(Fusión que permite mantener historia de commits más lineal y conservar la rama local)
+		git pull origin main			(Trae los cambios de main remoto al repositorio local)
+		git pull origin main --allow-unrelated-histories 	(fusiona conflictos de ramas locales y remotos en una sola, todo esto listo para realizar el primer push del repositorio)
+	
+1.2 .- Realizar el primer push (recomendable agrear la -u para que github entienda que los cambios siempre irán a main)
+		git push -u origin main (Leido como: git envia al origen la rama master). NOTA: el -u es para no volver a especificar en un futuro "origin main"
+		
+** a partir de aquí, cuando se haga algún cambio y hacer los respectivos
+		git add . && git commit -m "mensaje del commit"
+		
+		El push debe realizarse sin el -un
+		git push origin
+
+	
+Op.2.- Push a un repositorio existente desde la línea de comandos
+	Pasos:
+		git remote add origin git@github.com:(usuario)/(nombre del repositorio).git
+		git branch -M main			(cambio de nombre de la rama principal a "main")
+		git push -u origin main
+		
+		
+Pasos para subir lo trabajado a Github
+1.- Para clonar un repositorio y modificarlo localmente:
+		git clone git@github.com:(usuario)/(nombre del repositorio).git
+	
+3.- Realizar los cambios y pruebas correspondientes
+
+3.- Opcional: git diff para ver las diferencias
+
+
+2.- Subir los cambios hechos
+		git commit -am "Mensaje" && git push	
+		git add . && git commit -m "Mensaje" && git push
+		
+Errores comunes:
+1.- que la rama local 'rama principal' (main/master) no esté configurada para rastear una rama en el repositorio remoto.
+	Pasos para corregir:
+		git push --set-upstream origin rama principal
+		git push
+	
+

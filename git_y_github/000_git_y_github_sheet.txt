@@ -1,0 +1,100 @@
+Git y github sheet
+
+
+git config --global core.editor "vim"
+
+git log										logs de manera larga y detallada
+git log --oneline							logs de manera simplificada
+git log --graph								lista larga de log pero con gráficas
+git log --oneline --graph					lista corta de log pero con gráficas
+git log --oneline --all --graph --pretty=format:"%h - %C(bold blue)%an%Creset, %ar : %C(bold)%s%Creset" 	log más bonito
+git config --global core.abbrev 4			configuración de dígitos en los logs
+git diff 1234 4321
+git diff --name-only 1234 4321
+git diff --word-diff 1234 4321				diferencia de líneas en código de dos commit
+git checkout --nombre_del_archivo 			regresar al último commit del archivo
+git commit --amend							cambiar el nombre del commit
+
+
+git reset --soft f1234						retornamos los archivos a otro commit y nos dirigimos a otro commit anterior junto con los archivos de dicho commit
+git reset --hard HEAD~n						dentro de una misma rama, regresa n commits, n debe ser un número entero positivo
+git reset --hard f1234						retornamos a otro commit y regresamos a los archivos 
+											que teníamos en ese commit y elimina el resto de los archivos en los commits siguientes. Manéjese con precausión
+RAMAS
+git branch									muestra las ramas y cuál estas
+git checkout master							cambio a la rama master
+git switch master							cambio a la rama master
+git switch -c rama-nueva					crear y ubicarse en la rama master en un solo paso
+git branch -d nombre-rama					sin ubicarse en dicha rama, se borra la rama nobre-rama
+git branch -m rama-vieja rama-nueva			sin ubicar en rama-vieja, modificamos su nombre
+git branch -m nuevo-nombre-rama				ubicándonos en rama-vieja
+											cambiamos el nombre de rama-vieja por nuevo-nombre-rama
+git log --oneline --all						muestra todos los commit de todas las ramas
+											sin importar desde qué rama estemos ubicados
+gir merge rama-a-funcionar					funcionar ramas ubicados en al rama 'master'
+git show-branch								Muestra ramas que existen y su historia
+git show-branch --all						Muestra ramas que existen y su historia pero con más información
+gitk										Intergaz gráfica de ramas
+
+
+GIT IGNORE
+primero crear .gitignore
+	opciones:
+		nombre_archivo.py
+		*.pdf
+		!archivo.pdf						el signo de interrogación hace que ese archivo no sea ignorado
+		
+git ls-tree -r --name-only HEAD				muestra todos los archivos en el último commit 
+git ls-tree -r --name-only 12345			muestra todos los archivos en determinado commit
+git config --global core.excludesfile ruta/.gitignore_global	configuración global de exclusión de archivos
+
+
+ALIAS
+git config --global alias.nuevo_comando 'commit -m'	establecer alias
+	ejemplos:
+		git cm "mensaje del commit"
+		git config --global alias.logm "log --oneline --all --graph --pretty=format:'%h -  %ar : %C(bold)%s%Creset'"
+		
+	Otra forma de Alias más sencillo
+		alias arbolito="git log -- all --graph --decorate --oneline"
+		
+La forma definitiva para que no se borren cuando se reinicia la terminal:
+	git config --global alias.(nombre del alias) "Comando original"
+	Ejemplo:
+	git config --global alias.superlog "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+		
+RECUPERAR UN COMMIT CON REFLOG Y reset --hard
+git reflog									muestra el historial donde HEAD ha apuntado en nuestro repositorio
+git reset --hard 12345						se usar para regresar el commit buscado en "git reflog"
+
+RECUPERAR UN COMMIT Y AÑADIRLO A OTRA RAMA 'EXPERIMENTAL'
+pasos:
+	git reflog
+	git reset --hard 12345
+	git switch -c nombre-rama-experimental	con esto podemos recueperar un commit eliminado y añadirlo a otra rama para
+											hacer lo que queramos con él. Después podemos añadirlo a HEAD mediante merge
+											
+											
+Github
+
+Tags: la creación de estos, son más útiles en Github que en el entorno local
+Creación de tags
+	git tag -a v_numero_tag -m "Mensaje del tag" 1234_hash_corto_del_log56786
+	
+Mostrar los tags
+	git tag
+
+Mostrar los tags ligados a una referencia (que no es el commit)
+	git show-ref --tags
+
+Subir los tags a Github
+	git push --tags
+	
+Borrar tags localmente
+	git tag -d Nombre_del_tag
+	
+Borrar tags en github
+	git push origin :refs/tags/Nombre_del_tag
+
+Subir ramas a github sin mencionar el nombre de la rama, si donde apunta el HEAD
+	git push origin head
