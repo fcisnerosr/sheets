@@ -100,6 +100,7 @@ Indice y coincidir:
 	=INDICE(Matriz con los números,COINDICIR(país a buscar, primera columna, 0),COINDICIR(serv streaming a buscar,primera fila,0))
 	
 BDSUMA (Suma en una base de datos):Regresa la suma columna específica de una base de datos
+	=BDSUMA(base_de_datos, campo, criterios)
 
 	
 	

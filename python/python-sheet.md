@@ -14,5 +14,9 @@
 # .capitalize()
     string.capitalize() dentro de un string pone la primera en mayuscula y el resto en minuscula de toda la frase entera del string
 
+## Listas
+# zip()
+    listas.zip(lista_1, lista_2)    concatena dos listas, no es necesario que sean de la misma longitud.
+
 
 
