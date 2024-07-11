@@ -1,0 +1,18 @@
+# Terminal
+
+
+Anatomía de CLI (Command Line Interface)
+$ rm -rf directory
+donde:
+    $           promp
+    rm          Command
+    -rf         option
+    directory   argument
+
+.                   directorio actual
+..                  directorio anterior
+
+cd ..               change directory un nivel atrás
+cd ../..            change directory dos niveles atrás
+
+file archivo.tet    devuelve el tipo de archivo
