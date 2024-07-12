@@ -1,0 +1,4 @@
+VS Code
+Windows
+F1              Paleta de comandos
+Alt+Shift+F     Formatear un documento de python
