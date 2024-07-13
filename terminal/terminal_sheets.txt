@@ -40,3 +40,16 @@ mkdir "mi archivo"
 mkdir dir1 dir2 dir3
 touch file1 file2 file3
 Comandos para crear 10 txt    x=1; while [ $x -le 10 ]; do touch file$((x++)).txt; done
+
+## Visualisar archivos
+head archivo.py -n 15   muestra las primeras 15 lineas de codigo de archivo.py
+tail archivo.py -n 15   muestra las ultimas 15 lineas de codigo de archivo.py
+less archivo.py         exploras el archivo.py
+    NOTA: te puedes mover con flechas o el wheel del mouse o para bajar mas rapido con la barra espaciadora
+    Se puede usar / para buscar una palabra:
+    Ejemplo: /palabra_a_buscar
+nautilus directorio     abre el directorio en una interfaz grafica
+
+Abrir htts://google.com en brave en terminal
+brave --new-window https://google.com
+
