@@ -9,10 +9,34 @@ donde:
     -rf         option
     directory   argument
 
+ls, opciones y argumentos
+
+ls -dl directorio   devuelve los detalles del directorio (permisos, fecha, tamaño y propietario)
+ls -R               devuelve una lista de directorios de los directorios. R es de "recursivamente"
+ls -hl -R           devuelve una lista de los directorios en forma de human lecture
+ls -r               devuelve una lista en orden inverso
+ls -X               devuelve una lista ordenados por extensiones
+ls -S               devuelve una lista ordeanada por tamaño
+NOTA: añadir l antes de la opción devuelve en forma de lista.
+    ejemplo: ls -lr
+
 .                   directorio actual
 ..                  directorio anterior
+
+mv file ..          mover el archivo file a un nivel atrás
+mv file new_name    cambiar el nombre de un archivo
+
+rm -ri directorio   accede y pregunta si quieres acceder a cada subdirectorio y si sí entras pregunta eliminar o no cada archivo. El r de "ri" es porque se ejecuta el comando recursivamente
 
 cd ..               change directory un nivel atrás
 cd ../..            change directory dos niveles atrás
 
 file archivo.tet    devuelve el tipo de archivo
+
+tree                devuelve el arbol de directorios completo
+tree -L 2           devuelve el arbol de directorios en 2 niveles
+
+mkdir "mi archivo"
+mkdir dir1 dir2 dir3
+touch file1 file2 file3
+Comandos para crear 10 txt    x=1; while [ $x -le 10 ]; do touch file$((x++)).txt; done

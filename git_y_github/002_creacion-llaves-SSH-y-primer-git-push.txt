@@ -17,7 +17,7 @@ En caso de tener las llaves SSH configuradas pasar al paso 5
 					/c/Users/fcisn/.ssh/id_rsa
 	Copiar clave publica
 		cd .shh
-		cat .id_rsa.pub
+		cat id_rsa.pub
 		*copiar la llave*
 	
 3.- Agregar la llave pública a github

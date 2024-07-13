@@ -52,6 +52,7 @@ Validación de datos
 		
 Formato condicionado:
 	Formatos rápidos y personalizados para visualizar condiciones en porcentajes de límites específicos
+	Selecc rango (no es necesario convertir el rango a tabla)
 		Alt + ORO
 		
 Analizar datos automáticamente por EXCEL
@@ -81,6 +82,9 @@ Gráficos normales:
 Gráficos dinámicos:
 	Seleccionar tabla:
 		Alt + B2GO
+
+		NOTA: Cuando se tiene una columna de números se pueden agrupar por intervalos (o si se tienen años se pueden agrupar por periodos de años, por ejemplo por décadas, lustros o siglos)
+		Click derecho en la columna de números y después en “agrupar”
 
 	Mover tabla a una nueva hoja:
 		Alt + JCV
