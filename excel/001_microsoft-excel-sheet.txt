@@ -108,3 +108,18 @@ BDSUMA (Suma en una base de datos):Regresa la suma columna específica de una ba
 
 	
 	
+NOTAS EXTRAS:
+## Quitar visulización de valores pequeños pero superiores a cero en tablas dinámicas:
+Usar Formato Condicional
+	Selecciona el rango de datos en la tabla dinámica.
+	Ve a la pestaña "Inicio" en la cinta de opciones.
+	Haz clic en "Formato condicional" y selecciona "Nueva regla...".
+	Elige "Formato de celdas que contienen" en la lista de reglas.
+	Configura la regla:
+	En "Formato de celdas con valores de", selecciona "menor que".
+	Introduce un valor muy pequeño (por ejemplo, 0.01).
+	Configura el formato:
+	Haz clic en el botón "Formato...".
+	Ve a la pestaña "Número".
+	Selecciona "Personalizada" y en el campo "Tipo", introduce ;;;" ".
+	Haz clic en "Aceptar" en todas las ventanas abiertas.
