@@ -11,5 +11,4 @@ export PATH="$HOME/anaconda3/bin:$PATH"
 source ~/.bashrc
 conda init
 conda --version                         Para asegurarte de que Conda se ha instalado y configurado correctamente
-
-
+conda env list                          lista todos los entornos virtuales creados y gestionados por conda en el sistema
