@@ -1,5 +1,9 @@
 # Terminal
 
+## Comandos
+type            devuelve el informacion de un comando. Puede indicar si un comando es orden interna de shell, función de shell, alias o una programa ejecutable
+    Ejemplo: type ls
+type -a python3     muestra las ubicación de python3 en mi sistemav
 
 Anatomía de CLI (Command Line Interface)
 $ rm -rf directory
@@ -52,4 +56,5 @@ nautilus directorio     abre el directorio en una interfaz grafica
 
 Abrir htts://google.com en brave en terminal
 brave --new-window https://google.com
+
 
