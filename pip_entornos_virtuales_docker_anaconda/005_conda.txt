@@ -1,6 +1,6 @@
-Instalacion de Conda
+# Instalacion de Conda
 wget -O anaconda.sh https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Linux-x86_64.sh
-NOTA: es -O O = o de oso en mayusculas
+NOTA: es -O O = o de oso en mayuscula
         pagina extraida de: https://www.anaconda.com/download/success
 
 En caso de no poder iniciar conda init:
@@ -12,21 +12,21 @@ source ~/.bashrc
 conda init
 conda --version                         Para asegurarte de que Conda se ha instalado y configurado correctamente
 conda env list                          lista todos los entornos virtuales creados y gestionados por conda en el sistema
-
+_NOTA: env = ambiente virtual_
 Ejemplo: (El asterisco indica que es el ambiente activo en ese momento)
     base                     /home/fcisnerosr/anaconda3
     py35                  *  /home/fcisnerosr/anaconda3/envs/py35
     
 conda list python                       devuelve la versión de python en dicho ambiente
 conda update python                     actualiza la versión de python a la version más reciente
-conda update python=3.6                 actualiza en el env a la versión 3.6                   
-
-
+conda install python=2.7		en caso de querer instalar una versión de python en específica
+conda install pandas=1.2 pandas=3.9	instala dos dependencias con una versión específica requerida		
 conda list                              lista las dependencias de un env en específico
-
+conda list pandas			devuelve la versión de pandas en env activo
 
 
 ## Instalar programas específicos
-conda create --name py python           Instala la versión en el entorno la última versión
-conda create --name py35 python=3.5     Instala la versión de python 3.5
-conda activate py35                     Activa el ambiente py35
+conda create --name py python           	Instala la versión en el entorno la última versión
+conda create --name py35 python=3.5     	Instala la versión de python 3.5
+conda activate py35                     	Activa el ambiente py35
+conda create --name py39 --copy --clone py35	crea un env con nombre py39 y copia todas las dependencias de py35 a py39
