@@ -19,7 +19,7 @@ git commit --amend														cambiar el nombre del commit
 git reset --soft f1234			retornamos los archivos a otro commit y nos dirigimos a otro commit anterior junto con los archivos de dicho commit
 git reset --hard HEAD~n			dentro de una misma rama, regresa n commits, n debe ser un número entero positivo
 git reset --hard f1234			retornamos a otro commit y regresamos a los archivos que teníamos en ese commit y elimina el resto de los archivos en los commits siguientes. Manéjese con precausión
-RAMAS
+# RAMAS
 git branch						muestra las ramas y cuál estas
 git checkout master					cambio a la rama master
 git switch master					cambio a la rama master
