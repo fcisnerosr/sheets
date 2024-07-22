@@ -1,0 +1,4 @@
+" Alias de rutas
+alias plat='cd /Users/~/Documents/Curso_Desarrollo_Web'
+alias oplat='open /Users/~/Documents/Curso_Desarrollo_Web'
+
