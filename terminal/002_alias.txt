@@ -1,31 +1,32 @@
-# aliases:
-
+# mis aliases:
 # git
 alias g="git"
-alias gst="git status"
+alias gsta="git status"
+alias gac="git add . && git commit -m "
 alias gc="git clone"
-alias gcm="git commit -m"
-alias grc="git rm -r --cached"
-alias gph="git push origin" 
+alias gpsh="git push"
 alias config="/usr/bin/git --git-dir=$HOME/.config-files/ --work-tree=$HOME" # Turns my home in a git repo
 alias ginit="git init;touch README.md; git add README.md;git commit -m 'first commit';git branch -M main"
-
 # cd commands
-
 alias ..="cd .."
 alias ...="cd ../.."
 alias 3..="cd ../../.."
+# ls commands
+alias l="ls"
+# remove commands
+alias r="rm -rf"
+# Development
+alias p="python3"
+alias cl="clear"
+
+#alias cdM="cd ~/MEGA/"
+#alias cdMG="cd ~/MEGA/my-git/github"
+#alias cdC="cd ~/.config/"
+
+
 
 # cp commands
 alias cp="cp -r" # set cp to allways copy directories
-
-# Development
-
-alias p="python3"
-alias cl="clear"
-alias cdM="cd ~/MEGA/"
-alias cdMG="cd ~/MEGA/my-git/github"
-alias cdC="cd ~/.config/"
 
 # installing packages
 
@@ -34,4 +35,6 @@ alias search="pacman -Ss" # Search for a package
 alias sync="pacman -Syy" # sync the repos
 alias update="sudo pacman -Syu" # Update the system, but not AUR
 alias onlyAUR="yay -Sua --noconfirm" # Update onlyAUR
+
+
 
