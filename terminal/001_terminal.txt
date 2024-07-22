@@ -77,9 +77,11 @@ ls datos??              enlista archivos y directorios que empieza con el nombre
 ls [[:upper:]]*         enlista archivos y directorios que empieza con mayúsculas
 ls -d [[:upper:]]*      enlista directorios que empiezan con mayúsculas
 ls -d [[:lower:]]*      enlista directorios 
-ls [ad]*               enlista los archivos y directorios que empiezan con a y d
+ls [ad]*                enlista los archivos y directorios que empiezan con a y d
 ls [:digit:]*           enlista los archivos y directorios que empiezan del 1 al 0
  ls *[0-9]*             enlista los archivos y directorios que empiezan del 1 al 0
 ls [:alum:]*            enlista los archivos y directorios que empiezan con letra y dígito
 ls [:alpha:]*           enlista los archivos y directorios que empiezan con cualquier alfabético
 
+### Redirecciones: cómo funciona la shell
+ls sheets > lista.txt   el stdout se convierte en un 
