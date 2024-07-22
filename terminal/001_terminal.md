@@ -70,11 +70,14 @@ info ls                 documentación extensa de "ls"
 
 ### Wilcards.
 _Con ls buscan hasta dos niveles siguientes_
-ls *.py                 enlista archivos que terminan en .py
-ls datos*               enlista archivos que empieza con el nombre datos y el resto de los archivos que empiezan con datos y más caracteres por delante
-ls datos?               enlista archivos que empieza con el nombre datos y 1 caracter
-ls datos??              enlista archivos que empieza con el nombre datos y 2 caracteres
-ls [[:upper:]]*         enlista archivos que empieza con mayúsculas
+ls *.py                 enlista archivos y directorios que terminan en .py
+ls datos*               enlista archivos y directorios que empieza con el nombre datos y el resto de los archivos que empiezan con datos y más caracteres por delante
+ls datos?               enlista archivos y directorios que empieza con el nombre datos y 1 caracter
+ls datos??              enlista archivos y directorios que empieza con el nombre datos y 2 caracteres
+ls [[:upper:]]*         enlista archivos y directorios que empieza con mayúsculas
 ls -d [[:upper:]]*      enlista directorios que empiezan con mayúsculas
 ls -d [[:lower:]]*      enlista directorios 
-ls  [ad]*               enlista los archivos que empiezan con a y d
+ls  [ad]*               enlista los archivos y directorios que empiezan con a y d
+ls [:digit:]*           enlista los archivos y directorios que empiezan del 1 al 0
+ls [:alum:]*            enlista los archivos y directorios que empiezan con letra y dígito
+ls [:alpha:]*           enlista los archivos y directorios que empiezan con cualquier alfabético
