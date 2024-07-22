@@ -1,6 +1,7 @@
 # Terminal
 
-## Comandos
+## Primeros pasos
+### Comandos
 type            devuelve el informacion de un comando. Puede indicar si un comando es orden interna de shell, función de shell, alias o una programa ejecutable
     Ejemplo: type ls
 type -a python3     muestra las ubicación de python3 en mi sistemav
@@ -57,4 +58,15 @@ nautilus directorio     abre el directorio en una interfaz grafica
 Abrir htts://google.com en brave en terminal
 brave --new-window https://google.com
 
+### ¿qué es un comando?
+type ls                 devuelve el tipo de comando y cómo está configurado el álias
+type -a ls              devuelve la ubicación de ls
+type -P ls              devuelve la ubicación del ejetucatable de ls
+alias l="ls -lh"        configuración de alias pero se borran al cerrar la terminal
+whatis ls               información de una oración del comando
+help cd                 información corta de "cd"
+man ls                  documentación detallada y estructurada de "ls"
+info ls                 documentación extensa de "ls"
 
+### Wilcards
+ls *py                  enlista
