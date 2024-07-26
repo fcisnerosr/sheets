@@ -30,7 +30,7 @@ git branch -m nuevo-nombre-rama				ubicándonos en rama-vieja
 											cambiamos el nombre de rama-vieja por nuevo-nombre-rama
 git log --oneline --all						muestra todos los commit de todas las ramas
 											sin importar desde qué rama estemos ubicados
-gir merge rama-a-funcionar					funcionar ramas ubicados en al rama 'master'
+git merge rama-a-funcionar					funcionar ramas ubicados en al rama 'master'
 git show-branch								Muestra ramas que existen y su historia
 git show-branch --all						Muestra ramas que existen y su historia pero con más información
 gitk										Intergaz gráfica de ramas
@@ -72,7 +72,6 @@ pasos:
 	git reset --hard 12345
 	git switch -c nombre-rama-experimental	con esto podemos recueperar un commit eliminado y añadirlo a otra rama para
 											hacer lo que queramos con él. Después podemos añadirlo a HEAD mediante merge
-											
 											
 Github
 
