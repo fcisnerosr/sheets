@@ -7,6 +7,17 @@ Días, meses y años:
 	=HOY()
 	=DIASEM(celda, tipo): tipo establece qué número de la semana es el lunes y el domingo
 
+Extraer datos:
+	=VALOR(EXTRAE())
+	Ejemplo:
+	En la celda A1 tengo 94 mins
+		=VALOR(EXTRAE(A1,1 LARGO(A1)-4))
+
+		LARGO(A1) obtiene la longitud total del texto en la celda A1.
+		LARGO(A1)-4 calcula cuántos caracteres se deben extraer desde el inicio del texto (excluyendo los últimos 4 caracteres " min").
+		EXTRAE(A1, 1, LARGO(A1)-4) extrae los caracteres desde el primer carácter hasta la posición LARGO(A1)-4.
+		VALOR convierte el texto extraído en un número.
+
 Agrupar:
 	Seleccionar celdas completas
 		Atl + DAAA
@@ -28,17 +39,16 @@ Subtotal: Junto con los filtros se Subtotal, que son rápidos cálculos aritmét
 			Al ejecutarla el filtro, realizará la operación del rango filtrado
 		
 Tablas:
+  Creación de tabla:
+	  Seleccionar todos los datos con sus cabeceras
+	  Alt + B2Ñ	
+  Deshacer tabla:
+	  Alt + JTV
 
-Creación de tabla:
-	Seleccionar todos los datos con sus cabeceras
-	Alt + B2Ñ	
-Deshacer tabla:
-	Alt + JTV
-
-Ordenar datos de una tabla:
-	En la celda de una tabla:
-		Alt + DO2
-		
+  Ordenar datos de una tabla:
+	  En la celda de una tabla:
+		  Alt + DO2
+		  
 Validación de datos
 	En la celda:
 		Alt + DVVV
@@ -71,6 +81,12 @@ Tablas dinámicas
 		
 	Campos calculados: en una celda de la tabla dinámica
 		Alt + JTJM
+
+Borrar tabla dinámica:
+	1. Seleccionar una celda de la tabla
+	2. Ir a las opciones de "Analizar de la tabla dinámica"
+	3. Acciones/Seleccionar/Toda la tabla
+	4. Apretar "suprimir" en el teclado
 		
 Gráficos normales:
 	Seleccionar tabla:
@@ -78,6 +94,21 @@ Gráficos normales:
 	
 	Mover tabla a una nueva hoja:
 		Alt + JCV
+
+	Seleccionar datos correctamente y añadir correctamente rótulos (nombres en el eje horizontal) de una gráfica desde cero
+		1. Atl + B2 y elegir el tipo de gráfico deseado, aparece un cuadro en blanco
+		2. Click derecho/Seleccionar datos. En la tabla llamada "Seleccionar origen de datos" clickear "Agregar" 
+		3. Seleccionados "Nombre de la serie" del codominio, valores o lo que generalmente va en el eje "y".
+			3.1. Asignamos un nombre a la serie, preferentemente que esté asociada a una celda
+		4. En "Valores de la serie" seleccionamos los valores
+		5. Se genera la gráfica pero el rótulo solo se nueva de 1 hasta n valores seleccionados
+		6. Para añadir el nombre correcto de la serie, en la tabla "Seleccionar origen de datos" en la parte derecha "Editar"
+		7. Seleccionamos el nombre del eje horizontal, del dominio.
+
+	Límites en la gráfica:
+		1. Clic derecho en el eje/Dar formato al eje
+		2. Seleccionar valores límite
+
 		
 Gráficos dinámicos:
 	Seleccionar tabla:
