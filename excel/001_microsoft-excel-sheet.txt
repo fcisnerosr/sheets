@@ -115,7 +115,7 @@ Gráficos dinámicos:
 		Alt + B2GO
 
 		NOTA: Cuando se tiene una columna de números se pueden agrupar por intervalos (o si se tienen años se pueden agrupar por periodos de años, por ejemplo por décadas, lustros o siglos)
-		Click derecho en la columna de números y después en “agrupar”
+		Sin seleccionar nada, click derecho en la columna de datos a agrupar y después en “agrupar”
 
 	Mover tabla a una nueva hoja:
 		Alt + JCV
