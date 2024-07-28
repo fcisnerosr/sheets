@@ -50,8 +50,8 @@ conda list					    Lista todas las dependencias del ambiente activo
 _Listar Versión Espcífica de un Paquete_
 conda list pandas				Devuelve la versión de pandas en el ambiente activo
 
-## Env creados pero en VS Code y con Jupiter Notebooks
-## Pasos para abrir un Jupyter Notebook en VS Code con un entorno virtual
+### Env creados pero en VS Code y con Jupiter 
+_Pasos para abrir un Jupyter Notebook en VS Code con un entorno virtual_
 1. Abre un Jupyter Notebook en VS Code.
 2. En la parte superior, selecciona el kernel donde indica "Seleccionar Kernel".
 3. Selecciona entornos de Python.
@@ -59,4 +59,15 @@ conda list pandas				Devuelve la versión de pandas en el ambiente activo
 5. Elige el entorno virtual de tu preferencia (por ejemplo, base, py35, py39 o cualquier otro que hayas creado).
 6. Para más información, revisa: [Platzi - Conda: Abrir VSCode Notebooks con tu ambiente](https://platzi.com/home/clases/2434-jupyter-notebook/40396-conda-abrir-vscode-notebooks-con-tu-ambiente/)
 
+### Recomver env, ambientes virtuales
+_Desintalar dependendencias de ambientes virtuales_
+*Estando en una librería activa*
+conda remove pandas             Desintala pandas del env activo
+_Desintalar env_
+conda env remove --name py35    No debe estar activo el env a eliminar 
+
+
+
+
+ Comandos avanzados
 
