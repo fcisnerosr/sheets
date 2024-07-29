@@ -56,9 +56,15 @@ _¿Qué es la búsqueda de paquetes en anaconda.org?_
 
 2. **Búsqueda Específica**
    - Permite encontrar paquetes específicos, versiones específicas y paquetes de terceros que no están incluidos en la distribución básica de Anaconda.
+   
+        _Ejemplos de algunos dependencias que no están en la distribución básica de Anaconda:_
+        1. pytorch
+        2. keras
+        3. tensorflow
 
 3. **Detalles y Comandos de Instalación**
    - Proporciona detalles completos sobre los paquetes, como descripción, dependencias, versiones disponibles y comandos de instalación para usarlos con Conda.
+
    
 _Búsqueda de Paquetes en anaconda.org_
 1. **Visitar el Sitio**
@@ -75,6 +81,7 @@ _Búsqueda de Paquetes en anaconda.org_
      conda install -c conda-forge boltons
      ```
 
+
 ## Env creados pero en VS Code y con Jupiter Notebooks
 _Pasos para abrir un Jupyter Notebook en VS Code con un entorno virtual_
 
@@ -85,4 +92,5 @@ _Pasos para abrir un Jupyter Notebook en VS Code con un entorno virtual_
 5. Elige el entorno virtual de tu preferencia (por ejemplo, base, py35, py39 o cualquier otro que hayas creado).
 6. Para más información, revisa: [Platzi - Conda: Abrir VSCode Notebooks con tu ambiente](https://platzi.com/home/clases/2434-jupyter-notebook/40396-conda-abrir-vscode-notebooks-con-tu-ambiente/)
 
-y ¿qué parquetes de terceros no se encuentran en la li
+
+¿y qué paquetes de terceros que no están en a paquetería básica de conda?
