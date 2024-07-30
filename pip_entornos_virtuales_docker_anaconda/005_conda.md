@@ -1,5 +1,4 @@
 # Comandos Conda en Anaconda
-
 ### Instalación de Conda
 wget -O anaconda.sh https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Linux-x86_64.sh
 _NOTA: -O es una "O" mayúscula._
@@ -49,23 +48,15 @@ conda activate py35				Activa el ambiente "py35
 ### Clonar un Entorno
 conda create --name py39 --copy --clone py35	Crea un nuevo entorno con el nombre "py39" y copia todas las dependencias del entorno "py35" a "py39"
 
-_¿Qué es la búsqueda de paquetes en anaconda.org?_
+### Borrar Dependencias de un Entorno
+Para borrar una dependencia específica de un entorno virtual, usa el comando `conda remove`. Aquí tienes el formato general:
+```sh
+conda remove --name <nombre_del_entorno> <paquete
+```
+### Ejemplo:
+`conda remove --name proyecto1 numpy `    Para eliminar del paquete 'numpy' del entorno 'proyecto1'
+conda env remove --name proyecto1      Elimina el env llamado 'proyecto1'
 
-1. **Repositorio de Paquetes**
-   - `anaconda.org` es un repositorio en línea donde puedes buscar, compartir y descargar paquetes de software para ciencia de datos, aprendizaje automático, y más.
-
-2. **Búsqueda Específica**
-   - Permite encontrar paquetes específicos, versiones específicas y paquetes de terceros que no están incluidos en la distribución básica de Anaconda.
-   
-        _Ejemplos de algunos dependencias que no están en la distribución básica de Anaconda:_
-        1. pytorch
-        2. keras
-        3. tensorflow
-
-3. **Detalles y Comandos de Instalación**
-   - Proporciona detalles completos sobre los paquetes, como descripción, dependencias, versiones disponibles y comandos de instalación para usarlos con Conda.
-
-   
 _Búsqueda de Paquetes en anaconda.org_
 1. **Visitar el Sitio**
    - Abre tu navegador y ve a [anaconda.org](https://anaconda.org).
@@ -77,14 +68,30 @@ _Búsqueda de Paquetes en anaconda.org_
    - Haz clic en el paquete de interés para ver su descripción, versiones disponibles, dependencias y comandos de instalación.
 5. **Instalar el Paquete**
    - Copia el comando de instalación proporcionado en la página de detalles del paquete y ejecútalo en tu terminal para instalarlo. Ejemplo:
-     ```sh
-     conda install -c conda-forge boltons
+     ```ejemplo:
+     Opcion1: conda install --channel conda-forge keras
+     Opcion2: conda install -c conda-forge keras
+     donde: 
+        channel: es el canal que aparece como primera opción en la lista de las dependencias en anadonda.org
+        en este caso es "conda-forge"
      ```
+## Estado del env, conda actuando como git
+_Revisiones_
+conda list --revision       revisiones informantes de qué y cuándo lo instalaste
+conda install --revision 0  te lleva a la revisión con las dependencias que tenías instaladas en ese momento 
+_Compartir mis revisiones a terceros_
+~NOTA: Ver al final de documento la diferencia entre paquete y dependencia~
+op1. conda env export                paquetes con número de versión del paquetes y depedencias incluidas 
+op2. conda env export --no-builds    paquetes y dependencias nada más sin número de versión  
+op.3 **la más usada**: conda env export --from-history dependencias que instaló explícitamente en entorno manualmente
+**Exportación e instalación**
+Usuario que exporta el env:
+conda env export --from-history --file enviroment.yml
+Usuario que importa el env mediante el .yml:
+conda env create --file enviroment.yml
 
-
-## Env creados pero en VS Code y con Jupiter Notebooks
+_Env creados pero en VS Code y con Jupiter Notebooks_
 _Pasos para abrir un Jupyter Notebook en VS Code con un entorno virtual_
-
 1. Abre un Jupyter Notebook en VS Code.
 2. En la parte superior, selecciona el kernel donde indica "Seleccionar Kernel".
 3. Selecciona entornos de Python.
@@ -93,4 +100,6 @@ _Pasos para abrir un Jupyter Notebook en VS Code con un entorno virtual_
 6. Para más información, revisa: [Platzi - Conda: Abrir VSCode Notebooks con tu ambiente](https://platzi.com/home/clases/2434-jupyter-notebook/40396-conda-abrir-vscode-notebooks-con-tu-ambiente/)
 
 
-¿y qué paquetes de terceros que no están en a paquetería básica de conda?
+**Diferencias entre paquete y dependencias**
+* Paquetes explícitamente instalados: Son los paquetes que tú decides instalar directamente. Por ejemplo, si ejecutas conda install pandas, pandas es el paquete explícitamente instalado.
+* Dependencias: Son los paquetes que se instalan automáticamente porque son necesarios para que los paquetes explícitamente instalados funcionen correctamente. Siguiendo el ejemplo anterior, numpy se instala automáticamente porque pandas lo necesita para funcionar.
