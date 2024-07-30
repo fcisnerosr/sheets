@@ -11,7 +11,6 @@ set showcmd
 set ruler
 set cursorline
 set encoding=utf-8
-set showmatch
 set sw=4
 set tabstop=4       " Número de espacios que un tabulador representa
 set shiftwidth=4    " Número de espacios utilizados para (auto) indentación
@@ -35,6 +34,15 @@ colorscheme dracula
 let g:dracula_colorterm = 0
 let g:dracula_contrast = "high"
 
+" Forzar fondo negro puro
+autocmd VimEnter * hi Normal guibg=black ctermbg=black
+autocmd VimEnter * hi NonText guibg=black ctermbg=black
+autocmd VimEnter * hi EndOfBuffer guibg=black ctermbg=black
+
+"" Eliminar ^M al leer o escribir un archivo
+autocmd BufReadPost * silent! %s/\r//ge
+autocmd BufWritePre * silent! %s/\r//ge
+
 " Configuración de EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
 nmap <Leader>s <Plug>(easymotion-s2)
@@ -54,17 +62,4 @@ nnoremap <Leader>w> :vertical resize +5<CR>   " Aumenta el tamaño de la ventana
 nnoremap <Leader>w< :vertical resize -5<CR>   " Disminuye el tamaño de la ventana actual hacia la izquierda
 nnoremap <Leader>w+ :resize +5<CR>            " Aumenta el tamaño de la ventana actual hacia abajo
 nnoremap <Leader>w- :resize -5<CR>            " Disminuye el tamaño de la ventana actual hacia arriba
-
-" Define a toggle function for wrap
-function! ToggleWrap()
-    if &wrap
-        set nowrap
-    else
-        set wrap
-    endif
-endfunction
-
-" Map Space + z to toggle wrap
-nnoremap <silent> <Space>z :call ToggleWrap()<CR>
-
 
