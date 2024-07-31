@@ -90,6 +90,9 @@ conda env export --from-history --file enviroment.yml
 Usuario que importa el env mediante el .yml:
 conda env create --file enviroment.yml
 
+### Mamba
+conda install --channel conda-forge mamba   instalación de mamba
+
 _Env creados pero en VS Code y con Jupiter Notebooks_
 _Pasos para abrir un Jupyter Notebook en VS Code con un entorno virtual_
 1. Abre un Jupyter Notebook en VS Code.

@@ -1,4 +1,4 @@
-" Establecer la tecla líder como espacio
+" Establecer la tecla líder como espacio 
 let mapleader=" "
 
 " Configuración básica
@@ -39,7 +39,7 @@ autocmd VimEnter * hi Normal guibg=black ctermbg=black
 autocmd VimEnter * hi NonText guibg=black ctermbg=black
 autocmd VimEnter * hi EndOfBuffer guibg=black ctermbg=black
 
-"" Eliminar ^M al leer o escribir un archivo
+" Eliminar ^M al leer o escribir un archivo
 autocmd BufReadPost * silent! %s/\r//ge
 autocmd BufWritePre * silent! %s/\r//ge
 
@@ -62,4 +62,15 @@ nnoremap <Leader>w> :vertical resize +5<CR>   " Aumenta el tamaño de la ventana
 nnoremap <Leader>w< :vertical resize -5<CR>   " Disminuye el tamaño de la ventana actual hacia la izquierda
 nnoremap <Leader>w+ :resize +5<CR>            " Aumenta el tamaño de la ventana actual hacia abajo
 nnoremap <Leader>w- :resize -5<CR>            " Disminuye el tamaño de la ventana actual hacia arriba
+
+" Configuración de EasyMotion para moverse en la parte superior del texto
+let g:EasyMotion_leader_key = '<Leader>'
+" Resaltar las palabras visibles hacia adelante y hacia atrás desde la posición del cursor
+nmap <Leader>w <Plug>(easymotion-bd-w)
+" Resaltar todas las palabras en la ventana actual
+nmap <Leader>e <Plug>(easymotion-overwin-w)
+
+" Configuración para alternar el ajuste de línea
+nnoremap <Leader>wr :set wrap<CR>
+nnoremap <Leader>wn :set nowrap<CR>
 
