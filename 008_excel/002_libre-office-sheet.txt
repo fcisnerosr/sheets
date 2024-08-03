@@ -1,0 +1,61 @@
+Libre Office Calc
+
+Copiar formate de una celda a otra
+Colocarse en la celda del formato a copiar
+		Ctrl+C
+	Seleccionar la o las celdas
+		CD + Special paste + Special paste + Formats Only
+
+Agrupar:
+	Seleccionar columnas completas
+		Ctrl+F12
+		
+Desagrupar:
+	Seleccionar columnas completas
+		Ctrl+F12
+
+Filtro de datos:
+	Sobre la cabeceras:
+		Ctrl + Shift + L
+		
+Subtotal: Junto con los filtros se Subtotal, que son rápidos cálculos aritmétios
+		=SUBTOTALES(Operador, Rango)
+			Al ejecutarla el filtro, realizará la operación del rango filtrado
+		
+Tablas:
+Creación de tabla:
+	Seleccionar todos los datos con sus cabeceras
+	Format/AutoFormat Stiles/Style/Ok
+	
+	Borrar formato de tabla:
+	Ctrl+M
+
+Ordenar datos de una tabla:
+	En la celda de una tabla:
+		Data + Sort + Sort Criteria
+		
+Validación de datos
+	En la celda:
+		Alt + DVVV
+		Opciones:
+		1) En caso de personalizar la validación de datos con opciones específicas, usar el siguiente ejemplo de fórmula 
+		=(O(G3="sí",G3="no"))
+		2) Configuración/Permitir Lista y en Origen, podemos seleccionar un rango de celdas
+		3) Mensaje de error/Mostrar mensaje de error si se introducen datos no válidos.
+		Rodear con un círculo:
+		Alt + DVVN
+		
+Formato condicionado:
+	Formatos rápidos y personalizados para visualizar condiciones en porcentajes de límites específicos
+		Alt + ORO
+		
+Analizar datos automáticamente por EXCEL
+	Seleccionar la tabla:
+		Alt + OFE
+		
+Tablas dinámicas
+	Seleccionar la tabla:
+		Alt + OFE
+		
+	Volver a mostrar los datos para la tabla dinámica:
+		Alt + JTL

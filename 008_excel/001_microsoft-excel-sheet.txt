@@ -1,0 +1,156 @@
+Microsof excel sheet
+
+Días, meses y años:
+	=MES
+	=DIA
+	=AÑO
+	=HOY()
+	=DIASEM(celda, tipo): tipo establece qué número de la semana es el lunes y el domingo
+
+Extraer datos:
+	=VALOR(EXTRAE())
+	Ejemplo:
+	En la celda A1 tengo 94 mins
+		=VALOR(EXTRAE(A1,1 LARGO(A1)-4))
+
+		LARGO(A1) obtiene la longitud total del texto en la celda A1.
+		LARGO(A1)-4 calcula cuántos caracteres se deben extraer desde el inicio del texto (excluyendo los últimos 4 caracteres " min").
+		EXTRAE(A1, 1, LARGO(A1)-4) extrae los caracteres desde el primer carácter hasta la posición LARGO(A1)-4.
+		VALOR convierte el texto extraído en un número.
+
+Agrupar:
+	Seleccionar celdas completas
+		Atl + DAAA
+		
+Desagrupar:
+	Seleccionar celdas completas
+		Atl + DJD
+
+Filtro de datos:
+Segmentación de datos: Forma más dinámica mediante selección de criterios:
+	En la celda de una tabla:
+		Alt + B2NN
+Filtro sencillo:
+	Sobre la cabeceras:
+		Ctrl + Shift + L
+		
+Subtotal: Junto con los filtros se Subtotal, que son rápidos cálculos aritmétios
+		=SUBTOTALES(Operador, Rango)
+			Al ejecutarla el filtro, realizará la operación del rango filtrado
+		
+Tablas:
+  Creación de tabla:
+	  Seleccionar todos los datos con sus cabeceras
+	  Alt + B2Ñ	
+  Deshacer tabla:
+	  Alt + JTV
+
+  Ordenar datos de una tabla:
+	  En la celda de una tabla:
+		  Alt + DO2
+		  
+Validación de datos
+	En la celda:
+		Alt + DVVV
+		Opciones:
+		1) En caso de personalizar la validación de datos con opciones específicas, usar el siguiente ejemplo de fórmula 
+		=(O(G3="sí",G3="no"))
+		2) Configuración/Permitir Lista y en Origen, podemos seleccionar un rango de celdas
+		3) Mensaje de error/Mostrar mensaje de error si se introducen datos no válidos.
+		Rodear con un círculo:
+		Alt + DVVN
+		
+Formato condicionado:
+	Formatos rápidos y personalizados para visualizar condiciones en porcentajes de límites específicos
+	Selecc rango (no es necesario convertir el rango a tabla)
+		Alt + ORO
+		
+Analizar datos automáticamente por EXCEL
+	Seleccionar la tabla:
+		Alt + OFE
+		
+Tablas dinámicas
+	Seleccionar la tabla:
+		Alt + B2VT
+		
+	Volver a mostrar los datos para la tabla dinámica:
+		Alt + JTL
+		
+	Insertar escala de tiempo
+		Alt + JTO
+		
+	Campos calculados: en una celda de la tabla dinámica
+		Alt + JTJM
+
+Borrar tabla dinámica:
+	1. Seleccionar una celda de la tabla
+	2. Ir a las opciones de "Analizar de la tabla dinámica"
+	3. Acciones/Seleccionar/Toda la tabla
+	4. Apretar "suprimir" en el teclado
+		
+Gráficos normales:
+	Seleccionar tabla:
+		Alt + B2LS
+	
+	Mover tabla a una nueva hoja:
+		Alt + JCV
+
+	Seleccionar datos correctamente y añadir correctamente rótulos (nombres en el eje horizontal) de una gráfica desde cero
+		1. Atl + B2 y elegir el tipo de gráfico deseado, aparece un cuadro en blanco
+		2. Click derecho/Seleccionar datos. En la tabla llamada "Seleccionar origen de datos" clickear "Agregar" 
+		3. Seleccionados "Nombre de la serie" del codominio, valores o lo que generalmente va en el eje "y".
+			3.1. Asignamos un nombre a la serie, preferentemente que esté asociada a una celda
+		4. En "Valores de la serie" seleccionamos los valores
+		5. Se genera la gráfica pero el rótulo solo se nueva de 1 hasta n valores seleccionados
+		6. Para añadir el nombre correcto de la serie, en la tabla "Seleccionar origen de datos" en la parte derecha "Editar"
+		7. Seleccionamos el nombre del eje horizontal, del dominio.
+
+	Límites en la gráfica:
+		1. Clic derecho en el eje/Dar formato al eje
+		2. Seleccionar valores límite
+
+		
+Gráficos dinámicos:
+	Seleccionar tabla:
+		Alt + B2GO
+
+		NOTA: Cuando se tiene una columna de números se pueden agrupar por intervalos (o si se tienen años se pueden agrupar por periodos de años, por ejemplo por décadas, lustros o siglos)
+		Sin seleccionar nada, click derecho en la columna de datos a agrupar y después en “agrupar”
+
+	Mover tabla a una nueva hoja:
+		Alt + JCV
+		
+Fórmulas condicionales
+	=SUMAR.SI()				: suma celdas si se cumple una condición
+	=SUMAR.SI.CONJUNTO()	: suma celdas si se cumple una o varias condiciones
+	=PROMEDIO.SI			: promedio de celdas si se cumple una condición
+	=PROMEDIO.SI.CONJUNTO()	: promedio de celdas si se cumple una o varias condiciones
+	
+Indice y coincidir:
+	=INDICE(MATRIZ,no_fila,no_columna): devuelve un elemento de una matriz como en MATLAB
+	=COINCIDIR("Palabra a buscar", Fila o columna,0): devuelve el número de índice donde esté esa palabra a buscar
+	
+	Aplicación en una tabla:
+	A partir de dos elementos, primera fila (países) y primera columna (serv streaming) se puede buscar un dato en específicos
+	=INDICE(Matriz con los números,COINDICIR(país a buscar, primera columna, 0),COINDICIR(serv streaming a buscar,primera fila,0))
+	
+BDSUMA (Suma en una base de datos):Regresa la suma columna específica de una base de datos
+	=BDSUMA(base_de_datos, campo, criterios)
+
+	
+	
+NOTAS EXTRAS:
+## Quitar visulización de valores pequeños pero superiores a cero en tablas dinámicas:
+Usar Formato Condicional
+	Selecciona el rango de datos en la tabla dinámica.
+	Ve a la pestaña "Inicio" en la cinta de opciones.
+	Haz clic en "Formato condicional" y selecciona "Nueva regla...".
+	Elige "Formato de celdas que contienen" en la lista de reglas.
+	Configura la regla:
+	En "Formato de celdas con valores de", selecciona "menor que".
+	Introduce un valor muy pequeño (por ejemplo, 0.01).
+	Configura el formato:
+	Haz clic en el botón "Formato...".
+	Ve a la pestaña "Número".
+	Selecciona "Personalizada" y en el campo "Tipo", introduce ;;;" ".
+	Haz clic en "Aceptar" en todas las ventanas abiertas.
