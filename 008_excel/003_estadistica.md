@@ -19,7 +19,15 @@ _Histograma_
 * En las opciones de eje orizontal se pueden modificar el ancho y el numero de ranchos para ver qué tan suavizada la quiere uno
 * En la sección de "Número" también puede uno acceder al formato del eje horizontal
 _Polígonos de frecuencia:_ escoger la opción del tipo de gráfica de "líneas con marcadores"
-_Curva de densidad:_ no escoger "dispersión" si no "líneas 2D" para poder asginar el gráfico horizontal
+_Curva de densidad:_ no escoger "dispersión", si no "líneas 2D" para poder asginar el gráfico horizontal
 
-
+### Probabilidad y estadística
+_Probabilidad simple o teórica_
+$$
+P(A) = \frac{numero de resultados favorables a A}{numero total de resultados posibles}
+$$
+_Probabilidad experimental_
+$$
+P(A) = \frac{numero de veces que ocurre el elemento en A}{numero total de intentos}
+$$
 
