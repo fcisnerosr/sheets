@@ -21,7 +21,7 @@ _Histograma_
 _Polígonos de frecuencia:_ escoger la opción del tipo de gráfica de "líneas con marcadores"
 _Curva de densidad:_ no escoger "dispersión", si no "líneas 2D" para poder asginar el gráfico horizontal
 
-### Probabilidad y estadística
+### Probabilidad
 _Probabilidad simple o teórica_
 $$
 P(A) = \frac{numero de resultados favorables a A}{numero total de resultados posibles}
@@ -30,4 +30,5 @@ _Probabilidad experimental_
 $$
 P(A) = \frac{numero de veces que ocurre el elemento en A}{numero total de intentos}
 $$
+_Regla de suma_     
 
