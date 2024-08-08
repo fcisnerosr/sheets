@@ -74,3 +74,9 @@ nmap <Leader>e <Plug>(easymotion-overwin-w)
 nnoremap <Leader>wr :set wrap<CR>
 nnoremap <Leader>wn :set nowrap<CR>
 
+" Recargar automáticamente el archivo si ha cambiado en el sistema de archivos
+set autoread
+autocmd BufEnter * checktime
+
+" Mostrar un mensaje cuando el archivo se ha recargado
+autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None

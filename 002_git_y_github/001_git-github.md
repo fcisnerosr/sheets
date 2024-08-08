@@ -7,7 +7,6 @@ _Comandos básicos_
 `git add .`                   envía los últimos cambios de todos los archivos de donde está el repositorio
 `git commit -am "mensaje"`                   realiza un git add de los cambios realizados, solo funciona con archivos con add previamente no con archivos nuevos
 `git commit -a`                   lo mismo que el comando de arriba pero levanta vim para ingresar el mensaje
-
 `git log archivo.py`          muestra la lista de commits realizados en un archivo
 `git log --stat --oneline`      muestra cambios detallados de cuántas líneas se agregaron y borraron en cada commit
 `git log -p`      Log muy laro que explica el número de líneas que se cambiaron, así como el cambio en el contenido
@@ -36,4 +35,6 @@ _Repositorios remotos_
 _Ramas_
 `git branch <rama>`         creación de rama nueva desde otra rama
 `git checkout <rama>`       cambio a la otra rama
+`git merge rama1`       fusión de rama1 a rama2, desde rama1
+`git merge --abort`       revertir un merge realizado
 
