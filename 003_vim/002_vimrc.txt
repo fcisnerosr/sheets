@@ -17,6 +17,7 @@ set shiftwidth=4    " Número de espacios utilizados para (auto) indentación
 set expandtab       " Convertir tabuladores en espacios
 set relativenumber
 set laststatus=2
+set autoread
 
 " Configuración de vim-plug
 call plug#begin('~/.vim/plugged')
@@ -26,6 +27,7 @@ Plug 'dracula/vim', {'as': 'dracula'}
 Plug 'easymotion/vim-easymotion'
 Plug 'preservim/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'voldikss/vim-floaterm'
 
 call plug#end()
 
@@ -46,16 +48,20 @@ autocmd BufWritePre * silent! %s/\r//ge
 " Configuración de EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
 nmap <Leader>s <Plug>(easymotion-s2)
+" Resaltar las palabras visibles hacia adelante y hacia atrás desde la posición del cursor
+nmap <Leader>w <Plug>(easymotion-bd-w)
+" Resaltar todas las palabras en la ventana actual
+nmap <Leader>e <Plug>(easymotion-overwin-w)
 
 " Configuración de NerdTree
 nmap <Leader>nt :NERDTreeToggle<CR>   " Activa/desactiva NERDTree con <Leader>nt
 nmap <Leader>nf :NERDTreeFind<CR>     " Encuentra el archivo actual en NERDTree con <Leader>nf
 
 " Abre NERDTree automáticamente al iniciar Vim si no se ha abierto un archivo específico
-autocmd vimenter * if !argc() | NERDTree | endif
+autocmd VimEnter * if !argc() | NERDTree | endif
 
 " Cierra Vim si NERDTree es la única ventana abierta
-autocmd bufenter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | q | endif
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | q | endif
 
 " Mapas de teclado adicionales para ajustar el tamaño de ventanas
 nnoremap <Leader>w> :vertical resize +5<CR>   " Aumenta el tamaño de la ventana actual hacia la derecha
@@ -63,20 +69,31 @@ nnoremap <Leader>w< :vertical resize -5<CR>   " Disminuye el tamaño de la venta
 nnoremap <Leader>w+ :resize +5<CR>            " Aumenta el tamaño de la ventana actual hacia abajo
 nnoremap <Leader>w- :resize -5<CR>            " Disminuye el tamaño de la ventana actual hacia arriba
 
-" Configuración de EasyMotion para moverse en la parte superior del texto
-let g:EasyMotion_leader_key = '<Leader>'
-" Resaltar las palabras visibles hacia adelante y hacia atrás desde la posición del cursor
-nmap <Leader>w <Plug>(easymotion-bd-w)
-" Resaltar todas las palabras en la ventana actual
-nmap <Leader>e <Plug>(easymotion-overwin-w)
-
 " Configuración para alternar el ajuste de línea
 nnoremap <Leader>wr :set wrap<CR>
 nnoremap <Leader>wn :set nowrap<CR>
 
 " Recargar automáticamente el archivo si ha cambiado en el sistema de archivos
-set autoread
 autocmd BufEnter * checktime
 
 " Mostrar un mensaje cuando el archivo se ha recargado
 autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
+" Mapas de teclado para copiar al portapapeles
+vmap <Leader>y "+y
+
+" Mapeo para abrir la terminal en nvim
+nmap <Leader>tt :FloatermNew<CR>
+
+" Configuración de Floaterm
+let g:floaterm_keymap_new    = '<leader>fn'
+let g:floaterm_keymap_toggle = '<leader>ft'
+let g:floaterm_keymap_prev   = '<leader>fp'
+let g:floaterm_keymap_next   = '<leader>fn'
+
+" Reprogramar la combinación de teclas para salir del modo terminal
+tnoremap <C-t> <C-\><C-n>
+
+" para pegar con yy en lugar de "+yy 
+nmap <Leader>yy "+yy
+

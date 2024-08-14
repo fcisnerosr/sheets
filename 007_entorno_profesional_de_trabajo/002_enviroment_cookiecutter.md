@@ -14,7 +14,7 @@ channels:
 # Sección que lista las dependencias que se instalarán en el entorno
 dependencies:
   # Condición que verifica si se deben instalar todos los paquetes especificados
-  {% if cookiecutter.project_packages == "All" -%}
+  {% if cookiecutter.project_packages == "All" -%}     # Bloque de código que pregunta si la variable cookicutter.project_packages == "All" y el -%} indica que no se deben dejar líneas en blanco
     - fs             # Sistema de archivos abstracto para Python, facilita operaciones con archivos
     - jupyter        # Paquete para ejecutar Jupyter Notebooks, útil para análisis interactivo
     - jupyterlab     # Entorno de trabajo basado en web para Jupyter, proporciona una interfaz de usuario mejorada

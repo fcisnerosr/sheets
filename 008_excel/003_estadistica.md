@@ -32,3 +32,6 @@ P(A) = \frac{numero de veces que ocurre el elemento en A}{numero total de intent
 $$
 _Regla de suma_     
 
+### Permutaciones y combinaciones
+Permutaciones: importan las combinaciones
+Combinaciones: no importan las combinaciones

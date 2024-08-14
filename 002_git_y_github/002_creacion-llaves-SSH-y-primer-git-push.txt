@@ -72,6 +72,11 @@ Op.1.- Crea un nuevo repositorio desde la línea de comandos
 Op.2.- Push a un repositorio existente desde la línea de comandos
 	Pasos:
 		git remote add origin git@github.com:(usuario)/(nombre del repositorio).git
+		git remote			(Verificas que fue correcamente creado)
+		git remote -v 		(Verificas el fetch y el push a ejecutar)
+        devuelve:
+            origin   git@github.com:usuario/repo.git (fetch) - solamente descarga cambios (commits) y archivos del repositorio  
+            origin   git@github.com:usuario/repo.git (push)  - envia cambios realizados al repositorio
 		git branch -M main			(cambio de nombre de la rama principal a "main")
 		git push -u origin main
 		
@@ -93,6 +98,8 @@ Errores comunes:
 1.- que la rama local 'rama principal' (main/master) no esté configurada para rastear una rama en el repositorio remoto.
 	Pasos para corregir:
 		git push --set-upstream origin rama principal
+		git remote			(Verificas que fue correcamente creado)
+		git remote -v 		(Verificas el fetch y el push a ejecutar)
 		git push
 	
 
