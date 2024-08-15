@@ -27,6 +27,7 @@ _Configuraciones básicas de usuario_
 
 _Ramas_
 `git branch <rama>`         creación de rama nueva desde otra rama
+`git switch -c rama-nueva`        crear y ubicarse en la rama master en un solo paso
 `git checkout <rama>`       cambio a la otra rama
 `git merge rama1`       fusión de rama1 a rama2, desde rama1
 `git merge --abort`       revertir un merge realizado
@@ -37,11 +38,24 @@ _Configuraciones para Github_
 `ssh-keygen -t rsa -b 4096 -C "em@serv.com"`     generación de llaves SSH
 
 _Repositorios remotos_
+**Para más detalles de cómo crear llaves y como realizar el git push ver 002_creacion-llaves-SSH-y-primer-git-push.txt**
+`git clone <url>`           Descarga todos los archivos y cambios y los guarda en un nuevo repositorio local creado y en el working directory
 `git push`                    enviar cambios a un reposotorio remoto
 `git merge`                   fusiona ramas
 `git fetch`                   descarga ramas y commits de un repositorio, sin alterar el workind directory de mi repositorio local
-`git pull`                    actualiza los cambios que se han realizado en el repositorio remoto
-`git clone <url>`           Descarga todos los archivos y cambios y los guarda en un nuevo repositorio local creado y en el working directory
-**Para más detalles ver 002_creacion-llaves-SSH-y-primer-git-push.txt**
+`git pull origin main`                    actualiza los cambios que se han realizado en el repositorio remoto
 
+_Tag y versiones en Github_
+`git tag -a v0.1 -m "Mensaje del tag" 2dcxd`    Asigación del tag
+`git tag`                                       Lista de todos los tags
+`git show-ref --tags`                           Muestra lista de qué tags están referenciados a qué commits
+`git push origin --tags`                        Envío de tags a Github
+`git tag -d <tag>`                              Borrado local de un tag
+`git push origin :refs/tag/<tag>`               Borrado de un tag en Github
 
+_Alias a nivel global_
+`git config --global alias.NOMBRE_ALIAS 'COMANDO_DEL_ALIAS'` Configuración de alias a nivel global
+Ejemplo:
+`git config --global alias.logg "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"` Configuración de un alias global de super log renombrado como 'git logg'
+`alias`                 listado de todos los alias
+`unalias <alias>`       borrado de un alias

@@ -79,6 +79,11 @@ Op.2.- Push a un repositorio existente desde la línea de comandos
             origin   git@github.com:usuario/repo.git (push)  - envia cambios realizados al repositorio
 		git branch -M main			(cambio de nombre de la rama principal a "main")
 		git push -u origin main
+	2.1 .- Los pasos anteriores ocacionan un conflicto entre la rama creada desde Github y la creada en memoria local
+	Para solucionar se debe ejecutar un pull para extraer todos los commits remotos:
+		git config pull.rebase false	(Fusión que permite mantener historia de commits más lineal y conservar la rama local)
+		git pull origin main			(Trae los cambios de main remoto al repositorio local)
+		git pull origin main --allow-unrelated-histories 	(fusiona conflictos de ramas locales y remotos en una sola, todo esto listo para realizar el primer push del repositorio)
 		
 		
 Pasos para subir lo trabajado a Github
