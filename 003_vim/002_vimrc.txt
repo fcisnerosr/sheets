@@ -72,7 +72,6 @@ nnoremap <Leader>w- :resize -5<CR>            " Disminuye el tamaño de la venta
 " Configuración para alternar el ajuste de línea
 nnoremap <Leader>wr :set wrap<CR>
 nnoremap <Leader>wn :set nowrap<CR>
-
 " Recargar automáticamente el archivo si ha cambiado en el sistema de archivos
 autocmd BufEnter * checktime
 
@@ -96,4 +95,24 @@ tnoremap <C-t> <C-\><C-n>
 
 " para pegar con yy en lugar de "+yy 
 nmap <Leader>yy "+yy
+
+" LA SIGUIENTE CONFIGURACION SOLO ES PARA LUBUNTU
+" NUNCA BORRAR ESTO DE LUBUNTU
+" Moverse entre ventanas" Moverse entre ventanas
+nnoremap <Leader>h :wincmd h<CR>
+nnoremap <Leader>j :wincmd j<CR>
+nnoremap <Leader>k :wincmd k<CR>
+nnoremap <Leader>l :wincmd l<CR>
+
+" remapeo de Esc para bloqmayus
+nnoremap <CapsLock> <Esc>
+inoremap <CapsLock> <Esc>
+vnoremap <CapsLock> <Esc>
+
+" se debe realizar lo siguiente para que el remapeo funcione
+"  ejectuar en la terminal: 
+" setxkbmap -option caps:escape
+" crear y editar ~/.Xmodmap y agregar las siguientes dos líneas:
+" remove Lock = Caps_Lock
+" keysym Caps_Lock = Escape
 
