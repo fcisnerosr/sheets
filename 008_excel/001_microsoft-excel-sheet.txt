@@ -137,7 +137,30 @@ Indice y coincidir:
 BDSUMA (Suma en una base de datos):Regresa la suma columna específica de una base de datos
 	=BDSUMA(base_de_datos, campo, criterios)
 
-	
+## Ajustar los valores para visualizar los máximos y mínimos de una gráfica
+    ### Seleccionar el gráfico
+    1. Haz clic en el gráfico de dispersión para seleccionarlo.
+
+    ### Acceder a las opciones del eje X
+    1. Haz clic derecho en el eje X (horizontal).
+    2. Selecciona `Dar formato al eje`.
+
+    ### Modificar los límites del eje X
+    1. En la sección `Opciones de eje`, busca las opciones `Mínimo` y `Máximo`.
+    2. Introduce los valores mínimos y máximos que correspondan a los datos reales en tu gráfico. Por ejemplo, si tus datos en el eje X van de 4 a 8, ajusta el mínimo a 4 y el máximo a 8.
+
+    ### Acceder a las opciones del eje Y
+    1. Haz clic derecho en el eje Y (vertical).
+    2. Selecciona `Dar formato al eje`.
+
+    ### Modificar los límites del eje Y
+    1. En la sección `Opciones de eje`, busca las opciones `Mínimo` y `Máximo`.
+    2. Introduce los valores mínimos y máximos que correspondan a los datos reales en tu gráfico. Por ejemplo, si tus datos en el eje Y van de 50 a 80, ajusta el mínimo a 50 y el máximo a 80.
+
+    ### Consejos adicionales
+    - **Automatización**: Si prefieres que Excel determine automáticamente los límites basados en tus datos, puedes seleccionar la opción de `Auto` en los campos de `Mínimo` y `Máximo`, aunque esto puede no siempre proporcionar la mejor visualización.
+    - **Zoom**: Otra manera de ajustar los ejes es utilizando la función de zoom en la vista de gráfico para acercarte a la sección de interés.
+        
 	
 NOTAS EXTRAS:
 ## Quitar visulización de valores pequeños pero superiores a cero en tablas dinámicas:

@@ -34,4 +34,9 @@ _Regla de suma_
 
 ### Permutaciones y combinaciones
 Permutaciones: importan las combinaciones
+nPk = n!/(n-k)!
 Combinaciones: no importan las combinaciones
+nCk = n!/k!(n-k)!
+
+### Líneas de tendencia
+clic derecho sobre los puntitos (datos) de la gráfica de dispersión + `Agregar línea de tendencia`

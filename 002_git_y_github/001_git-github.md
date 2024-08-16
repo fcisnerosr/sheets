@@ -11,6 +11,7 @@ _Comandos básicos_
 `git log archivo.py`          muestra la lista de commits realizados en un archivo
 `git log --stat --oneline`      muestra cambios detallados de cuántas líneas se agregaron y borraron en cada commit
 `git log -p`      Log muy laro que explica el número de líneas que se cambiaron, así como el cambio en el contenido
+`gitk`                  git log con interfaz visual                                  
 `git show archivo.py`           muestra los cambios línea a línea del archivo modificado
 `git diff 1viejo3 4nuevo5`           muestra las diferencias entre commits
 `git diff`                          muestra las diferencias entre el working directory y el staging
@@ -59,3 +60,4 @@ Ejemplo:
 `git config --global alias.logg "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"` Configuración de un alias global de super log renombrado como 'git logg'
 `alias`                 listado de todos los alias
 `unalias <alias>`       borrado de un alias
+
