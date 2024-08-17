@@ -1,47 +1,35 @@
 # Comandos Conda en Anaconda
 ### Instalación de Conda
-wget -O anaconda.sh https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Linux-x86_64.sh
-_NOTA: -O es una "O" mayúscula._
-_Fuente: https://www.anaconda.com/download/success_
-
+wget -O anaconda.sh https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Linux-x86_64.sh _NOTA: -O es una "O" mayúscula._ _Fuente: https://www.anaconda.com/download/success_
+conda info      descriega toda la información de la configuración de conda
 _En caso de no poder iniciar conda init_
-vim ~/.bashrc
-Agregar al final del archivo:
-export PATH="$HOME/anaconda3/bin:$PATH"
-ejecutar:
-source ~/.bashrc
-conda init
+    vim ~/.bashrc
+    Agregar al final del archivo:
+    export PATH="$HOME/anaconda3/bin:$PATH"
+    ejecutar:
+    source ~/.bashrc
+    conda init
 
-_Verificación de Instalación_
-conda --version		Para asegurarte de que Conda se ha instalado y configurado correctamente
+**Comandos con un + solo son ejecutables deberán tener el env activado**
+_Comandos básicos_ 
++conda --version		Para asegurarte de que Conda se ha instalado y configurado correctamente
++jupyter notebook       Inicia un servidor web en tu computadora para visualizar mis jupiter notebooks en la web
+ctrl + c para cancelar el servidor
 
 ### Gestión de Entornos y paquetes de ambientes virtuales
-_Listar Entornos_
-_env = ambiente virtual_
-conda env list 		Lista todos los entornos virtuales creados y gestionados por conda en el sistema
-Ejemplo:
-	base                     /home/fcisnerosr/anaconda3
-	py35                  *  /home/fcisnerosr/anaconda3/envs/py35
-		_(El asterisco indica que es el ambiente activo en ese momento)_
-
-_Listar Paquetes Python_
-conda list python				Devuelve la versión de Python en el ambiente activo
-_Actualizar Python_
-conda update python				Actualiza la versión de Python a la más reciente disponible
-_Instalar una versión específica de Python_
+conda env list 		                    Lista todos los entornos virtuales creados y gestionados por conda en el sistema
+conda create --name py python			Crea un nuevo entorno con el nombre "py" y la última versión de Python (no recomendado)
+conda create --name py35 python=3.5		Crea un nuevo entorno con el nombre "py35" y Python 3.5
+conda activate py35                     Activa el ambiente creado
+conda list python				        Devuelve la versión de Python en el ambiente activo
+conda update python				        Actualiza la versión de Python a la más reciente disponible
 conda install python=2.7			Instala una versión específica de Python en el ambiente activo
-_Instalar Dependencias con Versiones Específicas_
 conda install pandas=1.2 pandas=3.9		Instala dos dependencias con versiones específicas requeridas
-_Listar Dependencias_
 conda list					Lista todas las dependencias del ambiente activo
-_Listar Versión Espcífica de un Paquete_
 conda list pandas				Devuelve la versión de pandas en el ambiente activo
 
 ### Instalación de Programas Específicos
-_Crear un Nuevo Entorno_
-conda create --name py python			Crea un nuevo entorno con el nombre "py" y la última versión de Python
-_Crear un Nuevo Entorno con una Versión Específica de Python_
-conda create --name py35 python=3.5		Crea un nuevo entorno con el nombre "py35" y Python 3.5
+
 _Activar un Entorno_
 conda activate py35				Activa el ambiente "py35
 

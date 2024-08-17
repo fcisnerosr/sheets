@@ -104,6 +104,8 @@ nnoremap <Leader>j :wincmd j<CR>
 nnoremap <Leader>k :wincmd k<CR>
 nnoremap <Leader>l :wincmd l<CR>
 
+" El siguiente remapeo solo funciona en Linux y no en WSL para Winsows usar
+" PowerToys descargado desde GitHub
 " remapeo de Esc para bloqmayus
 nnoremap <CapsLock> <Esc>
 inoremap <CapsLock> <Esc>
