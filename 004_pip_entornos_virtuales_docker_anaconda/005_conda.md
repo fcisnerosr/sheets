@@ -17,21 +17,18 @@ _Comandos básicos_
 ctrl + c para cancelar el servidor
 
 ### Gestión de Entornos y paquetes de ambientes virtuales
-conda env list 		                    Lista todos los entornos virtuales creados y gestionados por conda en el sistema
-conda create --name py python			Crea un nuevo entorno con el nombre "py" y la última versión de Python (no recomendado)
-conda create --name py35 python=3.5		Crea un nuevo entorno con el nombre "py35" y Python 3.5
-conda activate py35                     Activa el ambiente creado
-conda list python				        Devuelve la versión de Python en el ambiente activo
-conda update python				        Actualiza la versión de Python a la más reciente disponible
-conda install python=2.7			Instala una versión específica de Python en el ambiente activo
-conda install pandas=1.2 pandas=3.9		Instala dos dependencias con versiones específicas requeridas
-conda list					Lista todas las dependencias del ambiente activo
-conda list pandas				Devuelve la versión de pandas en el ambiente activo
+`conda env list` 		                    Lista todos los entornos virtuales creados y gestionados por conda en el sistema
+`conda create --name py python`			Crea un nuevo entorno con el nombre "py" y la última versión de Python
+`conda create --name py35 python=3.5`		Crea un nuevo entorno con el nombre "py35" y Python 3.5
+`conda activate py35`                     Activa el ambiente creado
++`conda list python`				        Devuelve la versión de Python en el ambiente activo
++`conda update python`				        Actualiza la versión de Python a la más reciente disponible, en `update` no puedo especificar qué versión se necesita
++`conda install python=2.7`			    Actualiza una versión específica de Python en el ambiente activo. _Puede haber conflictos debido a que haya dependencias como pandas 1.2 que necesite una versión de Python mayor o igual a la 3.7, en ese caso aplicar el siguiente comando_
+`conda install pandas=1.2 python=3.9`		Actualiza dos dependencias con versiones específicas requeridas
+conda list					            Lista todas las dependencias del ambiente activo
+conda list pandas				        Devuelve la versión de pandas en el ambiente activo
 
 ### Instalación de Programas Específicos
-
-_Activar un Entorno_
-conda activate py35				Activa el ambiente "py35
 
 ### Clonar un Entorno
 conda create --name py39 --copy --clone py35	Crea un nuevo entorno con el nombre "py39" y copia todas las dependencias del entorno "py35" a "py39"

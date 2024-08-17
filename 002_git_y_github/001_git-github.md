@@ -1,6 +1,6 @@
 # Git
 _Comandos básicos_
-`git init`                    iniciar un repositorio
+`git init`                    iniciar un jepositorio
 `git add file.py`             agregar el achivo al staging area
 `git rm --cached archivo.py`    remueve el archivo del staging area
 `git commit -m "version 1"`   envía los últimos cambios del archivo al sistema de control de versiones
