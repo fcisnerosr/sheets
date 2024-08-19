@@ -1,4 +1,10 @@
 # Git
+_Configuraciones básicas de usuario_
+`git config --list`                      lista de configuraciones del usario
+`git config --global user.name "user"`   configuración del nombre de usuario
+`git config --global user.email "user@"`  configuración del correo del nombre de usuario
+`git config --global core.abbrev 4`  configuración de número de dígitos en los commits de log
+
 _Comandos básicos_
 `git init`                    iniciar un jepositorio
 `git add file.py`             agregar el achivo al staging area
@@ -7,11 +13,12 @@ _Comandos básicos_
 `git add .`                   envía los últimos cambios de todos los archivos de donde está el repositorio
 `git commit -am "mensaje"`    realiza un git add de los cambios realizados, solo funciona con archivos con add previamente no con archivos nuevos
 `git commit -a`               Lo mismo que el comando de arriba pero levanta vim para ingresar el mensaje
+`git commit --amend`          Editar el último commit, siempre que no se haya enviado al repositorio remoto mediante push.
 `git config --global core.abbrev 4`  configuración de número de dígitos en los commits de log
 `git log archivo.py`            muestra la lista de commits realizados en un archivo
 `git log --stat --oneline`      muestra cambios detallados de cuántas líneas se agregaron y borraron en cada commit
 `git log -p`                    Log muy laro que explica el número de líneas que se cambiaron, así como el cambio en el contenido
-`gitk`                          git log con interfaz visual                                  
+`gitk`                          git log con interfaz visual      
 `git show archivo.py`           muestra los cambios línea a línea del archivo modificado
 `git diff 1viejo3 4nuevo5`      muestra las diferencias entre commits
 `git diff`                      muestra las diferencias entre el working directory y el staging
@@ -19,12 +26,6 @@ _Comandos básicos_
 `git reset --hard 1fjk`         mueve a HEAD al commit especificado borrando todo lo de stating y lo del working directory después de ese commit
 `git checkout 1fjk archivo.py`                     
 `git checkout`                     traer los últimos cambios hacia mi carpeta
-
-_Configuraciones básicas de usuario_
-`git config --list`                      lista de configuraciones del usario
-`git config --global user.name "user"`   configuración del nombre de usuario
-`git config --global user.email "user@"`  configuración del correo del nombre de usuario
-`git config --global core.abbrev 4`  configuración de número de dígitos en los commits de log
 
 _Ramas_
 `git branch <rama>`         creación de rama nueva desde otra rama
@@ -41,7 +42,8 @@ _Configuraciones para Github_
 `ssh-keygen -t rsa -b 4096 -C "em@serv.com"`     generación de llaves SSH
 
 _Repositorios remotos_
-`git clone <url>`           Descarga todos los archivos y cambios y los guarda en un nuevo repositorio local creado y en el working directory
+`git clone git@github.com:user/repo.git`           Si se tiene el permiso mediante llaves SSH, descarga todos los archivos y cambios y los guarda en un nuevo repositorio local creado y en el working directory
+`git clone <url>`           Si no se tiene el permismo mediatne llaves SSG, descarga todos los archivos y cambios y los guarda en un nuevo repositorio local creado y en el working directory
 `git push`                    enviar cambios a un reposotorio remoto
 `git push --force`          Después de hacer un `git reset --hard` se pueden reenviar los cambios para que el repositorio remoto refleje exactamente lo que se hizo en el repositorio local. _Puede ser peligroso, así que tomar precausiones_
 `git push origin <branchnoamain`    enviar al repositorio remoto una rama distinta a la rama _main_
@@ -57,6 +59,23 @@ _Tag y versiones en Github_
 `git push origin --tags`                        Envío de tags a Github
 `git tag -d <tag>`                              Borrado local de un tag
 `git push origin :refs/tag/<tag>`               Borrado de un tag en Github
+
+_Colaboración con múltiples usuarios_
+*En caso de ser el usario propietario del repositorio remoto*
+- En los settings del repositorio remoto en Github. _Settings/Collaborators_ y adicionamos el correo del usuario asociado a Github, pero en caso de que no sea público su email, puede ser con su usuario de Github
+- En caso de que no tenga acceso mediante llaves SSH, se debe dar acceso mediante Token de Acceso Personal (PAT) 
+    - En Github, con la cuenta del propietario del repositorio:
+    - Settings (debajo de la foto de perfil)/Developer setttings (a la izquierda hasta abajo)/Personal access tokens/Generate new token/Note/Fecha de expiración/Seleccionar alcances del permiso/Generate token
+    - copiar token y enviarlo, el usuario colaborador debería de saber qué hacer con él.
+*En caso de ser el usario colaborador*
+    - con el token proporcionado, cada vez que se realice un push se debe ingresar el usuario (previamente el propietario debió de darte permiso mediante tu email o tu usuario)
+    - luego en password se ingresa el token proporcionado
+    - Si no quieres ingresar el token cada vez que haces un push:
+        - ejecutar: `git config --global credential.helper store`
+        - hacer el`git config --global credential.helper store` e ingresar el username y el PAT
+        - ejecutar `cat ~/.git-credentials` y con esto verificamos qué username y qué PAT esta asociado a dicho username
+        - El entorno ya habrá sido configurado para que cuando se haga el `git push origin master` no haya que ingresar más el username y la contraseña manualmente.
+        - todo esto funcionará siempre y cuando el PAT no haya expirado o los permisos no hayan sido modificados.
 
 _Alias a nivel global_
 `git config --global alias.NOMBRE_ALIAS 'COMANDO_DEL_ALIAS'` Configuración de alias a nivel global

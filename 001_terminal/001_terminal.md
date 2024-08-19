@@ -38,7 +38,8 @@ _Formas de combinar los archivos_
 
 
 ## Visualisar archivos
-head archivo.py -n 15   muestra las primeras 15 lineas de codigo de archivo.py
+`head archivo.py -n 15` muestra las primeras 15 lineas de codigo de archivo.py
+   
 tail archivo.py -n 15   muestra las ultimas 15 lineas de codigo de archivo.py
 less archivo.py         exploras el archivo.py
     NOTA: te puedes mover con flechas o el wheel del mouse o para bajar mas rapido con la barra espaciadora
