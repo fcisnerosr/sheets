@@ -75,4 +75,5 @@ ls [:alum:]*            enlista los archivos y directorios que empiezan con letr
 ls [:alpha:]*           enlista los archivos y directorios que empiezan con cualquier alfabético
 
 ### Redirecciones: cómo funciona la shell
-ls sheets > lista.txt   el stdout se convierte en un 
+`ls sheets > lista.txt`   redirige el output a un archivo que puede ser no creado inicialmente de lo contrario se sobreescribe
+`ls sheets >> lista.txt`  redirige el output a un archivo al final de un archivo ya creado
