@@ -22,6 +22,7 @@ _Comandos básicos_
 `git show archivo.py`           muestra los cambios línea a línea del archivo modificado
 `git diff 1viejo3 4nuevo5`      muestra las diferencias entre commits
 `git diff`                      muestra las diferencias entre el working directory y el staging
+`git diff HEAD`                 muestra las diferencias entre el working directory y el último commit de la rama actual
 `git reset --soft 1fjk`         mueve a HEAD al commit especificado sin modificar lo que está en stating ni en el working directory
 `git reset --hard 1fjk`         mueve a HEAD al commit especificado borrando todo lo de stating y lo del working directory después de ese commit
 `git checkout 1fjk archivo.py`                     
