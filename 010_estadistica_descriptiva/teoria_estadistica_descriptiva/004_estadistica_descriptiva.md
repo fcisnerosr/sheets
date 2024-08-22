@@ -7,3 +7,5 @@ Existen sesgos debido a que es subjetivo los conceptos de "mejor" de algo de un 
 - Resumir grandes volúmenes de información para tomar decisiones basadas en datos
 - Reconocer patrones en datos, con esto podemos inferir lo que puede pasar en un futuro y así tomar mejores decisiones basadas en datos.
 _Importante recordar que resumir información significa pérdida de información_
+
+_Tendencia central_

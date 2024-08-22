@@ -78,6 +78,10 @@ _Colaboración con múltiples usuarios_
         - El entorno ya habrá sido configurado para que cuando se haga el `git push origin master` no haya que ingresar más el username y la contraseña manualmente.
         - todo esto funcionará siempre y cuando el PAT no haya expirado o los permisos no hayan sido modificados.
 
+_Pull request, comando correpondiente a Github _
+
+
+
 _Alias a nivel global_
 `git config --global alias.NOMBRE_ALIAS 'COMANDO_DEL_ALIAS'` Configuración de alias a nivel global
 Ejemplo:
