@@ -21,9 +21,7 @@ En caso de tener las llaves SSH configuradas pasar al paso 5
 		*copiar la llave*
 	
 3.- Agregar la llave pública a github
-	ir a la sección de "Add new SSH Key"
-		https://github.com/ -> ícono de usuario -> Settings -> SSH and GPG keys -> New SSH key
-		
+	https://github.com/ -> ícono de usuario -> Settings -> SSH and GPG keys -> New SSH key		
 	Añadir Title y pegar la llave en la sección de Key
 	
 4.- Comprobar si fue añadida la llave
@@ -31,7 +29,7 @@ En caso de tener las llaves SSH configuradas pasar al paso 5
 		ssh -T git@github.com
 		
 5.- Crear el repositorio en github (Paso obligatorio)
-		https://github.com/ -> ícono de usuario -> Your repositories -> New repositorie -> nombre -> crear
+	https://github.com/ -> ícono de usuario -> Your repositories -> New repositorie -> nombre -> crear
 		
 
 Opciones:
@@ -88,16 +86,15 @@ Op.2.- Push a un repositorio existente desde la línea de comandos
 		
 Pasos para subir lo trabajado a Github
 1.- Para clonar un repositorio y modificarlo localmente:
-		git clone git@github.com:(usuario)/(nombre del repositorio).git
+	git clone git@github.com:(usuario)/(nombre del repositorio).git
 	
-3.- Realizar los cambios y pruebas correspondientes
+2.- Realizar los cambios y pruebas correspondientes
 
 3.- Opcional: git diff para ver las diferencias
 
-
-2.- Subir los cambios hechos
-		git commit -am "Mensaje" && git push	
-		git add . && git commit -m "Mensaje" && git push
+4.- Subir los cambios hechos
+	git commit -am "Mensaje" && git push	
+	git add . && git commit -m "Mensaje" && git push
 		
 Errores comunes:
 1.- que la rama local 'rama principal' (main/master) no esté configurada para rastear una rama en el repositorio remoto.
