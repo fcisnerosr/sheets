@@ -1,4 +1,4 @@
-" Establecer la tecla líder como espacio 
+"  Establecer la tecla líder como espacio 
 let mapleader=" "
 
 " Configuración básica
@@ -93,7 +93,7 @@ let g:floaterm_keymap_next   = '<leader>fn'
 " Reprogramar la combinación de teclas para salir del modo terminal
 tnoremap <C-t> <C-\><C-n>
 
-" para pegar con yy en lugar de "+yy 
+" para pegar con yy en lugar de "+yy _
 nmap <Leader>yy "+yy
 
 " LA SIGUIENTE CONFIGURACION SOLO ES PARA LUBUNTU
@@ -104,16 +104,62 @@ nnoremap <Leader>j :wincmd j<CR>
 nnoremap <Leader>k :wincmd k<CR>
 nnoremap <Leader>l :wincmd l<CR>
 
-" El siguiente remapeo solo funciona en Linux y no en WSL para Winsows usar PowerToys descargado desde GitHub
-" remapeo de Esc para bloqmayus
-nnoremap <CapsLock> <Esc>
-inoremap <CapsLock> <Esc>
-vnoremap <CapsLock> <Esc>
+Plug 'ThePrimeagen/vim-be-good'
 
-" se debe realizar lo siguiente para que el remapeo funcione
-"  ejectuar en la terminal: 
-" setxkbmap -option caps:escape
-" crear y editar ~/.Xmodmap y agregar las siguientes dos líneas:
-" remove Lock = Caps_Lock
-" keysym Caps_Lock = Escape
+" NERD Commenter
+Plug 'preservim/nerdcommenter'
+filetype plugin on
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
+
+
+" Plug 'jupyter-vim/jupyter-vim'
+"
+" Configuraciones de jupiter notebooks
+"if has('nvim')
+    "let g:python3_host_prog = '/path/to/python/bin/python3'
+"else
+"    set pyxversion=3
+"endif
+
+"let g:python3_host_prog = '/usr/bin/python3'
+
+" Always use the same virtualenv for vim, regardless of what Python
+" environment is loaded in the shell from which vim is launched
+"let g:vim_virtualenv_path = '/path/to/my/new/vim_virtualenv'
+"if exists('g:vim_virtualenv_path')
+"    pythonx import os; import vim
+"    pythonx activate_this = os.path.join(vim.eval('g:vim_virtualenv_path'), 'bin/activate_this.py')
+"    pythonx with open(activate_this) as f: exec(f.read(), {'__file__': activate_this})
+"endif
+
+call plug#end()
+
+
+"
+"
 
