@@ -29,13 +29,13 @@ _Comandos básicos_
 `git checkout`                     traer los últimos cambios hacia mi carpeta
 
 _Ramas_
-`git branch <rama>`         creación de rama nueva desde otra rama
 `git switch -c rama-nueva`  crear y ubicarse en la rama master en un solo paso
 `git checkout <rama>`       cambio a la otra rama
 `git merge rama1`           fusión de rama1 a rama2, desde rama1
 `git merge --abort`         revertir un merge realizado
 `git show-branch`           muestra el estado de las ramas en local
 `git show-branch -all`      muestra el estado de las ramas en local y en remoto
+`git branch -d <rama>`      elimina la rama localmente
 
 _Configuraciones para Github_
  `git config -l`                                develve los datos básicos de email user.name el log y el editor (vim)
@@ -43,14 +43,15 @@ _Configuraciones para Github_
 `ssh-keygen -t rsa -b 4096 -C "em@serv.com"`     generación de llaves SSH
 
 _Repositorios remotos_
-`git clone git@github.com:user/repo.git`           Si se tiene el permiso mediante llaves SSH, descarga todos los archivos y cambios y los guarda en un nuevo repositorio local creado y en el working directory
-`git clone <url>`           Si no se tiene el permismo mediatne llaves SSG, descarga todos los archivos y cambios y los guarda en un nuevo repositorio local creado y en el working directory
-`git push`                    enviar cambios a un reposotorio remoto
-`git push --force`          Después de hacer un `git reset --hard` se pueden reenviar los cambios para que el repositorio remoto refleje exactamente lo que se hizo en el repositorio local. _Puede ser peligroso, así que tomar precausiones_
-`git push origin <branchnoamain`    enviar al repositorio remoto una rama distinta a la rama _main_
-`git merge`                   fusiona ramasumenta el tamaño de la ventana actual hacia la derecha
-`git fetch`                   descarga ramas y commits de un repositorio, sin alterar el workind directory de mi repositorio local
-`git pull origin main`                    actualiza los cambios que se han realizado en el repositorio remoto
+`git clone <url>`                           Si no se tiene el permismo mediatne llaves SSG, descarga todos los archivos y cambios y los guarda en un nuevo repositorio local creado y en el working directory
+`git clone --branch <rama> --single-branch git @github.com:usuario/repo.git`  clona solo una rama específica del repositorio remoto
+`git push`                                  enviar cambios a un reposotorio remoto
+`git push --force`                          Después de hacer un `git reset --hard` se pueden reenviar los cambios para que el repositorio remoto refleje exactamente lo que se hizo en el repositorio local. _Puede ser peligroso, así que tomar precausiones_
+`git push origin <branchnoamain`            enviar al repositorio remoto una rama distinta a la rama _main_
+`git merge`                                 fusiona ramasumenta el tamaño de la ventana actual hacia la derecha
+`git fetch`                                 descarga ramas y commits de un repositorio, sin alterar el workind directory de mi repositorio local
+`git pull origin main`                      actualiza los cambios que se han realizado en el repositorio remoto
+`git pull origin --delete <rama>`           borra la rama en el repositorio remoto
 **Para más detalles de cómo crear llaves y como realizar el git push ver 002_creacion-llaves-SSH-y-primer-git-push.txt**
 
 _Tag y versiones en Github_
@@ -67,7 +68,7 @@ _Colaboración con múltiples usuarios_
 - En caso de que no tenga acceso mediante llaves SSH, se debe dar acceso mediante Token de Acceso Personal (PAT) 
     - En Github, con la cuenta del propietario del repositorio:
     - Settings (debajo de la foto de perfil)/Developer setttings (a la izquierda hasta abajo)/Personal access tokens/Generate new token/Note/Fecha de expiración/Seleccionar alcances del permiso/Generate token
-    - copiar token y enviarlo, el usuario colaborador debería de saber qué hacer con él.
+    - copiar token y enviarlo, el usuario colaborador debería de saber qué h    acer con él.
 *En caso de ser el usario colaborador*
     - con el token proporcionado, cada vez que se realice un push se debe ingresar el usuario (previamente el propietario debió de darte permiso mediante tu email o tu usuario)
     - luego en password se ingresa el token proporcionado
@@ -78,9 +79,18 @@ _Colaboración con múltiples usuarios_
         - El entorno ya habrá sido configurado para que cuando se haga el `git push origin master` no haya que ingresar más el username y la contraseña manualmente.
         - todo esto funcionará siempre y cuando el PAT no haya expirado o los permisos no hayan sido modificados.
 
-_Pull request, comando correpondiente a Github _
+_Pull request, comando correpondiente a Github_
+Cuando otro colaborador ha realizado cambios y subido estos a una nueva rama que contiene commits más avanzados que los presentes en la rama principal, es posible integrar estos cambios a través de la creación de un 'New pull request' en GitHub.
+**Si soy el propietario de repositorio:**
+    - Escogemos que compare los cambios realizados de:
+        base: rama principal   <-  compare: rama creada para arreglar errores
+        El nombre del commit puede ser el nombre del "Pull request"
+        Se pueden escribir más detalles en el pull request
+        Se pueden agregar reviewers para hace el "code review"
+        Cuando terminemos las configuraciones, clickeamos en "Create pull request"
+    - En caso de 
 
-
+**Si no soy el propietario de repositorio, ni colaborador del proyecto:**
 
 _Alias a nivel global_
 `git config --global alias.NOMBRE_ALIAS 'COMANDO_DEL_ALIAS'` Configuración de alias a nivel global
