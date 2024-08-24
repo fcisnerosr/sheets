@@ -79,17 +79,22 @@ _Colaboración con múltiples usuarios_
         - El entorno ya habrá sido configurado para que cuando se haga el `git push origin master` no haya que ingresar más el username y la contraseña manualmente.
         - todo esto funcionará siempre y cuando el PAT no haya expirado o los permisos no hayan sido modificados.
 
-_Pull request, comando correpondiente a Github_
-Cuando otro colaborador ha realizado cambios y subido estos a una nueva rama que contiene commits más avanzados que los presentes en la rama principal, es posible integrar estos cambios a través de la creación de un 'New pull request' en GitHub.
+_Pull request, comando correpondiente a Github_ : Trabajar un pull request es similar a trabajar en un staging area en remoto antes de fucionar cambios a la rama principal
 **Si soy el propietario de repositorio:**
     - Escogemos que compare los cambios realizados de:
         base: rama principal   <-  compare: rama creada para arreglar errores
         El nombre del commit puede ser el nombre del "Pull request"
         Se pueden escribir más detalles en el pull request
-        Se pueden agregar reviewers para hace el "code review"
+        Se pueden agregar reviewers para hace el _code review_
         Cuando terminemos las configuraciones, clickeamos en "Create pull request"
-    - En caso de 
-
+    - En caso de ser el colaborador el cuál debe hacer el _code review_
+        - `Pull requests/Files changed/Review changes/Opciones que están abajo/Submit review`
+            - `Approve`: indica que has revisado el código o los cambios propuestos y estás de acuerdo con que sean fusionados en la rama principal
+            - `Request chages`: Esta opción se utiliza cuando encuentras problemas o áreas de mejora en el código o la propuesta que se está intentando fusionar en la rama principal 
+    - Se puede iniciar una conversación entre los miembros del equipo en:
+        - `Pull requests/Conversation`
+    - En caso de que los cmabios sean correctamente aplicados y todos estén de acuerdo con ellos:
+        - `Pull requests/ir hasta la parte inferior de la página/Merge pull request/Confirm merge/Delete branch`: La última acción es opcional y depende de la forma de trabajo de cada equipo de trabajo.
 **Si no soy el propietario de repositorio, ni colaborador del proyecto:**
 
 _Alias a nivel global_
