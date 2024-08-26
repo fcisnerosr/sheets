@@ -43,7 +43,7 @@ _Configuraciones para Github_
 `ssh-keygen -t rsa -b 4096 -C "em@serv.com"`     generación de llaves SSH
 
 _Repositorios remotos_
-`git clone <url>`                           Si no se tiene el permismo mediatne llaves SSG, descarga todos los archivos y cambios y los guarda en un nuevo repositorio local creado y en el working directory
+`git clone https://github.com/user/repositorio.git` Si no se tiene el permismo mediante llaves SSG, descarga todos los archivos y cambios y los guarda en un nuevo repositorio local creado y en el working directory
 `git clone --branch <rama> --single-branch git @github.com:usuario/repo.git`  clona solo una rama específica del repositorio remoto
 `git push`                                  enviar cambios a un reposotorio remoto
 `git push --force`                          Después de hacer un `git reset --hard` se pueden reenviar los cambios para que el repositorio remoto refleje exactamente lo que se hizo en el repositorio local. _Puede ser peligroso, así que tomar precausiones_
@@ -96,6 +96,22 @@ _Pull request, comando correpondiente a Github_ : Trabajar un pull request es si
     - En caso de que los cmabios sean correctamente aplicados y todos estén de acuerdo con ellos:
         - `Pull requests/ir hasta la parte inferior de la página/Merge pull request/Confirm merge/Delete branch`: La última acción es opcional y depende de la forma de trabajo de cada equipo de trabajo.
 **Si no soy el propietario de repositorio, ni colaborador del proyecto:**
+_Fork a un proyecto Open Source. Fork de una característica de Github_
+    - Primeramente realiza los siguientes pasos para mantener nuestro fork con el repo remoto:
+        - `git remote add upstream https://github.com/usuario-propietario/repositorio.git`  La rama upstream sirve para matener actualizado mi repositorio remoto con el repositorio remoto el del propietario. 
+        - `git checkout main && git pull upstream main` 
+        - `git push origin main` 
+    - Buscar el proyecto público en Github/Fork (en la esquina de repositorio remoto). Paso indispensable para poder hacer contribuciones, el solo clonar el repositorio remoto no hará que podamos contribuir en él.
+        - `git clone https://github.com/user-propietario/repositorio.git`
+        - hacer todos los cambios necesarios, commitearlos y pushearlos a mi repositorio remoto de Github
+    - Crear un pull request al propietario
+        - cuando los cambios fueron pusheados a mi repositorio global, automaticamente me aparacerá un mensaje tipo "This branch is # commit behind usuario-original/repositorio". Dale click
+        - en el menú "Comparing changes" se pueden desplegar obciones para ver los cambios hechos entre mis contribuciones y el repositorio original de propietario
+        - configurar:
+            base repository: usuario-original/repo base: rama-a-recibir-el-cambio   <-  head repository: mi-usuario/repo    compare: rama-desde-donde-se-envian-los-cambios
+        - Create pull request/nombre del commit/mensaje de contribucion/Create pull request
+    - Desde el propietario:
+        - Pull requests/verificar los cambios en "Files changed"/Review changes/Mensaje de agradecimiento/Approve/Merge pull request/Confirm merge
 
 _Alias a nivel global_
 `git config --global alias.NOMBRE_ALIAS 'COMANDO_DEL_ALIAS'` Configuración de alias a nivel global
