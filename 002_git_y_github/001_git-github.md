@@ -17,7 +17,7 @@ _Comandos básicos_
 `git config --global core.abbrev 4`  configuración de número de dígitos en los commits de log
 `git log archivo.py`            muestra la lista de commits realizados en un archivo
 `git log --stat --oneline`      muestra cambios detallados de cuántas líneas se agregaron y borraron en cada commit
-`git log -p`                    Log muy laro que explica el número de líneas que se cambiaron, así como el cambio en el contenido
+`git log -p`                    Log muy largo que explica el número de líneas que se cambiaron, así como el cambio en el contenido
 `gitk`                          git log con interfaz visual      
 `git show archivo.py`           muestra los cambios línea a línea del archivo modificado
 `git diff 1viejo3 4nuevo5`      muestra las diferencias entre commits
@@ -53,6 +53,11 @@ _Repositorios remotos_
 `git pull origin main`                      actualiza los cambios que se han realizado en el repositorio remoto
 `git pull origin --delete <rama>`           borra la rama en el repositorio remoto
 **Para más detalles de cómo crear llaves y como realizar el git push ver 002_creacion-llaves-SSH-y-primer-git-push.txt**
+
+_Git ignore: no subir archivos binarios_
+`.gitignore`           archivo con lista de los archivos que no se subirán a un repositorio remoto
+`*.jpg`                 ignora todos los archivos con dicha extensión 
+**https://www.gitignore.io/ definen las tecnologías que manejan en el proyecto y nos da automáticamente los archivos que debemos ignorar**
 
 _Tag y versiones en Github_
 `git tag -a v0.1 -m "Mensaje del tag" 2dcxd`    Asigación del tag
