@@ -74,7 +74,10 @@ ls [:digit:]*           enlista los archivos y directorios que empiezan del 1 al
  ls *[0-9]*             enlista los archivos y directorios que empiezan del 1 al 0
 ls [:alum:]*            enlista los archivos y directorios que empiezan con letra y dígito
 ls [:alpha:]*           enlista los archivos y directorios que empiezan con cualquier alfabético
-
 ### Redirecciones: cómo funciona la shell
 `ls sheets > lista.txt`   redirige el output a un archivo que puede ser no creado inicialmente de lo contrario se sobreescribe
 `ls sheets >> lista.txt`  redirige el output a un archivo al final de un archivo ya creado
+
+_Link simbolico_
+`ln -s ~/ruta`          genera un acceso directo para ingresar a una carpeta
+

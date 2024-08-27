@@ -47,7 +47,7 @@ _Repositorios remotos_
 `git clone --branch <rama> --single-branch git @github.com:usuario/repo.git`  clona solo una rama específica del repositorio remoto
 `git push`                                  enviar cambios a un reposotorio remoto
 `git push --force`                          Después de hacer un `git reset --hard` se pueden reenviar los cambios para que el repositorio remoto refleje exactamente lo que se hizo en el repositorio local. _Puede ser peligroso, así que tomar precausiones_
-`git push origin <branchnoamain`            enviar al repositorio remoto una rama distinta a la rama _main_
+`git push origin <branchnoamain>`           enviar al repositorio remoto una rama distinta a la rama _main_
 `git merge`                                 fusiona ramasumenta el tamaño de la ventana actual hacia la derecha
 `git fetch`                                 descarga ramas y commits de un repositorio, sin alterar el workind directory de mi repositorio local
 `git pull origin main`                      actualiza los cambios que se han realizado en el repositorio remoto

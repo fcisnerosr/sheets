@@ -51,7 +51,7 @@ Op.1.- Crea un nuevo repositorio desde la línea de comandos
 					git remote remove origin
 					
 				En caso de no tener a main asociada a una rama remota:
-					git pull
+					git pull origin main
 					git push --set-upstream origin main     Este comando no solo empuja (push) la rama local especificada al repositorio remoto, sino que también establece la rama remota como seguimiento ('upstream') para tu rama local. Esto facilita futuras operaciones de push y pull para esa rama.
 1.1 .- Los pasos anteriores ocacionan un conflicto entre la rama creada desde Github y la creada en memoria local
 	Para solucionar se debe ejecutar un pull para extraer todos los commits remotos:
