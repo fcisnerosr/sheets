@@ -84,7 +84,8 @@ _Colaboración con múltiples usuarios_
         - El entorno ya habrá sido configurado para que cuando se haga el `git push origin master` no haya que ingresar más el username y la contraseña manualmente.
         - todo esto funcionará siempre y cuando el PAT no haya expirado o los permisos no hayan sido modificados.
 
-_Pull request, comando correpondiente a Github_ : Trabajar un pull request es similar a trabajar en un staging area en remoto antes de fucionar cambios a la rama principal
+_Pull request, comando correpondiente a Github_
+Trabajar un pull request es similar a trabajar en un staging area en remoto antes de fucionar cambios a la rama principal
 **Si soy el propietario de repositorio:**
     - Escogemos que compare los cambios realizados de:
         base: rama principal   <-  compare: rama creada para arreglar errores
@@ -117,6 +118,15 @@ _Fork a un proyecto Open Source. Fork de una característica de Github_
         - Create pull request/nombre del commit/mensaje de contribucion/Create pull request
     - Desde el propietario:
         - Pull requests/verificar los cambios en "Files changed"/Review changes/Mensaje de agradecimiento/Approve/Merge pull request/Confirm merge
+
+_Malas prácticas_
+_Rebase: viene de "rebasear", de volver a crear una base para una serie de commits_
+`git rebase branch` 
+git checkout rama-a-rebasear
+git rebase rama-base
+Proceso de aplicación correcto de rebase
+Primero se le aplica el rebase a la rama que va a ser eliminada y luego se le hace rebase a la rama principal
+**Continuar viendo lo que escribí en CHATGPT**
 
 _Alias a nivel global_
 `git config --global alias.NOMBRE_ALIAS 'COMANDO_DEL_ALIAS'` Configuración de alias a nivel global
