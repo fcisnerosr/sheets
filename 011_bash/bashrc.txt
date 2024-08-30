@@ -136,6 +136,7 @@ unset __conda_setup
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # aliases:
+alias cl="clear"
 # git
 alias g="git"
 alias gsta="git status"
