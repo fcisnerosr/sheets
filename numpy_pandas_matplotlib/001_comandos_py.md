@@ -1,3 +1,45 @@
 # Numpy
 
-np.array()
+_Dimensiones_
+
+
+_Objeto array_
+`array = np.array([[1,2,3],[4,5,6]])`             Declara un array de 2 dimensiones.
+`array.ndim`                                      Devuelve el número de dimensiones del array.
+`array.shape`                                     Devuelve las dimensiones del array en términos de filas y columnas.
+`array.dtype`                                     Devuelve el tipo de elementos que contiene el array.
+`z = np.array([3], dtype=np.uint8)`               Declara un array de 1x1 y lo convierte a un entero sin signo de 8 bits.
+`double_array = np.array([1,2,3],dtype='d')`      Declara un array de 1x3 con elementos de punto flotante de doble precisión.
+`z = z.astype(np.float64)`                        Convierte un array a un tipo de dato de punto flotante de doble precisión.
+ 
+_Tipos de datos en Numpy y su nomenclatura_
+`int8`   o `i1`       Entero con signo de 8 bits. Rango: -128 a 127.
+`uint8`  o `u1`       Entero sin signo de 8 bits. Rango: 0 a 255.
+`int16`  o `i2`       Entero con signo de 16 bits. Rango: -32,768 a 32,767.
+`uint16` o `u2`       Entero sin signo de 16 bits. Rango: 0 a 65,535.
+`int32`  o `i4`       Entero con signo de 32 bits. Rango: -2,147,483,648 a 2,147,483,647.
+`uint32` o `u4`       Entero sin signo de 32 bits. Rango: 0 a 4,294,967,295.
+`int64`  o `i8`       Entero con signo de 64 bits. Rango: muy grande.
+`uint64` o `u8`       Entero sin signo de 64 bits. Rango: muy grande.
+
+`float16`  o `f2`     Número de punto flotante de 16 bits.
+`float32`  o `f4`     Número de punto flotante de 32 bits (precisión simple, también conocido como `single`).
+`float64`  o `f8`     Número de punto flotante de 64 bits (precisión doble, también conocido como `double`).
+
+`complex64`  o `c8`   Número complejo compuesto por dos `float32` (32 bits para la parte real y 32 bits para la parte imaginaria).
+`complex128` o `c16`  Número complejo compuesto por dos `float64` (64 bits para la parte real y 64 bits para la parte imaginaria).
+
+`bool`       o `?`    Booleano que puede ser `True` o `False`.
+
+`string_`    o `S`    Secuencia de bytes. Puedes especificar la longitud, por ejemplo, `S10` para un string de hasta 10 caracteres.
+`unicode_`   o `U`    String Unicode. Puedes especificar la longitud, por ejemplo, `U10`.
+
+`object_`    o `O`    Tipo de dato genérico que puede almacenar cualquier objeto de Python. Es menos eficiente que los tipos anteriores.
+
+_Aplicaciones estadisticas_
+array = np.array([[1,2,3],[4,5,6]])
+`sum = np.sum(array)`            Suma todos los elementos de un array.
+`mean = np.mean(array)`          Calcula la media de todos los elementos de un array.
+`std = np.std(array)`            Calcula la desviación estándar de todos los elementos de un array.
+
+
