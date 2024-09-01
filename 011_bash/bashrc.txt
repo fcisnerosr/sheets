@@ -160,6 +160,21 @@ alias p="python3"
 # virtual enviroment
 alias aev="source env/bin/activate"
 alias dea="deactivate"
+alias cda="conda deactivate && clear"
 
- Git
+# Git
 alias glgg="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+
+# bloq mayus = esc en linux
+alias esc="setxkbmap -option caps:escape"
+
+# vim
+alias v ="nvim"
+alias n ="nvim"
+
+# bash
+alias acbsh="source ~/.bashrc"
+alias acv="source ~/.vimrc"
+
+
+
