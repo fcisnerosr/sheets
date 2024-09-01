@@ -90,8 +90,8 @@ let g:floaterm_keymap_next   = '<leader>fn'
 " Reprogramar la combinación de teclas para salir del modo terminal
 tnoremap <C-t> <C-\><C-n>
 
-" para pegar con y en lugar de "+yy
-nmap <Leader>y "+y
+" Copiar al portapapeles del sistema
+nnoremap <Leader>yy "+yy   " Espacio + yy copia la línea actual al portapapeles del sistema
 
 " para pegar con p en lugar de "+p
 nmap <Leader>p "+p
