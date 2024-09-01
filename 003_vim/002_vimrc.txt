@@ -123,4 +123,5 @@ nnoremap <Leader>G G$       " Ir al final del documento
 nnoremap <Leader>gf vG$     " Seleccionar desde la posición actual hasta el final del documento
 nnoremap <Leader>gt gg0vG$  " Seleccionar todo el documento, sin importar dónde esté el cursor
 
-
+" Atajo para elimiar las M al final
+nnoremap <Leader>m :%s/\r//g<CR>
