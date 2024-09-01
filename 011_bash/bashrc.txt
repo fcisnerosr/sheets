@@ -171,6 +171,8 @@ alias esc="setxkbmap -option caps:escape"
 # vim
 alias v ="nvim"
 alias n ="nvim"
+alias vi="nvim"
+alias vim="nvim"
 
 # bash
 alias acbsh="source ~/.bashrc"
