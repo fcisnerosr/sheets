@@ -78,9 +78,6 @@ autocmd BufEnter * checktime
 " Mostrar un mensaje cuando el archivo se ha recargado
 autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-" Mapas de teclado para copiar al portapapeles
-vmap <Leader>y "+y
-
 " Mapeo para abrir la terminal en nvim
 nmap <Leader>tt :FloatermNew<CR>
 
@@ -93,8 +90,11 @@ let g:floaterm_keymap_next   = '<leader>fn'
 " Reprogramar la combinación de teclas para salir del modo terminal
 tnoremap <C-t> <C-\><C-n>
 
-" para pegar con yy en lugar de "+yy _
-nmap <Leader>yy "+yy
+" para pegar con y en lugar de "+yy
+nmap <Leader>y "+y
+
+" para pegar con p en lugar de "+p
+nmap <Leader>p "+p
 
 " LA SIGUIENTE CONFIGURACION SOLO ES PARA LUBUNTU
 " NUNCA BORRAR ESTO DE LUBUNTU
@@ -157,8 +157,21 @@ let g:NERDToggleCheckAllLines = 1
 "    pythonx with open(activate_this) as f: exec(f.read(), {'__file__': activate_this})
 "endif
 
-call plug#end()
-all plug#end()
+" Atajos
+" Ir al inicio del documento
+nnoremap <Leader>gg gg0     " Espacio + gg te lleva al inicio del documento (primer carácter de la primera línea)
 
+" Ir al final del documento
+nnoremap <Leader>G G$       " Espacio + G te lleva al final del documento (último carácter de la última línea)
+
+" Seleccionar desde la posición actual hasta el final del documento
+nnoremap <Leader>gf vG$     " Espacio + gf selecciona todo desde la posición actual hasta el final del documento
+
+" Seleccionar todo el documento
+nnoremap <Leader>gt gg0vG$  " Espacio + gt selecciona todo el documento, sin importar dónde esté el cursor
+
+
+
+call plug#end()
 
 
