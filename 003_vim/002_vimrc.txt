@@ -1,4 +1,4 @@
-"  Establecer la tecla líder como espacio 
+" Establecer la tecla líder como espacio 
 let mapleader=" "
 
 " Configuración básica
@@ -28,7 +28,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'preservim/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'voldikss/vim-floaterm'
-
+Plug 'rickhowe/diffchar.vim'
 call plug#end()
 
 " Configuración del tema
@@ -143,7 +143,7 @@ let g:NERDToggleCheckAllLines = 1
 "if has('nvim')
     "let g:python3_host_prog = '/path/to/python/bin/python3'
 "else
-    "set pyxversion=3
+"    set pyxversion=3
 "endif
 
 "let g:python3_host_prog = '/usr/bin/python3'
@@ -152,9 +152,13 @@ let g:NERDToggleCheckAllLines = 1
 " environment is loaded in the shell from which vim is launched
 "let g:vim_virtualenv_path = '/path/to/my/new/vim_virtualenv'
 "if exists('g:vim_virtualenv_path')
-    "pythonx import os; import vim
-    "pythonx activate_this = os.path.join(vim.eval('g:vim_virtualenv_path'), 'bin/activate_this.py')
-    "pythonx with open(activate_this) as f: exec(f.read(), {'__file__': activate_this})
+"    pythonx import os; import vim
+"    pythonx activate_this = os.path.join(vim.eval('g:vim_virtualenv_path'), 'bin/activate_this.py')
+"    pythonx with open(activate_this) as f: exec(f.read(), {'__file__': activate_this})
 "endif
 
 call plug#end()
+all plug#end()
+
+
+
