@@ -129,9 +129,29 @@ orden de comandos a ejecutar para llevar a camo correctamente el rebase
 `git branch -d experimento`                   elimina la rama `experimento` localmente, quitando evidencia de los cambios experimentales.
 `git push origin main --force-with-lease`     actualiza la rama `main` en el remoto, forzando el push debido a los cambios en el historial.
 
+_Stash: guardados temporales_
+`git stash`                       guarda temporalmente en el working directory y el staging area sin commitear los cambios. Después de ejecutarlo, regresa los archivos cambiados al último commit guardado.
+`git stash list`                  muestra todos los stashes realizados. Nota: son cambios realizados enlistados que no necesariamente tienen que estar conectados, ya que cuando se realiza un stash lo guardado regresa al estado original de otro commit.
+`git stash pop`                   aplica los cambios guardados en el stash más reciente en el working directory y el stash aplicado se elimina automáticamente.
+`git stash branch <rama>`         crea una nueva rama, aplica el stash más reciente a esta nueva rama y elimina dicho stash de la lista de stashes.
+_Flujo de trabajo con git stash_
+Estas trabajando en una rama llamada dev
+1. `Estás trabajando en una rama llamada dev`       Describe que te encuentras en la rama `dev`.
+2. `Cambios en la rama actual`                      Realizas cambios en la rama `dev`.
+3. `git stash`                                      Guarda los cambios sin commitear y limpia el working directory para permitir cambiar de rama.
+4. `git checkout main`                              Cambias a la rama `main` para realizar otra tarea urgente.
+5. `Realizas con cambios necesarios y después`      Realizas los cambios urgentes en `main` y luego...
+6. `git commit -am "Se resuelve un problema urgente en main"`  Commit de esos cambios en la rama `main`.
+7. `git checkout dev`                               Regresas a la rama `dev` para continuar con tu trabajo original.
+8. `git stash pop`                                  Recupera los cambios guardados en el stash y los aplica en la rama `dev`.
+9. `En caso de haber conflictos:`                   Si hay conflictos, resuelve manualmente.
+    Abre los archivos conflictivos, resuelve los conflictos, y luego..
+    `git add archivos_resueltos`                     Marca los archivos con conflictos como resueltos.
+    `git stash pop --continue`                       Continúa aplicando el stash después de resolver los conflictos.
+    `Se continúa trabajando en la rama dev`          Vuelves a trabajar en la rama `dev` con todos los cambios aplicados.
+
 _Alias a nivel global_
 `git config --global alias.NOMBRE_ALIAS 'COMANDO_DEL_ALIAS'` Configuración de alias a nivel global
-Ejemplo:
 `git config --global alias.logg "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"` Configuración de un alias global de super log renombrado como 'git logg'. _Sin embargo un git debe ser agregado antes del alias para que funcione, es recomendable mejor modificar el archivo .bashrc_
 Ejemplo:
 `alias glgg="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"`

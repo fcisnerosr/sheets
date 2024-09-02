@@ -179,6 +179,11 @@ alias acbsh="source ~/.bashrc && conda deactivate && clear"
 alias acv="source ~/.vimrc"
 alias evimrc="nvim ~/.vimrc"
 alias ebash="nvim ~/.vimrc"
+# Define the function cdd
+# cdd() {
+#    cd "$1" || return
+#    ls
+#}
 
 
 
