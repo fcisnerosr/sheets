@@ -42,4 +42,16 @@ array = np.array([[1,2,3],[4,5,6]])
 `mean = np.mean(array)`          Calcula la media de todos los elementos de un array.
 `std = np.std(array)`            Calcula la desviación estándar de todos los elementos de un array.
 
+_Indexación y Slicing_
+`array = np.array([10, 20, 30, 40, 50])`          Declara un array unidimensional con los elementos 10, 20, 30, 40, y 50.
+`print(array[0:2+1])`                             Imprime los primeros tres elementos del array (índices 0 a 2).
+`print(array[-1])`                                Imprime el último elemento del array.
+`bool_index = array > 25`                         Crea un array booleano donde cada elemento indica si es mayor que 25.
+`print(bool_index)`                               Imprime el array booleano resultante.
+`print(type(bool_index))`                         Imprime el tipo de dato del array booleano (`numpy.ndarray`).
+
+`array = np.random.randint(1,10,size=(3,3))`      Crea una matriz 3x3 con enteros aleatorios entre 1 y 9.
+`print(array)`                                    Imprime la matriz generada.
+`print(array[0,1])`                               Imprime el elemento en la fila 0, columna 1 de la matriz.
+`print(array[:3,:2])`                             Imprime los primeros 3 elementos de cada una de las primeras 2 columnas.
 
