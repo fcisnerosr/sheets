@@ -79,5 +79,5 @@ ls [:alpha:]*           enlista los archivos y directorios que empiezan con cual
 `ls sheets >> lista.txt`  redirige el output a un archivo al final de un archivo ya creado
 
 _Link simbolico_
-`ln -s ~/ruta`          genera un acceso directo para ingresar a una carpeta
+`ln -s ~/ruta`          genera un acceso directo para ingresar a una carpeta.
 
