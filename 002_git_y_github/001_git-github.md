@@ -134,6 +134,7 @@ _Stash: guardados temporales_
 `git stash list`                  muestra todos los stashes realizados. Nota: son cambios realizados enlistados que no necesariamente tienen que estar conectados, ya que cuando se realiza un stash lo guardado regresa al estado original de otro commit.
 `git stash pop`                   aplica los cambios guardados en el stash más reciente en el working directory y el stash aplicado se elimina automáticamente.
 `git stash branch <rama>`         crea una nueva rama, aplica el stash más reciente a esta nueva rama y elimina dicho stash de la lista de stashes.
+
 _Flujo de trabajo con git stash_
 Estas trabajando en una rama llamada dev
 1. `Estás trabajando en una rama llamada dev`       Describe que te encuentras en la rama `dev`.
@@ -149,6 +150,13 @@ Estas trabajando en una rama llamada dev
     `git add archivos_resueltos`                     Marca los archivos con conflictos como resueltos.
     `git stash pop --continue`                       Continúa aplicando el stash después de resolver los conflictos.
     `Se continúa trabajando en la rama dev`          Vuelves a trabajar en la rama `dev` con todos los cambios aplicados.
+
+_Git clean, eliminar archivos nuevos_
+`git clean -n`                    Muestra los archivos nuevos no rastreados por Git que podrían ser eliminados del working directory.
+`git clean -f`                    Elimina los archivos no rastreados definitivamente.
+`git clean -fd`                   Elimina tanto archivos como directorios nuevos no rastreados definitivamente.
+`git clean -X`                    Elimina solo archivos ignorados por Git definitivamente.
+`git clean -x`                    Elimina todos los archivos no rastreados definitivamente.
 
 _Alias a nivel global_
 `git config --global alias.NOMBRE_ALIAS 'COMANDO_DEL_ALIAS'` Configuración de alias a nivel global
