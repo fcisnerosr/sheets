@@ -2,7 +2,7 @@
 
 ## Primeros pasos
 ### Comandos
-`type`     devuelve el informacion de un comando. Puede indicar si un comando es orden interna de shell, función de shell, alias o una programa ejecutable
+`type`     devuelve el informacion de un comando. Puede indicar si un comando es orden interna de shell, función de shell, alias o una programa ejecutable.
 
 _Anatomía de CLI (Command Line Interface)_
 `$ rm -rf directory`
