@@ -164,6 +164,8 @@ alias gpsh="git pull && git push"
 alias config="/usr/bin/git --git-dir=$HOME/.config-files/ --work-tree=$HOME" # Turns my home in a git repo
 alias ginit="git init;touch README.md; git add README.md;git commit -m 'first commit';git branch -M main"
 alias glgg="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+alias cko="git checkout"
+alias crea="git switch -c"
 
 # bloq mayus = esc en linux
 alias esc="setxkbmap -option caps:escape"
