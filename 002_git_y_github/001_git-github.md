@@ -67,6 +67,11 @@ _Tag y versiones en Github_
 `git tag -d <tag>`                              Borrado local de un tag
 `git push origin :refs/tag/<tag>`               Borrado de un tag en Github
 
+_git commit --amdnd, corregir commits_
+`git commit --amend`            Permite reescribir y adicionar nuevos archivos al último commit.
+`git add archivo-olvidado.py`   En caso de olvidar adicionar un archivo.
+`git commit --amend`            Actualiza el último commit con el archivo olvidado.
+
 _Colaboración con múltiples usuarios_
 *En caso de ser el usario propietario del repositorio remoto*
 - En los settings del repositorio remoto en Github. _Settings/Collaborators_ y adicionamos el correo del usuario asociado a Github, pero en caso de que no sea público su email, puede ser con su usuario de Github
@@ -120,7 +125,7 @@ _Fork a un proyecto Open Source. Fork de una característica de Github_
         - Pull requests/verificar los cambios en "Files changed"/Review changes/Mensaje de agradecimiento/Approve/Merge pull request/Confirm merge
 
 _Malas prácticas_
-_Rebase: viene de "rebasear", de volver a crear una base para una serie de commits_
+_rebase: viene de "rebasear", de volver a crear una base para una serie de commits_
 Orden de comandos a ejecutar para llevar a camo correctamente el rebase
 `git checkout experimento`                    cambia a la rama `experimento` donde harás cambios experimentales que no quieres que se vean directamente en `main`.
 `git commit -am "Cambios experimentales"`     realiza y guarda los cambios en `experimento` con un commit.
@@ -128,11 +133,17 @@ Orden de comandos a ejecutar para llevar a camo correctamente el rebase
 `git rebase experimento`                      rebasea la rama `main` con los cambios de `experimento`, aplicándolos de manera "silenciosa" sin crear un merge commit.
 `git branch -d experimento`                   elimina la rama `experimento` localmente, quitando evidencia de los cambios experimentales.
 `git push origin main --force-with-lease`     actualiza la rama `main` en el remoto, forzando el push debido a los cambios en el historial.
-_Cherry-pick: traer commits antiguas al head del branch_
+_cherry-pick: traer commits antiguas al head del branch_
 Desde la rama main (o desde la rama al cual se le quiera aplicar el commit mediante el cherry-pick)
 `git cherry-pick <no. commit>`                        aplica uno o más commits específicos de una rama a otra, sin fusionar toda la rama a diferencia del merge tradicional.
 `git cherry-pick <commit-hash-1> <commit-hash-2> <commit-hash-3>` aplica los cambios de commits no consecutivos.
 `git cherry-pick <commit-hash-inicial>^..<commit-hash-final>` aplica los cambios de commits consecutivos.
+_git reflog, recuperar lo perdido_
+`git reflog`                 Muestra un historial detallado de todas las referencias de HEAD, incluyendo commits, merges, resets y rebase.
+`git reset --hard HEAD@{1}`  Mueve el repositorio al commit anterior al actual (según el historial de HEAD), eliminando el commit actual y todos los cambios no guardados. HEAD@{1} significa "el estado de HEAD justo antes de la última acción registrada". Básicamente, es el commit anterior al actual. Si usas HEAD@{2}, te moverías dos acciones hacia atrás en el reflog.
+`git reset --hard HEAD`      Restablece el repositorio al commit actual, eliminando cualquier cambio no committeado en el working directory pero sin modificar la posición de HEAD.
+`git reset --hard <no.commit>` Restablece todo hasta este número de commit en caso de no regresar los archivos borrados.
+`git reset --soft`           Hace lo mismo que los anteriores pero conserva lo guardado en el staging area. Este comando es poco usado.
 
 _Stash: guardados temporales_
 `git stash`                       guarda temporalmente en el working directory y el staging area sin commitear los cambios. Después de ejecutarlo, regresa los archivos cambiados al último commit guardado.
@@ -156,12 +167,12 @@ Estas trabajando en una rama llamada dev
     `git stash pop --continue`                       Continúa aplicando el stash después de resolver los conflictos.
     `Se continúa trabajando en la rama dev`          Vuelves a trabajar en la rama `dev` con todos los cambios aplicados.
 
-_Git clean, eliminar archivos nuevos_
-`git clean -n`                    Muestra los archivos nuevos no rastreados por Git que podrían ser eliminados del working directory.
-`git clean -f`                    Elimina los archivos no rastreados definitivamente.
-`git clean -fd`                   Elimina tanto archivos como directorios nuevos no rastreados definitivamente.
-`git clean -X`                    Elimina solo archivos ignorados por Git definitivamente.
-`git clean -x`                    Elimina todos los archivos no rastreados definitivamente.
+_git clean, eliminar archivos nuevos_
+`git clean -n`    Muestra los archivos nuevos no rastreados por Git que podrían ser eliminados del working directory.
+`git clean -f`    Elimina los archivos no rastreados definitivamente.
+`git clean -fd`   Elimina tanto archivos como directorios nuevos no rastreados definitivamente.
+`git clean -X`    Elimina solo archivos ignorados por Git definitivamente.
+`git clean -x`    Elimina todos los archivos no rastreados definitivamente.
 
 _Alias a nivel global_
 `git config --global alias.NOMBRE_ALIAS 'COMANDO_DEL_ALIAS'` Configuración de alias a nivel global

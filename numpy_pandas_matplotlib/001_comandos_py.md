@@ -43,15 +43,37 @@ array = np.array([[1,2,3],[4,5,6]])
 `std = np.std(array)`            Calcula la desviación estándar de todos los elementos de un array.
 
 _Indexación y Slicing_
+- Indexación
 `array = np.array([10, 20, 30, 40, 50])`          Declara un array unidimensional con los elementos 10, 20, 30, 40, y 50.
 `print(array[0:2+1])`                             Imprime los primeros tres elementos del array (índices 0 a 2).
 `print(array[-1])`                                Imprime el último elemento del array.
 `bool_index = array > 25`                         Crea un array booleano donde cada elemento indica si es mayor que 25.
 `print(bool_index)`                               Imprime el array booleano resultante.
 `print(type(bool_index))`                         Imprime el tipo de dato del array booleano (`numpy.ndarray`).
-
+- Slicing
 `array = np.random.randint(1,10,size=(3,3))`      Crea una matriz 3x3 con enteros aleatorios entre 1 y 9.
-`print(array)`                                    Imprime la matriz generada.
 `print(array[0,1])`                               Imprime el elemento en la fila 0, columna 1 de la matriz.
 `print(array[:3,:2])`                             Imprime los primeros 3 elementos de cada una de las primeras 2 columnas.
+
+_Broadcasting, operadores lógicos y concatenaciones_
+- Broadcasting
+Aunque dos conjuntos no tengan las mismas dimensiones, es posible hacer operaciones entre ellos.
+`prices = np.random.randint(100,500,size=(3,3))`      Matriz de números aleatorios entre 100 y 500 de tamaño 3x3.
+`discount = np.array([10, 20, 30])`                   Declara un vector de 1x3.
+`new_prices = prices + discount`                      Realiza una operación de tensores, sumando un vector a una matriz aunque no tengan la misma dimensión.
+
+- Operadores lógicos
+`array = np.array([1, 2, 3, 4, 5])`                   Declara un array unidimensional con los elementos 1, 2, 3, 4 y 5.
+`print(np.all(array > 3))`                            Imprime si todos los elementos del array son mayores que 3.
+`print(np.any(array > 3))`                            Imprime si al menos un elemento del array es mayor que 3.
+
+- Concatenaciones
+`array_a = np.array([1, 2, 3])`                       Declara un array unidimensional con los elementos 1, 2 y 3.
+`array_b = np.array([4, 5])`                          Declara otro array unidimensional con los elementos 4 y 5.
+`concatenated = np.concatenate((array_a, array_b))`   Concatena los arrays `array_a` y `array_b` en un solo array.
+`print(concatenated)`                                 Imprime el array concatenado.
+
+
+
+
 

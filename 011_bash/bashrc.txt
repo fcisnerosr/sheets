@@ -182,6 +182,7 @@ alias acbsh="source ~/.bashrc"
 alias acv="source ~/.vimrc"
 alias evimrc="nvim ~/.vimrc"
 alias ebash="nvim ~/.vimrc"
+alias cd..="cd .."
 function k() {
   eval $(history -p '!!')
 }
