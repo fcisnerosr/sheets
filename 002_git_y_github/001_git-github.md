@@ -174,6 +174,13 @@ _git clean, eliminar archivos nuevos_
 `git clean -X`    Elimina solo archivos ignorados por Git definitivamente.
 `git clean -x`    Elimina todos los archivos no rastreados definitivamente.
 
+_Busquedas con grep_
+`git grep <palabra>`                          Busca la palabra a buscar dentro de todo el repositorio.
+`git grep -n <palabra>`                       Busca el archivo y la línea donde se encuentre dicha palabra.
+`git grep -c <palabra>`                       Busca en cuántas líneas y en qué archivos se repite la palabra a buscar.
+`git log --oneline --grep="palabra"`          Busca dentro del log, la palabra sin remarcarla.
+`git log --oneline | grep --color=auto -i "palabra"`  Busca dentro del log y la palabra sí la remarca.
+
 _Alias a nivel global_
 `git config --global alias.NOMBRE_ALIAS 'COMANDO_DEL_ALIAS'` Configuración de alias a nivel global
 `git config --global alias.logg "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"` Configuración de un alias global de super log renombrado como 'git logg'. _Sin embargo un git debe ser agregado antes del alias para que funcione, es recomendable mejor modificar el archivo .bashrc_
