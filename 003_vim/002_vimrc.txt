@@ -125,3 +125,9 @@ nnoremap <Leader>gt gg0vG$  " Seleccionar todo el documento, sin importar dónde
 
 " Atajo para elimiar las M al final
 nnoremap <Leader>m :%s/\r//g<CR>
+
+" Atajos para borrar
+" Borrar un carácter a la izquierda usando 'f'
+nnoremap f hxh
+" Borrar un carácter a la derecha usando 'j'
+nnoremap j lx
