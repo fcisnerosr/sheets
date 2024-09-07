@@ -130,4 +130,4 @@ nnoremap <Leader>m :%s/\r//g<CR>
 " Borrar un carácter a la izquierda usando 'f'
 nnoremap f hxh
 " Borrar un carácter a la derecha usando 'j'
-nnoremap j lx
+nnoremap ñ lx

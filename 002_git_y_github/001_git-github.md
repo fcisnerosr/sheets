@@ -29,13 +29,17 @@ _Comandos básicos_
 `git checkout`                     traer los últimos cambios hacia mi carpeta
 
 _Ramas_
-`git switch -c rama-nueva`  crear y ubicarse en la rama master en un solo paso
-`git checkout <rama>`       cambio a la otra rama
-`git merge rama1`           fusión de rama1 a rama2, desde rama1
-`git merge --abort`         revertir un merge realizado
-`git show-branch`           muestra el estado de las ramas en local
-`git show-branch -all`      muestra el estado de las ramas en local y en remoto
-`git branch -d <rama>`      elimina la rama localmente
+
+`git branch`                   Muestra las ramas locales.
+`git branch -r`                Muestra las ramas remotas que existen en el servidor remoto y han sido descargadas localmente. Excluye ramas locales que no estén en remoto.
+`git branch -a`                Muestra todas las ramas, tanto las locales como las remotas. En blanco las locales, en remoto las remotas y en asteriscos la rama actual.
+`git switch -c rama-nueva`     Crea y se ubica en la rama nueva en un solo paso.
+`git checkout <rama>`          Cambia a la otra rama.
+`git merge rama1`              Fusiona la rama1 con la rama actual (debes estar ubicado en la rama destino).
+`git merge --abort`            Revertir un merge realizado en caso de conflicto o error.
+`git show-branch`              Muestra el estado de las ramas en local.
+`git show-branch --all`        Muestra el estado de las ramas en local y en remoto.
+`git branch -d <rama>`         Elimina la rama localmente.
 
 _Configuraciones para Github_
  `git config -l`                                develve los datos básicos de email user.name el log y el editor (vim)
@@ -180,6 +184,12 @@ _Busquedas con grep_
 `git grep -c <palabra>`                       Busca en cuántas líneas y en qué archivos se repite la palabra a buscar.
 `git log --oneline --grep="palabra"`          Busca dentro del log, la palabra sin remarcarla.
 `git log --oneline | grep --color=auto -i "palabra"`  Busca dentro del log y la palabra sí la remarca.
+
+_Comandos y recursos colaborativos_
+git shortlog muestra los logs separados con comentarios por cada miembro del equipo que colaboró en el repositorio
+git shortlog -sn muestra una lista de corta de cuántos commits ha hecho cada miembro. Excluyendo los comentarios
+git shortlog -sn --all --no-merges muestra una lista de corta de cuántos commits ha hecho cada miembro. Excluyendo los comentarios
+git blame archivo.py -L35,60 -c muestra quién, que día y hora hizo los últimos cambios en cada línea de un archivo.py de la línea 35 a 60
 
 _Alias a nivel global_
 `git config --global alias.NOMBRE_ALIAS 'COMANDO_DEL_ALIAS'` Configuración de alias a nivel global
