@@ -71,9 +71,10 @@ Aunque dos conjuntos no tengan las mismas dimensiones, es posible hacer operacio
 `array_a = np.array([1, 2, 3])`                       Declara un array unidimensional con los elementos 1, 2 y 3.
 `array_b = np.array([4, 5])`                          Declara otro array unidimensional con los elementos 4 y 5.
 `concatenated = np.concatenate((array_a, array_b))`   Concatena los arrays `array_a` y `array_b` en un solo array.
-`print(concatenated)`                                 Imprime el array concatenado.
-
-
+`satecked_v = np.vstack((array_a, array_b))`          Concatena verticalmente los arrays `array_a` y `array_b`.
+`stacked_h = np.hstack((array_a, array_b))`           Concatena horizontalmente los arrays `array_a` y `array_b`.
+`array_c = np.arange(1, 15+1)`                        Genera un vector fila con valores desde 1 hasta 15.
+`split_array = np.split(array_c, 5)`                  Divide el array `array_c` en 5 partes, creando arrays más pequeños de tamaño `len(array_c)/5`.
 
 
 
