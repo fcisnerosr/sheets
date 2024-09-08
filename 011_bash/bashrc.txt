@@ -186,6 +186,7 @@ alias cd..="cd .."
 function k() {
   eval $(history -p '!!')
 }
+alias sus="systemctl suspend"
 
 # Define the function cdd
 #cdd() {
