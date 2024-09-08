@@ -12,7 +12,7 @@
 _Objetivo: aislar los proyectos de python para que tengan su propias versiones de dependencias, es decir, librerías o paquetes. De modo que se crea su propio ambiente con el cual fue creado para evitar problemas a futuro de versiones más recientes de las dependencias._
 `sudo apt install -y python3-venv`  Paquete que instala las herramientas necesarias para crear entornos virtuales
 `python3 -m venv env`  Crea un entorno virtual _venv_ llamado "env" en el directorio actual
-`pip install --upgrade pip setuptools wheelpython3 -m venv env`  Crea un entorno virtual _venv_ llamado "env" en el directorio actual
+`pip install --upgrade pip setuptools wheel` En caso de tener problemas, actualizar el gestor de paquetes de entornos virtuales 
 
 
 `source env/bin/activate`  Activa el venv env
