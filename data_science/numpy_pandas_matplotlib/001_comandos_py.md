@@ -51,6 +51,7 @@ _Indexación y Slicing_
 `print(bool_index)`                               Imprime el array booleano resultante.
 `print(type(bool_index))`                         Imprime el tipo de dato del array booleano (`numpy.ndarray`).
 - Slicing
+_array[inicio:fin:paso] estructura de slicing_
 `array = np.random.randint(1,10,size=(3,3))`      Crea una matriz 3x3 con enteros aleatorios entre 1 y 9.
 `print(array[0,1])`                               Imprime el elemento en la fila 0, columna 1 de la matriz.
 `print(array[:3,:2])`                             Imprime los primeros 3 elementos de cada una de las primeras 2 columnas.
@@ -61,12 +62,10 @@ Aunque dos conjuntos no tengan las mismas dimensiones, es posible hacer operacio
 `prices = np.random.randint(100,500,size=(3,3))`      Matriz de números aleatorios entre 100 y 500 de tamaño 3x3.
 `discount = np.array([10, 20, 30])`                   Declara un vector de 1x3.
 `new_prices = prices + discount`                      Realiza una operación de tensores, sumando un vector a una matriz aunque no tengan la misma dimensión.
-
 - Operadores lógicos
 `array = np.array([1, 2, 3, 4, 5])`                   Declara un array unidimensional con los elementos 1, 2, 3, 4 y 5.
 `print(np.all(array > 3))`                            Imprime si todos los elementos del array son mayores que 3.
 `print(np.any(array > 3))`                            Imprime si al menos un elemento del array es mayor que 3.
-
 - Concatenaciones
 `array_a = np.array([1, 2, 3])`                       Declara un array unidimensional con los elementos 1, 2 y 3.
 `array_b = np.array([4, 5])`                          Declara otro array unidimensional con los elementos 4 y 5.
@@ -93,7 +92,17 @@ _Realización de una copia para evitar modificaciones no deseadas_
 `print(copy_x)`                Imprime los valores originales de `copy_x` (no modificados), ya que se hizo una copia y no una vista.
 
 _Transpuesta y reformar matrices_
-matrix = np.array([[1,2],[4,5],[6,9]]) asigna una matriz de 3 x 2
-matrixT = matrix.T  tranpone ma matriz pasándola de 2 x 3
-A = np.arange(1,50+1) asigna un vector que va desde el 1 hasta el 50
-reshaped_A = A.reshape(5,10)
+`matrix = np.array([[1,2],[4,5],[6,9]])`    Asigna una matriz de 3 x 2.  
+`matrixT = matrix.T`                        Transpone la matriz, pasándola de 3x2 a 2x3.  
+`A = np.arange(1,50+1)`                     Asigna un vector que va desde el 1 hasta el 50.  
+`reshaped_A = A.reshape(5,10)`              Cambia la forma del array a una matriz de 5x10 sin alterar sus datos. Reorganiza los elementos del array original en una nueva estructura dimensional.
+_Reverse_  
+`vector = np.arange(9+1)`                   Crea un vector desde 0 hasta 9, con una longitud de 10.  
+`reversed_vector = vector[::-1]`            Invierte el orden de los elementos del vector.  
+`reversed_vector = np.flip(vector)`         Alternativa para invertir el orden de los elementos de un array.
+_Flattening_  
+`matrix = np.array([[1,2,3,4,5],[6,7,8,9,10],[11,12,13,14,15]])`  Crea una matriz de 3 filas y 5 columnas.  
+`flattened_matrix = matrix.flatten()`            Aplana la matriz, convirtiéndola en un array unidimensional.
+
+
+
