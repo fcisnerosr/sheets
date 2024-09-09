@@ -77,9 +77,8 @@ Aunque dos conjuntos no tengan las mismas dimensiones, es posible hacer operacio
 `split_array = np.split(array_c, 5)`                  Divide el array `array_c` en 5 partes, creando arrays más pequeños de tamaño `len(array_c)/5`.
 
 _Elementos únicos y sus conteos_
-np.unique(survey_responses)  del array survey_responses devuelve todos los elementos sin repetir del array
-unique_elements, counts = np.unique(survery_responses,return_counts=True) asigna la variable con todos elemenetos sin repetir y sus frecuencias
-
+`np.unique(survey_responses)`                            Del array `survey_responses`, devuelve todos los elementos sin repetir del array.  
+`unique_elements, counts = np.unique(survey_responses, return_counts=True)`  Asigna a `unique_elements` todos los elementos sin repetir y a `counts` las frecuencias de cada uno.
 
 _Copias y listas_
 _Modificación de vista de un array_  
@@ -93,4 +92,8 @@ _Realización de una copia para evitar modificaciones no deseadas_
 `array_x[0:1+1] = [10,10]`     Asigna los valores 10 a los dos primeros elementos de `array_x`.  
 `print(copy_x)`                Imprime los valores originales de `copy_x` (no modificados), ya que se hizo una copia y no una vista.
 
-
+_Transpuesta y reformar matrices_
+matrix = np.array([[1,2],[4,5],[6,9]]) asigna una matriz de 3 x 2
+matrixT = matrix.T  tranpone ma matriz pasándola de 2 x 3
+A = np.arange(1,50+1) asigna un vector que va desde el 1 hasta el 50
+reshaped_A = A.reshape(5,10)
