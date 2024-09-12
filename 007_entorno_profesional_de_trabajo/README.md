@@ -1,3 +1,17 @@
+Personalizacion avanzada
+- Plantilas de entorno de trabajo personalizadas para análisis y modelos. Crear un sistema de carpetas y archivos que se repliquen de manera automática
+- Aprender a desarrollar proyectos para múltiples plataformas.
+_Medio por el cual se porta o construye un diseño predefinido a fin de agilizar el trabajo_
+
+_Cookicutter_
+Detecta na sintaxis expecial en una serie de documentos o archivos, dichos documentos pueden estar en local en el repositorio remoto.
+Cookicutter usa el lenguaje jinja, que es un legnguaje simiar a python
+
+
+
+_Instalación_
+conda config --add channels conda-forge instalacion mediante conda-forge. Cookie-cutter se encuentra en el canal global de forge de conda
+
 // En Cookiecutter el .md es un archivo que sera usado como plantilla, no solo es un archivo informativo
 # {{ cookiecutter.project_title }}
 // Esta línea crea un encabezado principal con el título del proyecto. 
