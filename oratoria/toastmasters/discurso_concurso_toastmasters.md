@@ -5,7 +5,7 @@ Gancho:
 Necesidad:
 Hoy, más que nunca, vivimos en un mundo donde el entretenimiento está al alcance de un solo dedo. Las redes sociales, los videos cortos y las notificaciones constantes nos ofrecen una gratificación instantánea. Y aunque parece inofensivo, esta sobreexposición a estímulos ha tenido un costo muy alto: hemos perdido la capacidad de sentirnos aburridos. Nos aterra el vacío de no hacer nada, cuando en realidad, el aburrimiento ha sido históricamente el motor de la curiosidad humana.
 
-Cuando nos damos el espacio de estar aburridos, nuestra mente comienza a divagar, a crear, a imaginar y a cuestionarnos a nosotros mismos. Sin ese espacio, simplemente nos convertimos en consumidores pasivos de contenido infinito, incapaces de desarrollar nuevas habilidades, de sumergirnos en la lectura profunda o incluso de conocer a personas nuevas que puedan enriquecer nuestras vidas en todos los aspectos. 
+Cuando nos damos el espacio de estar aburridos, nuestra mente comienza a divagar, a crear, a imaginar y a cuestionarnos a nosotros mismos. Sin ese espacio, simplemente nos convertimos en consumidores pasivos de contenido infinito, incapaces de desarrollar nuevas habilidades, de sumergirnos en la lectura profunda o incluso de conocer a personas nuevas que puedan enriquecer nuestras vidas. 
 
 Solución:
 "¿Cuándo fue la última vez que te sentaste a leer un libro sin interrupciones, o que decidiste aprender una nueva habilidad por el simple placer de hacerlo? ¿Cuándo fue la última vez que tuviste una conversación profunda y real con alguien sin mirar tu teléfono cada pocos minutos? El tiempo que dedicamos a nuestros celulares podría ser tiempo para reinventarnos, para aprender, para conectar de verdad con quienes nos rodean.
