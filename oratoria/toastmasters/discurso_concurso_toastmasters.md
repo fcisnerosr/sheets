@@ -3,7 +3,7 @@ Gancho:
 "Cada minuto que pasas en tu celular es un minuto que le robas a la vida. Mientras deslizas tu dedo por la pantalla, ¿alguna vez te has preguntado qué podrías estar perdiendo? ¿Qué oportunidades, qué habilidades, qué relaciones podrías haber construido?"
 
 Necesidad:
-Hoy, más que nunca, vivimos en un mundo donde el entretenimiento está al alcance de un solo dedo. Las redes sociales, los videos cortos y las notificaciones constantes nos ofrecen una gratificación instantánea. Y aunque parece inofensivo, esta sobreexposición a estímulos ha tenido un costo muy alto y no nos hemos dado cuenta: hemos perdido la capacidad de sentirnos aburridos. Nos aterra el vacío de no hacer nada, cuando en realidad, el aburrimiento ha sido históricamente el motor de la curiosidad humana.
+Hoy, más que nunca, vivimos en un mundo donde el entretenimiento está al alcance de un solo dedo. Las redes sociales, los videos cortos y las notificaciones constantes nos ofrecen una gratificación instantánea. Y aunque parece inofensivo, esta sobreexposición a estímulos ha tenido un costo muy alto: hemos perdido la capacidad de sentirnos aburridos. Nos aterra el vacío de no hacer nada, cuando en realidad, el aburrimiento ha sido históricamente el motor de la curiosidad humana.
 
 Cuando nos damos el espacio de estar aburridos, nuestra mente comienza a divagar, a crear, a imaginar y a cuestionar nuestras propias dicisiones y proyectos. Sin ese espacio, simplemente nos convertimos en consumidores pasivos de contenido infinito, incapaces de desarrollar nuevas habilidades, de sumergirnos en la lectura profunda o incluso de conocer a personas nuevas que puedan enriquecer nuestras vidas en todos los aspectos. Amorosa, familiar y la oral por supuesto"
 
