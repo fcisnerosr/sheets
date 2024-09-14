@@ -101,7 +101,7 @@ _Reverse_
 `reversed_vector = vector[::-1]`            Invierte el orden de los elementos del vector.  
 `reversed_vector = np.flip(vector)`         Alternativa para invertir el orden de los elementos de un array.
 _Flattening_  
-`matrix = np.array([[1,2,3,4,5],[6,7,8,9,10],[11,12,13,14,15]])`  Crea una matriz de 3 filas y 5 columnas.  
+`matrix = np.array([[1,2,3,4,5],[6,7,8,9,10],[11,12,13,14,15]])`  crea una matriz de 3 filas y 5 columnas.  
 `flattened_matrix = matrix.flatten()`            Aplana la matriz, convirtiéndola en un array unidimensional.
 
 
