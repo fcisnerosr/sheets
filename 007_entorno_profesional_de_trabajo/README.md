@@ -7,8 +7,6 @@ _Cookicutter_
 Detecta na sintaxis expecial en una serie de documentos o archivos, dichos documentos pueden estar en local en el repositorio remoto.
 Cookicutter usa el lenguaje jinja, que es un legnguaje simiar a python
 
-
-
 _Instalación_
 conda config --add channels conda-forge instalacion mediante conda-forge. Cookie-cutter se encuentra en el canal global de forge de conda
 

@@ -1,0 +1,34 @@
+# Configuración de environment.yml en Cookiecutter
+# Archivo de configuración que especifica cómo debe ser creado el entorno mediante Conda
+# Define el entorno y los paquetes que deben ser instalados y los canales de donde serán descargados
+
+# Establece el nombre del entorno usando una variable de cookiecutter para personalización
+name: {{ cookiecutter.project_slug }}
+
+# Lista de canales desde donde buscar los paquetes
+channels:
+  - anaconda       # Canal anaconda con paquetes optimizados para ciencia de datos
+  - conda-forge    # Canal comunitario con paquetes actualizados
+  - defaults       # Canal predeterminado de conda con paquetes estables
+
+# Lista de dependencias que se instalarán en el entorno
+dependencies:
+  {% if cookiecutter.project_packages == "all" %}
+    - fs             # Sistema de archivos abstracto para Python
+    - jupyter        # Ejecuta notebooks de Jupyter, útil para análisis interactivo
+    - jupyterlab     # Interfaz mejorada para trabajar con notebooks Jupyter
+    - pathlib        # Manejo de rutas de archivos en Python (incluido desde Python 3.4+)
+  {% endif %}
+  - pip             # Gestor de paquetes de Python para instalar desde PyPI
+  {% if cookiecutter.project_packages == "all" %}
+    - pyprojroot     # Facilita el acceso a la raíz del proyecto
+  {% endif %}
+  - python={{ cookiecutter.python_version }}  # Instala la versión específica de Python
+
+  - pip:             # Lista de paquetes que se instalarán usando pip
+    {% if cookiecutter.project_packages == "all" %}
+      - pyhere       # Facilita la referencia de rutas relativas a la raíz del proyecto
+    {% endif %}
+
+
+
