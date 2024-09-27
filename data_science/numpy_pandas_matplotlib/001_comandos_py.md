@@ -76,7 +76,7 @@ Aunque dos conjuntos no tengan las mismas dimensiones, es posible hacer operacio
 `split_array = np.split(array_c, 5)`                  Divide el array `array_c` en 5 partes, creando arrays más pequeños de tamaño `len(array_c)/5`.
 
 _Elementos únicos y sus conteos_
-`np.unique(survey_responses)`                            Del array `survey_responses`, devuelve todos los elementos sin repetir del array.  
+`np.unique(matr_elem_repet)`                            Del array `matr_elem_repet`, devuelve todos los elementos sin repetir del array.  
 `unique_elements, counts = np.unique(survey_responses, return_counts=True)`  Asigna a `unique_elements` todos los elementos sin repetir y a `counts` las frecuencias de cada uno.
 
 _Copias y listas_
