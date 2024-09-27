@@ -1,7 +1,17 @@
 # Numpy
 
 _Dimensiones_
-
+_Tipos de estructuras en NumPy_
+`escalar = 5.679`                            Declara un escalar de tipo float.  
+`vector = np.array([3,4])`                   Declara un vector unidimensional (array) con dos elementos.  
+`matriz = np.array([[1,2],[3,4],[5,6]])`     Declara una matriz de 3 filas y 2 columnas (array bidimensional).  
+`tensor = np.array([`                        Declara un tensor de 3 dimensiones con forma (5, 3, 4), que representa un array tridimensional con 5 matrices, cada una de 3 filas y 4 columnas.  
+`    [[1,2,3,30],[4,5,6,31],[7,8,9,32]],`   
+`    [[11,12,13,33],[14,15,16,34],[17,18,19,35]],`   
+`    [[21,22,23,36],[24,25,26,37],[27,28,29,38]],`   
+`    [[21,22,23,36],[24,25,26,37],[27,28,29,38]],`   
+`    [[21,22,23,36],[24,25,26,37],[27,28,29,38]]`   
+`])`
 
 _Objeto array_
 `array = np.array([[1,2,3],[4,5,6]])`             Declara un array de 2 dimensiones.
