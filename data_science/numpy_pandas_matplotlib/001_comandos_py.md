@@ -104,5 +104,22 @@ _Flattening_
 `matrix = np.array([[1,2,3,4,5],[6,7,8,9,10],[11,12,13,14,15]])`  crea una matriz de 3 filas y 5 columnas.  
 `flattened_matrix = matrix.flatten()`            Aplana la matriz, convirtiéndola en un array unidimensional.
 
+### Operaciones matriciales_
+_Operaciones básicas_
+`A = np.array([[1,2],[3,4]])`                Asigna una matriz de 2x2 con elementos enteros.  
+`B = np.array([[5,6],[7,8]])`                Asigna otra matriz de 2x2 con elementos enteros.  
+`suma = A + B`                               Realiza la suma elemento a elemento de las matrices A y B, resultando en una matriz de 2x2.
+
+_Producto punto_
+`product = np.dot(A, B)`                     Calcula el producto punto de las matrices A y B, resultando en una matriz de 2x2 que representa la multiplicación matricial estándar.
+
+_Determinante e inversa de una matriz_
+`A = np.array([[1,2],[3,4]])`                Asigna nuevamente la matriz A de 2x2.  
+`det_A = np.linalg.det(A)`                   Calcula el determinante de la matriz A, que es un escalar que representa una propiedad única de la matriz.  
+`inv_A = np.linalg.inv(A)`                   Calcula la matriz inversa de A, que es otra matriz de 2x2 que, cuando se multiplica por A, da como resultado la matriz identidad.
+
+_Resolución de sistemas de ecuaciones_
+`b = np.array([9,11])`                       Asigna un vector columna de 2x1 que representa los términos independientes de un sistema de ecuaciones lineales.  
+`x = np.linalg.solve(A, b)`                  Resuelve el sistema de ecuaciones lineales Ax = b, encontrando el vector x que satisface la ecuación, donde x es un array de soluciones para el sistema.
 
 
