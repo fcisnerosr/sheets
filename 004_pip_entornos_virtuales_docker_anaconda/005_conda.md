@@ -1,5 +1,5 @@
 # Comandos Conda en Anaconda
-### Instalación de Conda
+### Instalación de Conda (solo se hace una vez)
 wget -O anaconda.sh https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Linux-x86_64.sh _NOTA: -O es una "O" de oso en mayúscula._ _Fuente: https://www.anaconda.com/download/success_
 conda info      despliega toda la información de la configuración de conda
 _En caso de no poder iniciar conda init_
