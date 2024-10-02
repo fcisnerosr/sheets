@@ -29,7 +29,7 @@ _Exploratorio inicial de datos, series, y valores estadísticos_
 `print(df.sample(2))`                              # Imprime una muestra aleatoria de 2 filas del DataFrame.
 `print(df.tail())`                                 # Imprime las últimas 5 filas del DataFrame.
 `print(df.columns)`                                # Imprime los nombres de las columnas del DataFrame.
-_Series_
+_Series (columnas_
 `series_priced = df['Quantity']`                   # Extrae la columna 'Quantity' del DataFrame en una Serie.
 `print(series_priced)`                             # Imprime la Serie 'Quantity'.
 `print(series_priced[1])`                          # Imprime el segundo elemento de la Serie 'Quantity'.
