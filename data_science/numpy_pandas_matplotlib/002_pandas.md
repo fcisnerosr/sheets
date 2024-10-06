@@ -40,4 +40,18 @@ _Valores estadísticos_
 `suma = series_priced.sum()`                   # Calcula la suma total de los datos en la Serie 'Quantity'.
 `count = series_priced.count()`                # Cuenta el número de elementos no nulos en la Serie 'Quantity'.
 
-
+_Seleccionar datos de un dataframe_
+_iloc (index location)_
+`first_row = df.iloc[1]`               # Selecciona la fila en el índice 1 (segunda fila) usando posiciones numéricas.
+`first_five_rows = df.iloc[:5]`        # Selecciona las primeras 5 filas (desde la posición 0 a la 4).
+`six_to_eigth_rows = df.iloc[6:8]`     # Selecciona las filas en las posiciones 6 y 7 (no incluye la 8).
+`subset = df.iloc[:3,:2]`              # Selecciona las primeras 3 filas y las primeras 2 columnas.
+`value = df.iloc[0,4]`                 # Selecciona el valor de la fila en la posición 0 y columna en la posición 4.
+_loc (location)_
+`row_index_three = df.loc[3]`          # Selecciona la fila con la etiqueta (índice) 3.
+`row_index_zero_to_four = df.loc[:2]`  # Selecciona todas las filas desde la etiqueta 0 hasta la etiqueta 2 (incluidas).
+`col_stock_date_unitprice_0 = df.loc[0,['Stockcode','Invoicedate','Unitprice']]`  # Selecciona la fila 0 y las columnas 'Stockcode', 'Invoicedate', y 'Unitprice'.
+`col_stock_date_unitprice_02 = df.loc[0:2,['Stockcode','Invoicedate','Unitprice']]` # Selecciona las filas 0 a 2 (incluidas) y las columnas 'Stockcode', 'Invoicedate', y 'Unitprice'.
+`france_unitprice = df.loc[df['Country']=='France',['Country','UnitPrice']]`            # Selecciona todas las filas donde 'Country' es 'France' y las columnas 'Country' y 'UnitPrice'.
+`france_unitprice_3 = df.loc[df['Country']=='France',['Country','UnitPrice']].head(3)`  # Selecciona las primeras 3 filas del subconjunto donde 'Country' es 'France' y las columnas 'Country' y 'UnitPrice'.
+`france_unitprice_3 = df.loc[df['Country']=='France',['Country','UnitPrice']].tail(3)`  # Selecciona las últimas 3 filas del subconjunto donde 'Country' es 'France' y las columnas 'Country' y 'UnitPrice'.
