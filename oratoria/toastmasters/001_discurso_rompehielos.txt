@@ -1,0 +1,24 @@
+Frase Inicial:
+"La vida está llena de cambios, y algunos de ellos nos llevan por caminos que jamás imaginamos, pero que nos retan a ser mejores."
+
+Introducción:
+"Hola, soy Paco Cisneros, y hace poco más de 10 años tuve el honor de egresar de esta facultad, tal como muchos de ustedes lo harán muy pronto. Actualmente imparto clases aquí y sigo mis estudios de doctorado en ingeniería civil. Sin embargo, esta no es la misma decisión que habría tomado el Francisco de hace 15 años, un joven de 17 que era muy diferente al que soy hoy. En aquel entonces, buscaba una experiencia más solitaria, sin mucho interés en el trabajo en equipo o en el liderazgo. Pero, si algo ha perdurado en mí a lo largo del tiempo, es mi pasión por las matemáticas, la programación y la estadística.
+
+Ahora, la vida me ha puesto frente a un nuevo desafío: convertirme en científico de datos, un rol crucial en el mundo de la tecnología actual. Esta transición no es simplemente un cambio de profesión; es una oportunidad para aprender, crecer y desarrollar habilidades que nunca imaginé necesitar."
+
+Desarrollo:
+"La ciencia de datos es un campo fascinante que combina el análisis de grandes volúmenes de información para descubrir patrones, generar predicciones y, sobre todo, influir en la toma de decisiones. Imaginen cómo los datos pueden transformar un negocio, desde predecir el comportamiento del cliente hasta optimizar los procesos internos. La ciencia de datos está en todas partes, y aunque a veces no lo notamos, todos somos víctimas de sus algoritmos.
+
+¿Quién aquí no ha sentido que las redes sociales conocen cada uno de sus gustos? Eso no es casualidad, son los algoritmos de inteligencia artificial, alimentados por la ciencia de datos, los que nos mantienen enganchados. Lo mismo ocurre cuando Netflix te sugiere qué ver a continuación: todo está basado en datos y en patrones que ellos han detectado en tu comportamiento."
+
+El Futuro:
+"La inteligencia artificial es el futuro, y es por eso que he decidido actualizarme en esta área. Estoy aprendiendo nuevas herramientas y técnicas porque quiero ser parte de esta revolución tecnológica. Pero hay algo que es crucial en esta profesión y que a menudo se pasa por alto: la capacidad de comunicar los hallazgo de los datos de manera efectiva. Un científico de datos no solo necesita ser experto en analizar información, sino también en contar la historia que los datos revelan, enganchar a su audiencia y convencer con argumentos sólidos. Y aquí es donde entra Toastmasters."
+
+Nuevas Habilidades y Pasatiempos:
+"Siempre me ha gustado aprender cosas nuevas, como tocar el piano, andar en bicicleta y pasar tiempo con mi familia. Estas actividades me permiten desconectar y encontrar equilibrio en mi vida. Al igual que con estos pasatiempos, desarrollar habilidades de comunicación es algo que he querido mejorar. Tengo hambre de crecer y ser mejor, tanto profesionalmente como en la vida personal. Ya tenía mi discurso preparado para hoy, pero hace dos semanas ocurrió algo que cambió mi perspectiva de una manera maravillosa: me convertí en papá. Tener un hijo es un giro total en la vida, te llena de motivación y te impulsa a superarte cada día. Quiero ser un ejemplo para mi hijo y darle la mejor versión de mí mismo. Eso significa seguir aprendiendo, creciendo y mejorando en todo lo que hago."
+
+Conclusion:
+"Hoy no solo les cuento mi historia, sino que quiero demostrarles que nunca es tarde para cambiar de rumbo, aprender algo nuevo y superar cualquier desafío que se nos presente. Mi objetivo es ser un pionero en el uso de la ciencia de datos aquí en esta ciudad, mostrando que, con pasión y dedicación, podemos hacer una diferencia real.
+
+Y quién sabe, tal vez un día vean mi rostro en algún anuncio ofreciendo servicios de ciencia de datos. Recuerden entonces que ese 'loco' a los 33 años que decidió cambiar de giro su vida profesional, que disfruta del hígado, es adicto al café y se deleita con la música barroca, logró cumplir su sueño. Y más importante aún, quiero ser un ejemplo para mi hijo, enseñándole que siempre podemos reinventarnos y esforzarnos por ser la mejor versión de nosotros mismos, día tras día."
+
