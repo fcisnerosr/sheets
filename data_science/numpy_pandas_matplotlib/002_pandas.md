@@ -55,3 +55,28 @@ _loc (location)_
 `france_unitprice = df.loc[df['Country']=='France',['Country','UnitPrice']]`            # Selecciona todas las filas donde 'Country' es 'France' y las columnas 'Country' y 'UnitPrice'.
 `france_unitprice_3 = df.loc[df['Country']=='France',['Country','UnitPrice']].head(3)`  # Selecciona las primeras 3 filas del subconjunto donde 'Country' es 'France' y las columnas 'Country' y 'UnitPrice'.
 `france_unitprice_3 = df.loc[df['Country']=='France',['Country','UnitPrice']].tail(3)`  # Selecciona las últimas 3 filas del subconjunto donde 'Country' es 'France' y las columnas 'Country' y 'UnitPrice'.
+
+_Manejo de datos faltantes_
+`missing_data = df.isna()`                      # Crea un DataFrame booleano que indica la presencia de datos faltantes.
+`missing_data_count = df.isna().sum()`          # Calcula la cantidad de datos faltantes por columna en el DataFrame.
+`no_missing_rows = df.dropna()`                 # Crea un nuevo DataFrame eliminando filas que contienen cualquier dato faltante.
+`no_missing_columnas = df.dropna(axis=1)`       # Crea un nuevo DataFrame eliminando columnas que contienen cualquier dato faltante.
+`df_filled_zeros = df.fillna(0)`                # Rellena los datos faltantes en el DataFrame con ceros.
+`df_filled_zeros_count = df_filled_zeros.isna().sum()` # Verifica y cuenta los datos faltantes en el DataFrame rellenado.
+`mean_unit_price = df['UnitPrice'].mean()`      # Calcula la media de los valores en la columna 'unitprice'.
+`df_filled_mean = df['UnitPrice'].fillna(mean_unit_price)` # Rellena los datos faltantes en 'unitprice' con su media.
+
+_Creación y manipulación de columnas_
+`df['totalprice'] = df['quantity'] * df['unitprice']`              # Calcula el precio total multiplicando cantidad por precio unitario.
+`df['highvalue'] = df['totalprice'] > 16`                          # Crea una columna booleana que indica si el total de precios es mayor a 16.
+`print(df.info())`                                                 # Imprime información del DataFrame, incluyendo el tipo de datos de cada columna.
+`df['invoicedate'] = pd.to_datetime(df['invoicedate'], format='%m/%d/%y %H:%M')` # Convierte 'invoicedate' a datetime con formato específico.
+`df['discountedprice'] = df['unitprice'].apply(lambda x: x * 0.9)` # Aplica un descuento del 10% al precio unitario y guarda el resultado en una nueva columna.
+`def categorize_price(price):`                                      # Define una función para categorizar precios.
+    `if price > 50:`                                               
+        `return 'high'`                                            
+    `elif price < 20:`                                             
+        `return 'medium'`                                          
+    `else:`                                                        
+        `return 'low'`                                             
+`df['pricecategory'] = df['unitprice'].apply(categorize_price)`    # Aplica la función categorize_price a la columna 'unitprice' y almacena los resultados en 'pricecategory'.
