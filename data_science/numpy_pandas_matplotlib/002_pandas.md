@@ -81,7 +81,7 @@ _Creación y manipulación de columnas_
         `return 'low'`                                             
 `df['pricecategory'] = df['unitprice'].apply(categorize_price)`    # Aplica la función categorize_price a la columna 'unitprice' y almacena los resultados en 'pricecategory'.
 
-_Manejo de grupos_
+_Manejo de grupos (groupby)_
 `country_cont = df['Country'].value_counts()`                 # Cuenta la frecuencia de apariciones de cada país en el DataFrame.
 `country_group = df.groupby('Country')['Quantity'].sum()`     # Suma las cantidades por país agrupando por 'Country'.
 `country_stats = df.groupby('Country')['UnitPrice'].agg(['mean','sum'])` # Agrupa por 'Country', calcula y almacena la media y suma de 'UnitPrice' para cada país.
