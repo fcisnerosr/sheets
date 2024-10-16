@@ -90,14 +90,20 @@ _Manejo de grupos (groupby)_
     `return (group['Quantity'] * group['UnitPrice']).sum()`   # Calcula ingreso multiplicando cantidad por precio y sumando los resultados.
 `revenue_per_country = df.groupby(['Country', 'StockCode']).apply(total_revenue)` # Calcula la ganancia total por cada producto en cada país aplicando la función 'total_revenue'.
 
-
-
-
-
-
-
-
-
-
+_Filtrado de datos con condicionales_
+_Manejo de fechas y limpieza de datos_
+`df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])`            # Convierte 'InvoiceDate' a datetime para manejar datos de tiempo.
+`df.dropna(subset=['CustomerID', 'InvoiceDate'], inplace=True)`   # Elimina filas con datos faltantes en 'CustomerID' e 'InvoiceDate', modificando df directamente.
+_Creación y análisis de nuevas columnas_
+`df['TotalPrice'] = df['Quantity'] * df['UnitPrice']`             # Crea 'TotalPrice' multiplicando 'Quantity' por 'UnitPrice'.
+`uk_sales = df[df['Country'] == 'United Kingdom']`                # Filtra y almacena ventas del Reino Unido en 'uk_sales'.
+`pd.set_option('display.max_columns', None)`                      # Configura la visualización para mostrar todas las columnas.
+`high_quantity_sales = df[df['Quantity'] > 10]`                   # Filtra y almacena ventas con 'Quantity' mayor a 10 en 'high_quantity_sales'.
+`uk_high_quantity_sales = df[(df['Country'] == 'United Kingdom') & (df['Quantity'] > 100)]` # Filtra ventas en el Reino Unido con 'Quantity' mayor a 100.
+_Filtrado de datos por fecha_
+`sales_2011 = df[df['InvoiceDate'].dt.year == 2011]`              # Filtra y almacena ventas del año 2011 en 'sales_2011'.
+`print(sales_2011)`                                               # Imprime las ventas del año 2011.
+`sales_dec_2010 = df[(df['InvoiceDate'].dt.year == 2010) & (df['InvoiceDate'].dt.month == 12)]` # Filtra y almacena ventas de diciembre de 2010.
+`print(sales_dec_2010)`                                           # Imprime las ventas de diciembre de 2010.
 
 
