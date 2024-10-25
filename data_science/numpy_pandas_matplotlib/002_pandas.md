@@ -106,4 +106,14 @@ _Filtrado de datos por fecha_
 `sales_dec_2010 = df[(df['InvoiceDate'].dt.year == 2010) & (df['InvoiceDate'].dt.month == 12)]` # Filtra y almacena ventas de diciembre de 2010.
 `print(sales_dec_2010)`                                           # Imprime las ventas de diciembre de 2010.
 
+_Creación de Pivot Table_
+`pivot_table = pd.pivot_table(df, values='Quantity', index='Country',
+columns='StockCode', aggfunc='sum')`  # Crea una tabla pivote que suma las cantidades ('Quantity') para cada combinación de país ('Country') y código de stock ('StockCode').
+`df_stacked = df.stack()`             # Convierte el DataFrame en una Serie de Pandas donde las columnas se transforman en índices de segundo nivel, apilando los datos verticalmente.
+`df_unstacked = df_stacked.unstack()` # Deshace la operación de stacking, regresando los datos apilados a su formato original de DataFrame con múltiples niveles de índice convertidos de nuevo a columnas.
 
+_Merge, Concat y Join_
+`inner_merged = pd.merge(df1, df2, on='key', how='inner')`   # Realiza una fusión interna entre df1 y df2 utilizando 'key' como la columna de unión. Incluye solo filas que tienen claves coincidentes en ambos DataFrames.
+`outer_merged = pd.merge(df1, df2, on='key', how='outer')`   # Realiza una fusión externa completa entre df1 y df2 utilizando 'key' como la columna de unión. Incluye todas las filas de ambos DataFrames, llenando con NaN donde no hay coincidencias.
+`left_merged = pd.merge(df1, df2, on='key', how='left')`     # Realiza una fusión izquierda entre df1 y df2 utilizando 'key' como la columna de unión. Mantiene todas las filas de df1, añadiendo información de df2 donde hay coincidencias.
+`right_merged = pd.merge(df1, df2, on='key', how='right')`   # Realiza una fusión derecha entre df1 y df2 utilizando 'key' como la columna de unión. Mantiene todas las filas de df2, añadiendo información de df1 donde hay coincidencias.
