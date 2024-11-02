@@ -124,3 +124,20 @@ _merge, concat y join_
 `vertical_concat = pd.concat([df3, df4])`                      # Concatena df3 y df4 verticalmente, apilando df4 debajo de df3 y alineando por columnas.
 `horizontal_concat = pd.concat([df3, df4], axis=1)`            # Concatena df3 y df4 horizontalmente, extendiendo las columnas de df3 con las de df4, alineando por índices.
 `joined = df5.join(df6, how='inner')`  # Combina df5 y df6 basándose en la coincidencia de sus índices. Solo se incluyen en el resultado final aquellas filas de ambos DataFrames que compartan el mismo índice.
+
+_Series temporales_
+`df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])`               # Convierte la columna 'InvoiceDate' a tipo datetime, permitiendo operaciones específicas de fecha y hora.
+`df.dropna(subset=['InvoiceDate'], inplace=True)`                     # Elimina filas donde 'InvoiceDate' es NaN, modificando el DataFrame original.
+`df.set_index('InvoiceDate', inplace=True)`                           # Establece 'InvoiceDate' como el índice del DataFrame, modificando el DataFrame original.
+`df['Year'] = df.index.year`                                          # Crea una columna 'Year' extrayendo el año de cada índice de fecha.
+`df['Month'] = df.index.month`                                        # Crea una columna 'Month' extrayendo el mes de cada índice de fecha.
+`df['Day'] = df.index.day`                                            # Crea una columna 'Day' extrayendo el día de cada índice de fecha.
+`df['Weekday'] = df.index.weekday`                                    # Crea una columna 'Weekday' extrayendo el día de la semana de cada índice de fecha (lunes=0, domingo=6).
+`df['Hour'] = df.index.hour`                                          # Crea una columna 'Hour' extrayendo la hora de cada índice de fecha.
+`df = df.drop(columns=['Weekdy'])`                                    # Elimina la columna 'Weekdy' que fue erróneamente nombrada o ya no se necesita.
+`df_2011 = df.loc['2011']`                                            # Filtra el DataFrame para incluir solo los datos del año 2011.
+`df_2011_dec = df.loc['2011-12']`                                     # Filtra el DataFrame para incluir solo los datos de diciembre de 2011.
+`df_dec_range = df.loc['2010-12-01':'2010-12-02']`                    # Filtra el DataFrame para incluir datos desde el 1 de diciembre de 2010 hasta el 2 de diciembre de 2010.
+`date_range_new = pd.date_range(start='2024-01-01', end='2024-12-31', freq='D')`  # Crea un rango de fechas diarias desde el 1 de enero de 2024 hasta el 31 de diciembre de 2024.
+`df_dates = pd.DataFrame(date_range_new, columns=['Date'])`           # Crea un DataFrame a partir del rango de fechas, con una columna 'Date' que contiene todas las fechas.
+
