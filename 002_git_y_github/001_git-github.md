@@ -9,6 +9,8 @@ _Comandos básicos_
 `git init`                    iniciar un jepositorio
 `git add file.py`             agregar el achivo al staging area
 `git rm --cached archivo.py`  remueve el archivo del staging area
+`git restore <file>`          restaura un cambios guardado de algún documento
+`git restore . `              restaura todos los archivos modificados en un solo comando
 `git commit -m "version 1"`   envía los últimos cambios del archivo al sistema de control de versiones
 `git add .`                   envía los últimos cambios de todos los archivos de donde está el repositorio
 `git commit -am "mensaje"`    realiza un git add de los cambios realizados, solo funciona con archivos con add previamente no con archivos nuevos
