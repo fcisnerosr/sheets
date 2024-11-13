@@ -30,5 +30,30 @@ _Personalización de gráficos_
 `plt.legend()`                                                  # Muestra una leyenda que identifica cada serie de datos.
 `plt.show()`                                                    # Muestra el gráfico creado.
 
+_Gráfico de barras_
+_Verticales_
+`categories = ['Producto A', 'Producto B', 'Producto C']`             # Define un array con los nombres de los productos.
+`sales = [120, 150, 90]`                                             # Define un array con las ventas correspondientes a cada producto.
+
+`plt.bar(categories, sales, color='skyblue', label='Ventas mensuales')` # Dibuja un gráfico de barras verticales donde cada barra representa las ventas de un producto específico.
+`plt.annotate(
+    'Máximo de ventas', 
+    xy=('Producto B', 150), xytext=('Producto C', 160),
+    arrowprops=dict(facecolor='black', shrink=0.05)
+)`                                                                     # Añade una anotación en el gráfico de barras que señala el punto más alto de ventas para 'Producto B' con una flecha.
+`plt.title('Ventas de productos en un mes')`                           # Establece el título del gráfico.
+`plt.xlabel('Productos')`                                             # Establece la etiqueta del eje x como 'Productos'.
+`plt.ylabel('Ventas')`                                                # Establece la etiqueta del eje y como 'Ventas'.
+`plt.show()`                                                          # Muestra el gráfico creado.
+_Horizontales_
+
+_Diagramas de pastel_
+`categories = ['Producto A', 'Producto B', 'Producto C']`             # Define un array con los nombres de los productos.
+`sales = [120, 150, 90]`                                             # Define un array con las ventas correspondientes a cada producto.
+`plt.barh(categories, sales, color='skyblue', label='Ventas mensuales')` # Dibuja un gráfico de barras horizontales donde cada barra representa las ventas de un producto específico.
+`plt.title('Ventas de productos en un mes')`                           # Establece el título del gráfico.
+`plt.ylabel('Productos')`                                             # Establece la etiqueta del eje y como 'Productos'.
+`plt.xlabel('Ventas')`                                                # Establece la etiqueta del eje x como 'Ventas'.
+`plt.show()`                                                          # Muestra el gráfico creado.
 
 
