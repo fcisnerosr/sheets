@@ -25,13 +25,12 @@ _Comandos básicos_
 `git diff 1viejo3 4nuevo5`      muestra las diferencias entre commits
 `git diff`                      muestra las diferencias entre el working directory y el staging
 `git diff HEAD`                 muestra las diferencias entre el working directory y el último commit de la rama actual
-`git reset --soft <no. commit>`         mueve a HEAD al commit especificado sin modificar lo que está en stating ni en el working directory
-`git reset --hard <no. commit>`         mueve a HEAD al commit especificado borrando todo lo de stating y lo del working directory después de ese commit
+`git reset --soft <no. commit>` mueve a HEAD al commit especificado sin modificar lo que está en stating ni en el working directory
+`git reset --hard <no. commit>` mueve a HEAD al commit especificado borrando todo lo de stating y lo del working directory después de ese commit
 `git checkout <no. commit> archivo.py`                     
 `git checkout`                     traer los últimos cambios hacia mi carpeta
 
 _Ramas_
-
 `git branch`                   Muestra las ramas locales.
 `git branch -r`                Muestra las ramas remotas que existen en el servidor remoto y han sido descargadas localmente. Excluye ramas locales que no estén en remoto.
 `git branch -a`                Muestra todas las ramas, tanto las locales como las remotas. En blanco las locales, en remoto las remotas y en asteriscos la rama actual.

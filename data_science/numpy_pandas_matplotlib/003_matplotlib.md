@@ -34,7 +34,6 @@ _Gráfico de barras_
 _Verticales_
 `categories = ['Producto A', 'Producto B', 'Producto C']`             # Define un array con los nombres de los productos.
 `sales = [120, 150, 90]`                                             # Define un array con las ventas correspondientes a cada producto.
-
 `plt.bar(categories, sales, color='skyblue', label='Ventas mensuales')` # Dibuja un gráfico de barras verticales donde cada barra representa las ventas de un producto específico.
 `plt.annotate(
     'Máximo de ventas', 
@@ -46,8 +45,6 @@ _Verticales_
 `plt.ylabel('Ventas')`                                                # Establece la etiqueta del eje y como 'Ventas'.
 `plt.show()`                                                          # Muestra el gráfico creado.
 _Horizontales_
-
-_Diagramas de pastel_
 `categories = ['Producto A', 'Producto B', 'Producto C']`             # Define un array con los nombres de los productos.
 `sales = [120, 150, 90]`                                             # Define un array con las ventas correspondientes a cada producto.
 `plt.barh(categories, sales, color='skyblue', label='Ventas mensuales')` # Dibuja un gráfico de barras horizontales donde cada barra representa las ventas de un producto específico.
@@ -56,4 +53,17 @@ _Diagramas de pastel_
 `plt.xlabel('Ventas')`                                                # Establece la etiqueta del eje x como 'Ventas'.
 `plt.show()`                                                          # Muestra el gráfico creado.
 
+_Diagramas de pastel_
+`products = ['Producto A', 'Producto B', 'Producto C']`               # Define un array con los nombres de los productos.
+`market_share = [50, 35, 15]`                                         # Define un array con la participación de mercado de cada producto expresada en porcentajes.
+`plt.pie(
+    market_share,                      # Los valores que representan la participación de mercado de cada producto.
+    labels=products,                   # Etiquetas que identifican cada segmento con el nombre del producto correspondiente.
+    autopct='%1.1f%%',                 # Formato de los porcentajes mostrados en cada segmento del pastel, aquí se muestra con un decimal.
+    startangle=140,                    # Ángulo de inicio del gráfico de pastel, determina desde qué punto del círculo comienza el primer segmento.
+    colors=['gold', 'lightcoral', 'orange']  # Colores asignados a cada segmento del pastel, proporcionando una diferenciación visual entre ellos.
+)`  
+`plt.title('Participación de Mercado por Producto')`                  # Establece el título del gráfico.
+`plt.axis('equal')`                                                   # Ajusta el aspecto del gráfico para que sea un círculo perfecto.
+`plt.show()`                                                          # Muestra el gráfico.
 
