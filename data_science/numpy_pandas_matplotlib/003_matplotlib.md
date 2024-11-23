@@ -67,3 +67,34 @@ _Diagramas de pastel_
 `plt.axis('equal')`                                                   # Ajusta el aspecto del gráfico para que sea un círculo perfecto.
 `plt.show()`                                                          # Muestra el gráfico.
 
+_Histogramas_
+`data = np.random.normal(170, 10, 200)`                   # Genera un array de 200 datos aleatorios que siguen una distribución normal con media 170 y desviación estándar 10.
+`plt.hist(
+    data,                        # Los datos que se utilizarán para generar el histograma.
+    color='salmon',              # Establece el color de las barras del histograma como 'salmon'.
+    bins=10,                     # Divide los datos en 10 intervalos (bins).
+    edgecolor='black',           # Define el color del borde de las barras como negro.
+    alpha=0.6                    # Establece la transparencia de las barras (0 completamente transparente, 1 opaco).
+)`
+`plt.title('distribucion de alturas')`                          # Define el título del histograma como 'distribución de alturas'.
+`plt.xlabel('altura (cm)')`                                    # Etiqueta el eje x como 'altura (cm)'.
+`plt.ylabel('densidad')`                                       # Etiqueta el eje y como 'densidad'.
+`plt.show()`                                                   # Muestra el histograma creado.
+
+_Bloxplot_
+`np.random.seed(0)`                                # Fija una semilla para la generación de números aleatorios, asegurando que los resultados sean reproducibles.
+`ages = [np.random.normal(35, 5, 200),`           # Genera 200 edades aleatorias para el grupo 1 siguiendo una distribución normal con media 35 y desviación estándar 5.
+`        np.random.normal(40, 5, 200),`           # Genera 200 edades aleatorias para el grupo 2 con media 40 y desviación estándar 5.
+`        np.random.normal(35, 5, 200)]`           # Genera 200 edades aleatorias para el grupo 3 con media 35 y desviación estándar 5.
+`plt.boxplot(
+    ages,                          # Los datos de edades para los grupos a graficar.
+    patch_artist=True,             # Rellena las cajas con color para una mejor visualización.
+    notch=False,                   # Crea cajas estándar sin muescas.
+    vert=True,                     # Configura las cajas en orientación vertical.
+    tick_labels=['Grupo 1', 'Grupo 2', 'Grupo 3']  # Etiquetas para identificar cada grupo en el gráfico.
+)`                                  # Cierra el método de creación del boxplot.
+`plt.title('Distribución de edades por grupo')`      # Establece el título del gráfico.
+`plt.xlabel('Grupo')`                                # Etiqueta el eje x como 'Grupo'.
+`plt.ylabel('Edad (años)')`                          # Etiqueta el eje y como 'Edad (años)'.
+`plt.show()`                                         # Muestra el gráfico creado.
+                                                  # Muestra el gráfico creado.
