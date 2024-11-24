@@ -97,4 +97,22 @@ _Bloxplot_
 `plt.xlabel('Grupo')`                                # Etiqueta el eje x como 'Grupo'.
 `plt.ylabel('Edad (años)')`                          # Etiqueta el eje y como 'Edad (años)'.
 `plt.show()`                                         # Muestra el gráfico creado.
-                                                  # Muestra el gráfico creado.
+                                                  
+
+
+_Series temporales_
+`import numpy as np`                                           # Importa NumPy para generar y manipular arrays numéricos.
+`from matplotlib.dates import DateFormatter, AutoDateLocator` # Importa herramientas para formatear y localizar fechas en los gráficos.
+`import pandas as pd`                                          # Importa Pandas para manejar estructuras de datos como DataFrames.
+`dates = pd.date_range(start='2023-01-01', periods=100)`      # Genera una serie de 100 fechas consecutivas a partir del 1 de enero de 2023.
+`values = np.random.rand(100).cumsum()`         # Genera 100 valores aleatorios entre 0 y 1 con `np.random.rand(100)` y calcula la suma acumulativa con `.cumsum()`. 
+                                               # Estos valores representan datos asociados a la serie de tiempo, simulando una tendencia acumulativa.
+`data = pd.DataFrame({'Date': dates, 'Value': values})`       # Crea un DataFrame con columnas 'Date' (fechas) y 'Value' (valores acumulativos).
+
+`fig, ax = plt.subplots(figsize=(12, 6))`                     # Crea una figura con dimensiones 12x6 pulgadas y un eje para graficar.
+`ax.plot(data['Date'], data['Value'], color='green')`         # Grafica la serie de tiempo en el eje con fechas en el eje x y valores en el eje y.
+`plt.xticks(rotation=45)`                                     # Rota las etiquetas del eje x 45 grados para mejorar la legibilidad.
+`plt.title('Serie de tiempo con formato en las fechas')`      # Establece el título del gráfico.
+`plt.xlabel('Date')`                                          # Etiqueta el eje x como 'Date'.
+`plt.ylabel('Value')`                                         # Etiqueta el eje y como 'Value'.
+`plt.show()`                                                  # Muestra el gráfico creado.
