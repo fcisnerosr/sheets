@@ -116,3 +116,5 @@ _Series temporales_
 `plt.xlabel('Date')`                                          # Etiqueta el eje x como 'Date'.
 `plt.ylabel('Value')`                                         # Etiqueta el eje y como 'Value'.
 `plt.show()`                                                  # Muestra el gráfico creado.
+
+
