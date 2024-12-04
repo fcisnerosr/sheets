@@ -97,10 +97,9 @@ _Bloxplot_
 `plt.xlabel('Grupo')`                                # Etiqueta el eje x como 'Grupo'.
 `plt.ylabel('Edad (años)')`                          # Etiqueta el eje y como 'Edad (años)'.
 `plt.show()`                                         # Muestra el gráfico creado.
-                                                  
-
 
 _Series temporales_
+_Ejemplo 1_
 `import numpy as np`                                           # Importa NumPy para generar y manipular arrays numéricos.
 `from matplotlib.dates import DateFormatter, AutoDateLocator` # Importa herramientas para formatear y localizar fechas en los gráficos.
 `import pandas as pd`                                          # Importa Pandas para manejar estructuras de datos como DataFrames.
@@ -116,5 +115,17 @@ _Series temporales_
 `plt.xlabel('Date')`                                          # Etiqueta el eje x como 'Date'.
 `plt.ylabel('Value')`                                         # Etiqueta el eje y como 'Value'.
 `plt.show()`                                                  # Muestra el gráfico creado.
+_Ejemplo 2: ventas por mes_
+`dates = pd.date_range(start='2023-01-01', periods=12, freq='ME')`  # Genera 12 fechas consecutivas al final de cada mes, a partir de enero de 2023.
+`sales = np.random.randint(1000, 5000, size=12)`                   # Crea un array de 12 valores aleatorios entre 1000 y 5000 para simular las ventas mensuales.
+`sales_data = pd.DataFrame({'Date': dates, 'Sales': sales})`       # Combina las fechas y las ventas en un DataFrame con columnas 'Date' y 'Sales'.
+`plt.plot(sales_data['Date'], sales_data['Sales'], marker='o', linestyle='-', label='Ventas mensuales')` # Dibuja un gráfico de línea con puntos marcados para representar las ventas mensuales.
+`plt.xticks(rotation=45)`                                         # Rota las etiquetas del eje x 45 grados para mejorar su legibilidad.
+`plt.title('Analisis de ventas mensuales')`                       # Agrega un título al gráfico.
+`plt.xlabel('Date')`                                              # Etiqueta el eje x como 'Date'.
+`plt.ylabel('Sales')`                                             # Etiqueta el eje y como 'Sales'.
+`plt.tight_layout()`                                              # Ajusta automáticamente los márgenes para evitar solapamientos.
+`plt.show()`                                                      # Muestra el gráfico creado.
 
+_Gridspec para subplots y layouts avanzados_ (grilla con especificaciones)
 
