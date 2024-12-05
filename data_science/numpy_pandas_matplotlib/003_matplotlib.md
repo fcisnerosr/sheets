@@ -127,5 +127,28 @@ _Ejemplo 2: ventas por mes_
 `plt.tight_layout()`                                              # Ajusta automáticamente los márgenes para evitar solapamientos.
 `plt.show()`                                                      # Muestra el gráfico creado.
 
-_Gridspec para subplots y layouts avanzados_ (grilla con especificaciones)
-
+_Gridspec para subplots y layouts avanzados (grilla con especificaciones)_
+`x = np.linspace(0, 10, 100)`                                   # Genera un array de 100 puntos equidistantes entre 0 y 10.
+`y = np.sin(x)`                                                 # Calcula el seno de cada punto en el array x.
+`data = np.random.randn(100)`                                   # Genera 100 valores aleatorios con distribución normal.
+`gs = gridspec.GridSpec(2, 2, height_ratios=[2, 1], width_ratios=[1, 1])`  # Define una grilla de 2x2 con proporciones personalizadas para filas y columnas.
+`fig = plt.figure(figsize=(10, 8))`                            # Crea una figura con dimensiones de 10x8 pulgadas.
+_Gráfico de figura uno_
+`ax1 = fig.add_subplot(gs[0, :])`                              # Primer subplot grande que ocupa toda la primera fila de la grilla.
+`ax1.plot(x, y, color='blue')`                                 # Dibuja el gráfico de seno de x.
+`ax1.set_title('Seno de X')`                                   # Establece el título del primer subplot.
+`ax1.set_xlabel('x')`                                          # Etiqueta el eje x como 'x'.
+`ax1.set_ylabel('sin x')`                                      # Etiqueta el eje y como 'sin x'.
+_Gráfico de figura dos_
+`ax2 = fig.add_subplot(gs[1, 0])`                              # Segundo subplot que ocupa la esquina inferior izquierda.
+`ax2.hist(data, bins=10, color='purple', edgecolor='black')`   # Dibuja un histograma con 10 bins.
+`ax2.set_title('Histograma')`                                  # Establece el título del segundo subplot.
+`ax2.set_xlabel('Valor')`                                      # Etiqueta el eje x como 'Valor'.
+`ax2.set_ylabel('Frecuencia')`                                 # Etiqueta el eje y como 'Frecuencia'.
+_Gráfico de figura tres_
+`ax3 = fig.add_subplot(gs[1, 1])`                              # Tercer subplot ubicado en la esquina inferior derecha.
+`ax3.scatter(x, y, color='purple')`                            # Dibuja un gráfico de dispersión del seno de x.
+`ax3.set_title('Dispersión de Seno')`                          # Establece el título del tercer subplot.
+`ax3.set_xlabel('x')`                                          # Etiqueta el eje x como 'x'.
+`ax3.set_ylabel('sin(x)')`                                     # Etiqueta el eje y como 'sin(x)'.
+`plt.show()`                                                   # Muestra todos los subplots en la figura.
