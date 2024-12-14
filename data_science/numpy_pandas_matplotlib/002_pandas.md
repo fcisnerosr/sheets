@@ -39,6 +39,7 @@ _Valores estadísticos_
 `mediana = series_priced.median()`             # Calcula la mediana de los datos en la Serie 'Quantity'.
 `suma = series_priced.sum()`                   # Calcula la suma total de los datos en la Serie 'Quantity'.
 `count = series_priced.count()`                # Cuenta el número de elementos no nulos en la Serie 'Quantity'.
+kkkkkkkkkkkkkkkkkkkkkkkk
 
 _Seleccionar datos de un dataframe_
 _iloc (index location)_
@@ -65,6 +66,10 @@ _Manejo de datos faltantes_
 `df_filled_zeros_count = df_filled_zeros.isna().sum()` # Verifica y cuenta los datos faltantes en el DataFrame rellenado.
 `mean_unit_price = df['UnitPrice'].mean()`      # Calcula la media de los valores en la columna 'unitprice'.
 `df_filled_mean = df['UnitPrice'].fillna(mean_unit_price)` # Rellena los datos faltantes en 'unitprice' con su media.
+`print(data.isnull().sum())`                    #  Imprime la suma total de valores nulos (NaN) por columna en el DataFrame.
+
+_Manejo de datos duplicados_
+`print(data.isnull().sum())`                    # Devuelve la suma de los datos duplicados
 
 _Creación y manipulación de columnas_
 `df['totalprice'] = df['quantity'] * df['unitprice']`              # Calcula el precio total multiplicando cantidad por precio unitario.
@@ -80,6 +85,9 @@ _Creación y manipulación de columnas_
     `else:`                                                        
         `return 'low'`                                             
 `df['pricecategory'] = df['unitprice'].apply(categorize_price)`    # Aplica la función categorize_price a la columna 'unitprice' y almacena los resultados en 'pricecategory'.
+`df.drop('Nombre de columna', axis=1, inplace=True)`                # Elimina una columna
+`df = df.rename(columns={'Nombre_Anterior': 'Nombre_Nuevo'})`       # Renombrar columnas
+`df.index = range(1, len(df)+1`                                     # renombrar los indices desde 1
 
 _Manejo de grupos (groupby)_
 `country_cont = df['Country'].value_counts()`                 # Cuenta la frecuencia de apariciones de cada país en el DataFrame.

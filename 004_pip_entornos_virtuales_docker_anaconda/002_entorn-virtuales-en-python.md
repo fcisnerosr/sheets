@@ -3,7 +3,7 @@
 ## Entorno global
 `pip install matplotlib`    Instalar librerias en python en entorno global. En _www.pypi.org_ se encuentran librerias y su versión correspondiente
 `pip3 --version`    Verificar qué instalador de paquetes tenemos
-`pip3 freez`    Lista de librerias (dependencias) globalmente en equipo
+`pip3 freeze`    Lista de librerias (dependencias) globalmente en equipo
 `which python3`  Devuelve la ubicación donde se encuentra el binario 
 `which pip3`  Devuelve la ruta completa donde se ejecuta el gestor de paquetes de python
 `pip3 install matploblib==3.5.0`  Instala la versión específica de una librería, en caso de que ya exista una version instalada distinta instala la especificada
