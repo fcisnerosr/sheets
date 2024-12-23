@@ -40,9 +40,20 @@
 `sales_by_year = data_cleaned.groupby('Year')['TotalAmount'].sum()`  # Agrupa las ventas totales ('TotalAmount') por año ('Year').  
 `print(sales_by_year)`                                              # Imprime las ventas totales por año.  
 
- _Creación de columna por semestre_
+_Creación de columna por semestre_
 `data_cleaned['Semester'] = data_cleaned['Month'].apply(lambda x: 1 if x <= 6 else 2)`  # Crea la columna 'Semester': 1er semestre si el mes ≤ 6, de lo contrario 2do semestre.  
 
- _Agrupación de ventas por año y semestre_
-`sales_by_semester = data_cleaned.groupby(['Year', 'Semester'])['TotalAmount'].sum()`  # Agrupa las ventas por año y semestre.  
-`print(sales_by_semester)`                                                             # Imprime las ventas agrupadas por año y semestre.  
+_Agrupación de ventas por año y semestre_
+`sales_by_semester = data_cleaned.groupby(['Year', 'Semester'])['TotalAmount'].sum()`  # Agrupa las ventas por año y semestre.
+
+_Creación de columna por trimestre_
+`data_cleaned['Trimester'] = data_cleaned['Month'].apply(`  
+`lambda x: 1 if x > 0 and x <= 3`  
+`else 2 if x > 3 and x <= 6`  
+`else 3 if x > 6 and x <= 9`  
+`else 4 if x > 9 and x <= 12`  
+`else None)`                      # Crea la columna 'Trimester': asigna 1 al primer trimestre (enero-marzo), 2 al segundo (abril-junio), 3 al tercero (julio-septiembre) y 4 al cuarto (octubre-diciembre).
+
+_Agrupación de ventas por año y trimestre_
+`sales_by_trimester = data_cleaned.groupby(['Year', 'Trimester'])['TotalAmount'].sum()`  # Agrupa las ventas totales ('TotalAmount') por año ('Year') y trimestre ('Trimester').
+`print(sales_by_trimester)`                                                              # Imprime las ventas totales por año y trimestre.
