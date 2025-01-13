@@ -15,3 +15,81 @@ _Gráficas de distribución_
 `sns.displot(data=tip, x='total_bill',y='tip', hue='sex')`      # Crea un gráfico de distribución (histograma por defecto) donde: la variable 'total_bill' se representa en el eje x, la variable 'tip' en el eje y y los datos se segmentan por la variable 'sex', asignando colores distintos a cada categoría (hombres y mujeres).
 `sns.displot(data=tip, x='total_bill',hue='sex', kind='kde',legend=False,palette='dark',alpha=0.5)`   # Crea un gráfico KDE (Estimación de Densidad Kernel) con 'total_bill' en el eje x, colores distintos para cada valor de 'sex', sin leyenda, paleta de colores oscura y una opacidad de 0.5.
 `plt.show()`                                              # Muestra los gráficos creados (uno a la vez).
+
+_Histogramas_
+`sns.histplot(data=tip, x='tip', bins=5, cumulative=True, hue='sex', stat='frequency')`  # Histograma acumulativo por género (frecuencia)
+`sns.histplot(data=tip, x='tip', bins=15, cumulative=False, hue='sex', stat='probability')`  # Histograma normal con probabilidad
+`sns.histplot(data=tip, x='tip', bins=15, cumulative=False, hue='sex', stat='percent')`  # Histograma en porcentaje
+`sns.histplot(data=tip, x='tip', bins=15, cumulative=False, hue='sex', stat='percent', multiple='dodge')`  # Histogramas separados
+`sns.histplot(data=tip, x='tip', bins=15, cumulative=False, hue='sex', stat='percent', multiple='stack')`  # Histogramas apilados
+`sns.histplot(data=tip, x='tip', bins=15, cumulative=False, hue='sex', stat='percent', multiple='fill')`  # Histogramas normalizados (100%)
+
+_Estimación de Densidad de Kernel (KDE)_
+`sns.kdeplot(data=tip, x='tip', hue='sex', cumulative=False, shade=True)`  # KDE normal con sombreado
+`sns.kdeplot(data=tip, x='tip', hue='sex', cumulative=True, shade=False)`  # KDE acumulativo sin sombreado
+
+_Distribución acumulativa empírica_
+`sns.ecdfplot(data=tip, x='tip', hue='sex')`  # ECDF normal
+`sns.ecdfplot(data=tip, x='tip', hue='sex', stat='count')`  # ECDF con conteo
+
+_Distribuciones combinadas en una sola gráfica_
+`sns.displot(data=tip, x='tip', hue='sex', kind='kde')`  # KDE con displot
+`sns.displot(data=tip, x='tip', hue='sex', kind='hist', multiple='stack')`  # Histograma apilado con displot
+`plt.show()`
+
+_Visualización de variables categóricas_
+_Conteo de categorías_
+`sns.countplot(data=tip, x='day', hue='sex')`  # Conteo de datos por día y género (horizontal)
+`sns.countplot(data=tip, y='day', hue='sex')`  # Conteo de datos por día y género (vertical)
+
+_Gráficos de dispersión_
+`sns.stripplot(data=tip, x='day', hue='sex')`  # Stripplot sin valores numéricos en Y
+`sns.stripplot(data=tip, x='day', y='total_bill', hue='sex')`  # Stripplot con total_bill en Y
+`sns.stripplot(data=tip, x='day', y='total_bill', hue='sex', dodge=True)`  # Stripplot con separación de puntos por categoría
+
+_Swarmplot y Boxplot_
+`sns.swarmplot(data=tip, x='day', y='total_bill', hue='sex', dodge=True)`  # Swarmplot con separación por categoría
+`sns.boxplot(data=tip, x='day', y='total_bill', hue='sex', dodge=True)`  # Boxplot con separación por categoría
+
+_Combinación de Swarmplot y Boxplot_
+`sns.swarmplot(data=tip, x='day', y='total_bill', hue='sex', dodge=True, color='0', marker='<')`  # Swarmplot con marcadores
+`sns.boxplot(data=tip, x='day', y='total_bill', hue='sex', dodge=True)`  # Boxplot sobrepuesto
+`plt.show()`
+
+_Violin plot_
+`sns.violinplot(data=tip, x='day', y='total_bill', hue='sex', split=True, dodge=True, palette='pastel')`  # Violin plot con división de categorías
+`plt.show()`
+
+_Catplot para múltiples tipos de visualización_
+`sns.catplot(data=tip, x='day', y='total_bill', hue='sex', dodge=True, kind='box', col='time')`  # Catplot con Boxplot
+`sns.catplot(data=tip, x='day', y='total_bill', hue='sex', dodge=True, kind='swarm', col='time')`  # Catplot con Swarmplot
+`plt.show()`
+
+_Gráfico de dispersión con estilos personalizados_
+`plt.figure(figsize=(8,6))`                         # Define el tamaño de la figura  
+`markers = {'Lunch':'D','Dinner':'s'}`              # Define los marcadores según el tipo de comida  
+`sns.scatterplot(data=tip, x='total_bill', y='tip', hue='day', style='time', size='size', markers=markers)`  # Gráfico de dispersión con diferentes estilos  
+`plt.legend(loc='center', bbox_to_anchor=(1.09,0.5))`  # Ajuste de la leyenda  
+`plt.show()`
+
+_Gráfico de líneas_
+`sns.lineplot(data=tip, x='total_bill', y='tip')`   # Gráfico de línea que muestra la relación entre total_bill y tip  
+`plt.show()`
+
+_Relplot con estilos personalizados_
+`markers = {'Lunch':'D','Dinner':'s'}`              # Definir marcadores para cada tipo de comida  
+`sns.relplot(data=tip, x='total_bill', y='tip', hue='day', style='time', size='size', markers=markers, height=6, aspect=1.3)`  # Relplot con distintos estilos y tamaños  
+`plt.show()`
+
+_Gráficos conjuntos (Jointplot)_
+`sns.jointplot(data=tip, x='total_bill', y='tip')`  # Gráfico conjunto básico (scatter + histogramas)  
+`sns.jointplot(data=tip, x='total_bill', y='tip', hue='sex')`  # Jointplot con diferenciación de género  
+`sns.jointplot(data=tip, x='total_bill', y='tip', hue='sex', kind='hist')`  # Jointplot con histograma  
+`sns.jointplot(data=tip, x='total_bill', y='tip', hue='sex', kind='kde')`  # Jointplot con KDE  
+`sns.jointplot(data=tip, x='total_bill', y='tip', hue='sex', kind='hist', marginal_ticks=True, marginal_kws=dict(bins=25, fill=False, multiple='dodge'))`  # Jointplot con opciones adicionales para los márgenes  
+`plt.show()`
+
+_Pairplot: Relaciones entre variables numéricas_
+`sns.pairplot(data=tip)`  # Pairplot básico para analizar relaciones entre todas las variables numéricas  
+`sns.pairplot(data=tip, hue='sex', corner=True, kind='scatter')`  # Pairplot con diferenciación por género y solo la parte inferior de la matriz  
+`plt.show()`
