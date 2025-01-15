@@ -1,6 +1,66 @@
 # Datos faltantes
+_Uso de `None` en Python_
+`print(None or True)`                         Retorna `True`, ya que `or` devuelve el primer valor verdadero.  
+`print(None or False)`                        Retorna `False`, porque ambos valores son considerados "falsos".  
+`print(None == None)`                         Retorna `True`, ya que `None` es igual a `None`.  
+`print(None is None)`                         Retorna `True`, ya que `is` compara identidades en memoria.  
+`print(type(None))`                           Retorna `<class 'NoneType'>`, que es el tipo de `None`.  
 
+_Manejo de `np.nan` con NumPy_
+`import numpy as np`                          Importa la librería NumPy.  
+`print(np.nan or True)`                       Retorna `True`, porque `or` devuelve el primer valor verdadero.  
+`print(np.nan == np.nan)`                     Retorna `False`, ya que `NaN` nunca es igual a sí mismo.  
+`print(np.nan is np.nan)`                     Retorna `True`, porque `is` compara identidades en memoria.  
+`print(np.nan / 2)`                           Retorna `nan`, ya que cualquier operación con `nan` sigue siendo `nan`.  
+`print(type(np.nan))`                         Retorna `<class 'float'>`, ya que `np.nan` es un flotante.  
+`print(np.isnan(np.nan))`                     Retorna `True`, porque `np.isnan()` detecta valores `nan`.  
 
+_Manejo de Datos Faltantes con Pandas_
+`import pandas as pd`                         Importa la librería Pandas.  
+`test_missing_df = pd.DataFrame.from_dict(...)` Crea un DataFrame con valores faltantes (`np.nan`, `None`, `pd.NA`).  
+`print(test_missing_df)`                      Muestra la tabla con los datos, donde `NaN` indica valores faltantes.  
+`print(test_missing_df.isna())`               Devuelve un DataFrame con `True` donde hay valores faltantes.  
+`print(test_missing_df.isnull())`             Funciona igual que `isna()`, detecta valores faltantes.  
+`print(test_missing_df.x.isna())`             Devuelve una serie booleana indicando qué valores en la columna `x` están vacíos.  
+
+_Creación de Series en Pandas con Datos Faltantes_
+`print(pd.Series([1, np.nan]))`                             Crea una serie con un valor `1` y un `NaN`.  
+`print(pd.Series([pd.to_datetime('2022-01-01'), np.nan]))`  Crea una serie con una fecha y un `NaN`.  
+`print(pd.Series([-1]).isnull())`                           Devuelve `False`, porque `-1` no es un valor faltante.  
+
+_Manejo de Datos Faltantes y Descarga de Datos con Pandas_  
+`pima_indians_diabetes_url = "https://nrvis.com/data/mldata/pima-indians-diabetes.csv"`	Define la URL del archivo CSV con los datos de diabetes.  
+`output_path = "./data/prima_indians-diabetes.csv"`	Especifica la ruta donde se guardará el archivo descargado.  
+`subprocess.run(["wget", "-O", output_path, pima_indians_diabetes_url, "-q"])`	Descarga el archivo desde la URL y lo guarda en la ruta `output_path`.  
+
+_Lectura del archivo CSV con Pandas_  
+`diabetes_df = pd.read_csv('~/datos_faltantes/curso-datos-faltantes-main/data/pima-indians-diabetes.csv', sep=',', names=[...])`	Carga el dataset en un DataFrame de Pandas, especificando los nombres de las columnas.  
+
+_Automatización de la obtención de datos desde un sitio web_  
+`base_url = "https://github.com/njtierney/naniar/raw/master/data/"`	Define la URL base donde están almacenados los archivos `.rda`.  
+`datasets_names = ("oceanbuoys", "pedestrian", "riskfactors")`	Lista de los datasets que serán descargados.  
+`extension = ".rda"`	                                        Define la extensión de los archivos a descargar.  
+
+_Descarga y carga automática de archivos en un diccionario_  
+`dataset_dfs = {}`	                                Inicializa un diccionario vacío para almacenar los dataframes descargados.  
+`for dataset in datasets_names:`	                Itera sobre la lista de datasets para descargarlos y cargarlos.  
+`file_name = f"{dataset}{extension}"`	            Construye el nombre del archivo combinando el nombre del dataset con su extensión `.rda`.  
+`output_path = f"./data/{file_name}"`	            Define la ruta donde se guardará cada archivo descargado.  
+`subprocess.run(["wget", "-O", output_path, f"{base_url}{file_name}", "-q"])`	Descarga el archivo desde el sitio web y lo guarda en la carpeta `./data/`.  
+
+_Lectura de archivos `.rda` y almacenamiento en un diccionario_  
+`result = pyreadr.read_r(output_path)`	            Lee el archivo `.rda` con `pyreadr`, devolviendo un diccionario con los objetos almacenados en el archivo.  
+`dataset_dfs[dataset] = result[next(iter(result))]`	Extrae el primer dataframe del diccionario y lo almacena en `dataset_dfs` con su nombre correspondiente.  
+
+📌 **Ejemplo de lo que sucede en la primera iteración:**  
+`next(iter(result))`	                            Retorna `"oceanbuoys"` (nombre del objeto en `.rda`).  
+`result[next(iter(result))]`	                    Retorna el dataframe asociado a `"oceanbuoys"`.  
+`dataset_dfs["oceanbuoys"] = result["oceanbuoys"]`	Guarda el dataframe en el diccionario.  
+
+_Extracción de DataFrames desde el diccionario_  
+`oceanbuoys_df = dataset_dfs["oceanbuoys"]`	    Extrae el DataFrame correspondiente a `"oceanbuoys"`.  
+`pedestrian_df = dataset_dfs["pedestrian"]`	    Extrae el DataFrame correspondiente a `"pedestrian"`.  
+`riskfactors_df = dataset_dfs["riskfactors"]`	Extrae el DataFrame correspondiente a `"riskfactors"`.  
 
 _Requirements_
 cycler==0.12.1
