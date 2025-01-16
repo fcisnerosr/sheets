@@ -3,10 +3,10 @@ _Introducción y carga de datos iniciales para todos los ejemplos de gráficas_
 _Grafica de barras_
 `data = pd.DataFrame({'Categoria': ['A', 'B', 'C'], 'Valor': [1, 3, 2]})` # Crea un DataFrame de ejemplo con columnas 'Categoria' y 'Valor'.
 `plt.switch_backend('TkAgg')`                             # Configura Matplotlib para usar el backend TkAgg (interactivo)
-                                                        # (o plt.switch_backend('QtAgg') si tienes Qt).
 `sns.set(style='dark',palette='dark',font_scale=1)`       # Establece el estilo del gráfico en modo oscuro, paleta de colores oscura y la escala de la fuente.
 `sns.barplot(x='Categoria', y='Valor', data=data)`        # Crea un gráfico de barras con 'Categoria' en el eje x y 'Valor' en el eje y, utilizando el DataFrame 'data'.
 `plt.show()`                                              # Muestra el gráfico creado.
+![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/001_barplot.png)
 
 _Carga de Dataset y Exportación a CSV_
 `tip = sns.load_dataset('tips')`                         # Carga el dataset 'tips' de Seaborn en un DataFrame llamado 'tip'.
@@ -16,6 +16,7 @@ _Gráficas de distribución_
 `sns.displot(data=tip, x='total_bill',y='tip', hue='sex')`      # Crea un gráfico de distribución (histograma por defecto) donde: la variable 'total_bill' se representa en el eje x, la variable 'tip' en el eje y y los datos se segmentan por la variable 'sex', asignando colores distintos a cada categoría (hombres y mujeres).
 `sns.displot(data=tip, x='total_bill',hue='sex', kind='kde',legend=False,palette='dark',alpha=0.5)`   # Crea un gráfico KDE (Estimación de Densidad Kernel) con 'total_bill' en el eje x, colores distintos para cada valor de 'sex', sin leyenda, paleta de colores oscura y una opacidad de 0.5.
 
+
 _Histogramas_
 `sns.histplot(data=tip, x='tip', bins=5, cumulative=True, hue='sex', stat='frequency')`  # Histograma acumulativo por género (frecuencia)
 `sns.histplot(data=tip, x='tip', bins=15, cumulative=False, hue='sex', stat='probability')`  # Histograma normal con probabilidad
@@ -23,29 +24,33 @@ _Histogramas_
 `sns.histplot(data=tip, x='tip', bins=15, cumulative=False, hue='sex', stat='percent', multiple='dodge')`  # Histogramas separados
 `sns.histplot(data=tip, x='tip', bins=15, cumulative=False, hue='sex', stat='percent', multiple='stack')`  # Histogramas apilados
 `sns.histplot(data=tip, x='tip', bins=15, cumulative=False, hue='sex', stat='percent', multiple='fill')`  # Histogramas normalizados (100%)
+![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/002_scatter_plot.png)
 
 _Estimación de Densidad de Kernel (KDE)_
 `sns.kdeplot(data=tip, x='tip', hue='sex', cumulative=False, shade=True)`  # KDE normal con sombreado
 `sns.kdeplot(data=tip, x='tip', hue='sex', cumulative=True, shade=False)`  # KDE acumulativo sin sombreado
+![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/002_5_kde.png)
 
-_Distribución acumulativa empírica_
+_Distribución acumulativa empírica ECDF = Empirical Comulative Distribution Function_
 `sns.ecdfplot(data=tip, x='tip', hue='sex')`  # ECDF normal
 `sns.ecdfplot(data=tip, x='tip', hue='sex', stat='count')`  # ECDF con conteo
+![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/004_stacked_histogram.png)
 
 _Distribuciones combinadas en una sola gráfica_
 `sns.displot(data=tip, x='tip', hue='sex', kind='kde')`  # KDE con displot
 `sns.displot(data=tip, x='tip', hue='sex', kind='hist', multiple='stack')`  # Histograma apilado con displot
-`plt.show()`                                                # Muestra simultaneamente ambas disbuciones en la misma gráfica
+`plt.show()`                                                # Muestra simultaneamente ambas distribuciones en la misma gráfica
 
 _Visualización de variables categóricas_
 _Conteo de categorías_
-`sns.countplot(data=tip, x='day', hue='sex')`  # Conteo de datos por día y género (horizontal)
+`sns.countplot(data=tip, x='day', hue='sex')`  # Conteo de datos por día y género (horizontalj
 `sns.countplot(data=tip, y='day', hue='sex')`  # Conteo de datos por día y género (vertical)
 
 _Gráficos de dispersión_
 `sns.stripplot(data=tip, x='day', hue='sex')`  # Stripplot sin valores numéricos en Y
 `sns.stripplot(data=tip, x='day', y='total_bill', hue='sex')`  # Stripplot con total_bill en Y
 `sns.stripplot(data=tip, x='day', y='total_bill', hue='sex', dodge=True)`  # Stripplot con separación de puntos por categoría
+<!-- ![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/00.png) -->
 
 _Swarmplot y Boxplot_
 `sns.swarmplot(data=tip, x='day', y='total_bill', hue='sex', dodge=True)`  # Swarmplot con separación por categoría
@@ -55,6 +60,7 @@ _Combinación de Swarmplot y Boxplot_
 `sns.swarmplot(data=tip, x='day', y='total_bill', hue='sex', dodge=True, color='0', marker='<')`  # Swarmplot con marcadores
 `sns.boxplot(data=tip, x='day', y='total_bill', hue='sex', dodge=True)`  # Boxplot sobrepuesto
 `plt.show()`
+![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/006_categorical_scatter_plot.png)
 
 _Violin plot_
 `sns.violinplot(data=tip, x='day', y='total_bill', hue='sex', split=True, dodge=True, palette='pastel')`  # Violin plot con división de categorías
