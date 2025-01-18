@@ -77,13 +77,16 @@ _Gráfico de dispersión con estilos personalizados_
 `markers = {'Lunch':'D','Dinner':'s'}`              # Define los marcadores según el tipo de comida  
 `sns.scatterplot(data=tip, x='total_bill', y='tip', hue='day', style='time', size='size', markers=markers)`  # Gráfico de dispersión con diferentes estilos  
 `plt.legend(loc='center', bbox_to_anchor=(1.09,0.5))`  # Ajuste de la leyenda  
+![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/013_two_variable_scatter.png)
 
 _Gráfico de líneas_
 `sns.lineplot(data=tip, x='total_bill', y='tip')`   # Gráfico de línea que muestra la relación entre total_bill y tip  
+![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/013_2_grafic_line.png)
 
 _Relplot con estilos personalizados: función para visualizar relaciones entre variables numéricas_
 `markers = {'Lunch':'D','Dinner':'s'}`              # Definir marcadores para cada tipo de comida  
 `sns.relplot(data=tip, x='total_bill', y='tip', hue='day', style='time', size='size', markers=markers, height=6, aspect=1.3)`  # Relplot con distintos estilos y tamaños  
+![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/013_two_variable_scatter.png)
 
 _Gráficos conjuntos (Jointplot): permite visualizar la relación entre dos variables numéricas, combinando un gráfico de dispersión con histogramas marginales en los ejes_
 `sns.jointplot(data=tip, x='total_bill', y='tip')`  # Gráfico conjunto básico (scatter + histogramas)  
@@ -91,9 +94,9 @@ _Gráficos conjuntos (Jointplot): permite visualizar la relación entre dos vari
 `sns.jointplot(data=tip, x='total_bill', y='tip', hue='sex', kind='hist')`  # Jointplot con histograma  
 `sns.jointplot(data=tip, x='total_bill', y='tip', hue='sex', kind='kde')`  # Jointplot con KDE  
 `sns.jointplot(data=tip, x='total_bill', y='tip', hue='sex', kind='hist', marginal_ticks=True, marginal_kws=dict(bins=25, fill=False, multiple='dodge'))`  # Jointplot con opciones adicionales para los márgenes  
-`plt.show()`
+![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/014_distribution_joint_view.png)
 
 _Pairplot: Relaciones entre variables numéricas_
 `sns.pairplot(data=tip)`  # Pairplot básico para analizar relaciones entre todas las variables numéricas  
 `sns.pairplot(data=tip, hue='sex', corner=True, kind='scatter')`  # Pairplot con diferenciación por género y solo la parte inferior de la matriz  
-`plt.show()`
+![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/015_data_relationship_matrix.png)
