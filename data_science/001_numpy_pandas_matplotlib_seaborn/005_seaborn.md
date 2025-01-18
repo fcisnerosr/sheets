@@ -39,43 +39,44 @@ _Distribución acumulativa empírica ECDF = Empirical Comulative Distribution Fu
 _Distribuciones combinadas en una sola gráfica_
 `sns.displot(data=tip, x='tip', hue='sex', kind='kde')`  # KDE con displot
 `sns.displot(data=tip, x='tip', hue='sex', kind='hist', multiple='stack')`  # Histograma apilado con displot
-`plt.show()`                                                # Muestra simultaneamente ambas distribuciones en la misma gráfica
+![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/004_stacked_histogram.png)
 
-_Visualización de variables categóricas_
 _Conteo de categorías_
-`sns.countplot(data=tip, x='day', hue='sex')`  # Conteo de datos por día y género (horizontalj
+`sns.countplot(data=tip, x='day', hue='sex')`  # Conteo de datos por día y género (horizontal)
+![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/007_2_categorical_count_horizontal.png)
 `sns.countplot(data=tip, y='day', hue='sex')`  # Conteo de datos por día y género (vertical)
+![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/007_3_categorical_count_vertical.png)
 
-_Gráficos de dispersión_
 `sns.stripplot(data=tip, x='day', hue='sex')`  # Stripplot sin valores numéricos en Y
 `sns.stripplot(data=tip, x='day', y='total_bill', hue='sex')`  # Stripplot con total_bill en Y
 `sns.stripplot(data=tip, x='day', y='total_bill', hue='sex', dodge=True)`  # Stripplot con separación de puntos por categoría
-<!-- ![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/00.png) -->
+![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/006_categorical_scatter_plot.png)
 
 _Swarmplot y Boxplot_
 `sns.swarmplot(data=tip, x='day', y='total_bill', hue='sex', dodge=True)`  # Swarmplot con separación por categoría
 `sns.boxplot(data=tip, x='day', y='total_bill', hue='sex', dodge=True)`  # Boxplot con separación por categoría
+![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/008_2_bloxplot.png)
 
 _Combinación de Swarmplot y Boxplot_
 `sns.swarmplot(data=tip, x='day', y='total_bill', hue='sex', dodge=True, color='0', marker='<')`  # Swarmplot con marcadores
 `sns.boxplot(data=tip, x='day', y='total_bill', hue='sex', dodge=True)`  # Boxplot sobrepuesto
 `plt.show()`
-![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/006_categorical_scatter_plot.png)
+![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/008_boxplot_and_swarmplot.png)
 
 _Violin plot_
 `sns.violinplot(data=tip, x='day', y='total_bill', hue='sex', split=True, dodge=True, palette='pastel')`  # Violin plot con división de categorías
-`plt.show()`
+![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/009_violin.png)
 
 _Catplot para múltiples tipos de visualización: (Categorical Plot) es una función que permite crear gráficos para visualizar la distribución de datos categóricos en distintas representaciones_
 `sns.catplot(data=tip, x='day', y='total_bill', hue='sex', dodge=True, kind='box', col='time')`  # Catplot con Boxplot
 `sns.catplot(data=tip, x='day', y='total_bill', hue='sex', dodge=True, kind='swarm', col='time')`  # Catplot con Swarmplot
+![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/009_2_catplot_diferent_col.png)
 
 _Gráfico de dispersión con estilos personalizados_
 `plt.figure(figsize=(8,6))`                         # Define el tamaño de la figura  
 `markers = {'Lunch':'D','Dinner':'s'}`              # Define los marcadores según el tipo de comida  
 `sns.scatterplot(data=tip, x='total_bill', y='tip', hue='day', style='time', size='size', markers=markers)`  # Gráfico de dispersión con diferentes estilos  
 `plt.legend(loc='center', bbox_to_anchor=(1.09,0.5))`  # Ajuste de la leyenda  
-`plt.show()`
 
 _Gráfico de líneas_
 `sns.lineplot(data=tip, x='total_bill', y='tip')`   # Gráfico de línea que muestra la relación entre total_bill y tip  
