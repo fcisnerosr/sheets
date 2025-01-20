@@ -6,7 +6,7 @@ _Grafica de barras_
 `sns.set(style='dark',palette='dark',font_scale=1)`       # Establece el estilo del gráfico en modo oscuro, paleta de colores oscura y la escala de la fuente.  
 `sns.barplot(x='Categoria', y='Valor', data=data)`        # Crea un gráfico de barras con 'Categoria' en el eje x y 'Valor' en el eje y, utilizando el DataFrame 'data'.  
 `plt.show()`                                              # Muestra el gráfico creado.  
-![barplot](sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/001_barplot.png)
+![barplot](graficas_seaborn/001_barplot.png)
   
 _Carga de Dataset y Exportación a CSV_  
 `tip = sns.load_dataset('tips')`                         # Carga el dataset 'tips' de Seaborn en un DataFrame llamado 'tip'.  
