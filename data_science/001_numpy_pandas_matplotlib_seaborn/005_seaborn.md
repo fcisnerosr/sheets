@@ -1,7 +1,7 @@
 # Seaborn
-_Introducción y carga de datos iniciales para todos los ejemplos de gráficas_
-_Grafica de barras_
-`data = pd.DataFrame({'Categoria': ['A', 'B', 'C'], 'Valor': [1, 3, 2]})` # Crea un DataFrame de ejemplo con columnas 'Categoria' y 'Valor'.
+_Introducción y carga de datos iniciales para todos los ejemplos de gráficas_  
+_Grafica de barras_  
+`data = pd.DataFrame({'Categoria': ['A', 'B', 'C'], 'Valor': [1, 3, 2]})` # Crea un DataFrame de ejemplo con columnas 'Categoria' y 'Valor'.  
 `plt.switch_backend('TkAgg')`                             # Configura Matplotlib para usar el backend TkAgg (interactivo)
 `sns.set(style='dark',palette='dark',font_scale=1)`       # Establece el estilo del gráfico en modo oscuro, paleta de colores oscura y la escala de la fuente.
 `sns.barplot(x='Categoria', y='Valor', data=data)`        # Crea un gráfico de barras con 'Categoria' en el eje x y 'Valor' en el eje y, utilizando el DataFrame 'data'.
