@@ -24,12 +24,12 @@ _Histogramas_
 `sns.histplot(data=tip, x='tip', bins=15, cumulative=False, hue='sex', stat='percent', multiple='dodge')`  # Histogramas separados  
 `sns.histplot(data=tip, x='tip', bins=15, cumulative=False, hue='sex', stat='percent', multiple='stack')`  # Histogramas apilados  
 `sns.histplot(data=tip, x='tip', bins=15, cumulative=False, hue='sex', stat='percent', multiple='fill')`  # Histogramas normalizados (100%)  
-![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/002_scatter_plot.png)  
+![barplot](graficas_seaborn/002_scatter_plot.png)  
   
 _Estimación de Densidad de Kernel (KDE)_  
 `sns.kdeplot(data=tip, x='tip', hue='sex', cumulative=False, shade=True)`  # KDE normal con sombreado  
 `sns.kdeplot(data=tip, x='tip', hue='sex', cumulative=True, shade=False)`  # KDE acumulativo sin sombreado  
-![barplot](~/Documents/sheets/data_science/001_numpy_pandas_matplotlib_seaborn/graficas_seaborn/002_5_kde.png)  
+![barplot](graficas_seaborn/002_5_kde.png)  
   
 _Distribución acumulativa empírica ECDF = Empirical Comulative Distribution Function_  
 `sns.ecdfplot(data=tip, x='tip', hue='sex')`  # ECDF normal  
