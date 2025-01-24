@@ -44,9 +44,9 @@ _Automatización de la obtención de datos desde un sitio web_
 _Descarga y carga automática de archivos en un diccionario_  
 `dataset_dfs = {}`	                                Inicializa un diccionario vacío para almacenar los dataframes descargados.  
 `for dataset in datasets_names:`	                Itera sobre la lista de datasets para descargarlos y cargarlos.  
-`file_name = f"{dataset}{extension}"`	            Construye el nombre del archivo combinando el nombre del dataset con su extensión `.rda`.  
-`output_path = f"./data/{file_name}"`	            Define la ruta donde se guardará cada archivo descargado.  
-`subprocess.run(["wget", "-O", output_path, f"{base_url}{file_name}", "-q"])`	Descarga el archivo desde el sitio web y lo guarda en la carpeta `./data/`.  
+    `file_name = f"{dataset}{extension}"`	            Construye el nombre del archivo combinando el nombre del dataset con su extensión `.rda`.  
+    `output_path = f"./data/{file_name}"`	            Define la ruta donde se guardará cada archivo descargado.  
+    `subprocess.run(["wget", "-O", output_path, f"{base_url}{file_name}", "-q"])`	Descarga el archivo desde el sitio web y lo guarda en la carpeta `./data/`.  
 
 _Lectura de archivos `.rda` y almacenamiento en un diccionario_  
 `result = pyreadr.read_r(output_path)`	            Lee el archivo `.rda` con `pyreadr`, devolviendo un diccionario con los objetos almacenados en el archivo.  

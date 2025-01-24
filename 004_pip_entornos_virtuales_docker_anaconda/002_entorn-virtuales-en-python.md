@@ -16,7 +16,7 @@
 `deactivate`  Desactiva el venv
 +`which python3`  Devuelve la versión de python que se tiene instalada en el venv
 +`pip3 freeze`  Devuelve todas las librerías que están instaladas en en venv
-+`pip3 install -upgramde matplotlib`  Actualiza a la versión más reciente de matplotlib
++`pip3 install -upgrade matplotlib`  Actualiza a la versión más reciente de matplotlib
 	
 Instalar automáticamente las dependencias de un proyecto
 	Debe estar creado requirements.txt, que contendrá todas librerías en particular que necesita mi proyecto
