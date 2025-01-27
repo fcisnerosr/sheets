@@ -17,20 +17,27 @@ _Comandos básicos_
 `ctrl + c` para cancelar el servidor
 
 ### Gestión de Entornos y paquetes de ambientes virtuales, crearlos, actualizarlos y eliminarlos    
+_Creación de ambientes virtuales_
 `conda env list` 		                    Lista todos los entornos virtuales creados y gestionados por conda en el sistema
 `conda create --name py python`			    Crea un nuevo entorno con el nombre "py" y la última versión de Python
 `conda create --name py35 python=3.5`		Crea un nuevo entorno con el nombre "py35" y Python 3.5
 `conda activate py35`                       Activa el ambiente creado
+_Listas e instalación de paquetes y dependencias_
 +`conda list python`				        Devuelve la versión de Python en el ambiente activo
 +`conda list`				                Lista todas las dependencias del ambiente activo
++`conda list -n otro_env`                   Lista de paquetes o dependencias de otro env estando activo en otro env
 +`conda update python`				        Actualiza la versión de Python a la más reciente disponible, en `update` no puedo especificar qué versión se necesita
-+`conda install python=2.7`			        Actualiza una versión específica de Python en el ambiente activo. _Puede haber conflictos debido a que haya dependencias como pandas 1.2 que necesite una versión de Python mayor o igual a la 3.7, en ese caso aplicar el siguiente comando_
++`conda install python=2.7`			        Actualiza una versión específica de Python en el ambiente activo. Puede haber conflictos debido a que haya dependencias como pandas 1.2 que necesite una versión de Python mayor o igual a la 3.7, en ese caso aplicar el siguiente comando
 +`conda install pandas=1.2 python=3.9`		Actualiza dos dependencias con versiones específicas requeridas
-`conda create --name py39 --copy --clone py35`	Crea un nuevo entorno con el nombre "py39" a partir de un entorno existente. _No necesario tener un env activo, con que el env del que se está haciendo la copia exista es más que suficiente_
+`conda create --name py39 --copy --clone py35`	Crea un nuevo entorno con el nombre "py39" a partir de un entorno existente. No necesario tener un env activo, con que el env del que se está haciendo la copia exista es más que suficiente
 +`conda install pandas=1.2 python=3.9`		Actualiza dos dependencias con versiones específicas requeridas
+_Limpieza y desintalación_
 +`conda remove pandas`                      Elimina pandas del ambiente activo
 `conda remove remove --name py35`           Elimina el env que no tengas activo
 `conda remove --name proyecto1 numpy `      Elimina del paquete 'numpy' del entorno 'proyecto1'
+`conda remove --name protecto1 --all `      Elimina todas las dependencias del entorno 'proyecto1'
+`conda clean --packages `                   Elimina la caché descargada por paqueterías
+`conda clean --all`                         Elimina toda la caché posible.
 
 ### Instalación de paquetes que no están en el canal principal de Conda. Búsqueda de Paquetes en anaconda.org
 1. *Visitar el Sitio*: Abre tu navegador y ve a [anaconda.org](https://anaconda.org).
