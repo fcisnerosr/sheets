@@ -100,3 +100,10 @@ _Pairplot: Relaciones entre variables numéricas_
 `sns.pairplot(data=tip)`  # Pairplot básico para analizar relaciones entre todas las variables numéricas    
 `sns.pairplot(data=tip, hue='sex', corner=True, kind='scatter')`  # Pairplot con diferenciación por género y solo la parte inferior de la matriz  
 ![barplot](graficas_seaborn/015_data_relationship_matrix.png)  
+
+_Heat map_
+`sns.heatmap(correlation_matrix, annot=True,cmap='coolwarm',linewidths=5)`  # Heatmap para graficar valores matriciales
+![barplot](graficas_seaborn/016_heatmap.png)  
+
+
+
