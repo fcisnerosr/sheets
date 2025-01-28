@@ -26,11 +26,13 @@ _Listas e instalación de paquetes y dependencias_
 +`conda list python`				        Devuelve la versión de Python en el ambiente activo
 +`conda list`				                Lista todas las dependencias del ambiente activo
 +`conda list -n otro_env`                   Lista de paquetes o dependencias de otro env estando activo en otro env
-+`conda update python`				        Actualiza la versión de Python a la más reciente disponible, en `update` no puedo especificar qué versión se necesita
 +`conda install python=2.7`			        Actualiza una versión específica de Python en el ambiente activo. Puede haber conflictos debido a que haya dependencias como pandas 1.2 que necesite una versión de Python mayor o igual a la 3.7, en ese caso aplicar el siguiente comando
 +`conda install pandas=1.2 python=3.9`		Actualiza dos dependencias con versiones específicas requeridas
 `conda create --name py39 --copy --clone py35`	Crea un nuevo entorno con el nombre "py39" a partir de un entorno existente. No necesario tener un env activo, con que el env del que se está haciendo la copia exista es más que suficiente
 +`conda install pandas=1.2 python=3.9`		Actualiza dos dependencias con versiones específicas requeridas
+_Actualización de dependencias_
++`conda update python`				        Actualiza la versión de Python a la más reciente disponible, en `update` no puedo especificar qué versión se necesita
++`conda update -all`				        Actualiza todas las dependencias en nuestro entorno
 _Limpieza y desintalación_
 +`conda remove pandas`                      Elimina pandas del ambiente activo
 `conda remove remove --name py35`           Elimina el env que no tengas activo
@@ -38,6 +40,25 @@ _Limpieza y desintalación_
 `conda remove --name protecto1 --all `      Elimina todas las dependencias del entorno 'proyecto1'
 `conda clean --packages `                   Elimina la caché descargada por paqueterías
 `conda clean --all`                         Elimina toda la caché posible.
+_Clonar entornos virtuales_
+`conda create --name nuevo_env --clone env_a_clonar`                         Clona un nuevo env a partir de otro env
+
+### Estado del env. Conda actuando como git, revisiones y el archivo enviroment.yml
+_Revisiones_
++`conda list --revision`            Muestra el historial de todas las revisiones y cambios que se han realizado en el entorno activo de conda
++`conda install --revision 0`       Te permite revertir el env a un estado anterior
++`conda env export --from-history --file enviroment.yml`  Exportación de *enviroment.yml* de la configuración del entorno activado
++`conda env export > enviroment.yml`  Comando alternativo para la exportación de *enviroment.yml* de la configuración del entorno activado
+_Compartir mis revisiones a terceros. Otro usuario no tiene el env instalado_
+Usuario que exporta el env y los instala mediante *enviroment.yml*:
+`conda env create -f enviroment.yml` Crea un nuevo entorno Conda a partir de las configuraciones del *enviroment.yml*
+_Actualizar dependencias de Conda con .yml en un env existente_
+Pasos:
+`conda create -n mi_entorno`         crear el entorno nuevo
+`conda activate mi_entorno`          activar en entorno nuevo
+`conda env update -f enviroment.yml` Actualiza las dependencias de acuerdo al .yml
+`conda list`                         para verificar las versiones actualizadas de acuerdo al .yml
+
 
 ### Instalación de paquetes que no están en el canal principal de Conda. Búsqueda de Paquetes en anaconda.org
 1. *Visitar el Sitio*: Abre tu navegador y ve a [anaconda.org](https://anaconda.org).
@@ -48,15 +69,6 @@ _Limpieza y desintalación_
 `conda install -c conda-forge keras`        Instala keras en caso de que conda no cuente con dicha librería. _En este caso 'conda-forge' es el canal que se encontró en 'anaconda.org'_
 `conda install -c conda-forge keras=2.4.3`  Instala una versión en específico de keras mediante un canal secundario de Conda       
 +`conda list keras`				            Verificación de la versión de keras instalado
-
-### Estado del env. Conda actuando como git, revisiones y el archivo enviroment.yml
-_Revisiones_
-+`conda list --revision`            Muestra el historial de todas las revisiones y cambios que se han realizado en el entorno activo de conda
-+`conda install --revision 0`       Te permite revertir el env a un estado anterior
-+`conda env export --from-history --file enviroment.yml`  Exportación de *enviroment.yml* de la configuración del entorno activado
-_Compartir mis revisiones a terceros. Otro usuario no tiene el env instalado y por tanto tampoco activado_
-Usuario que exporta el env y los instala mediante *enviroment.yml*:
-`conda env create --file enviroment.yml`Crea un nuevo entorno Conda a partir de las configuraciones del *enviroment.yml*
 
 ### Mamba
 conda install --channel conda-forge mamba   instalación de mamba
