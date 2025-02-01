@@ -11,7 +11,7 @@ _En caso de no poder iniciar conda init_
     conda init
 
 **Comandos con un + solo son ejecutables deberán tener el env activado**
-_Comandos básicos_ 
+Comandos básicos_ 
 +`conda --version`		Para asegurarte de que Conda se ha instalado y configurado correctamente
 +`jupyter notebook`       Inicia un servidor web en tu computadora para visualizar mis jupiter notebooks en la web
 `ctrl + c` para cancelar el servidor
@@ -41,7 +41,7 @@ _Limpieza y desintalación_
 `conda clean --packages `                   Elimina la caché descargada por paqueterías
 `conda clean --all`                         Elimina toda la caché posible.
 _Clonar entornos virtuales_
-`conda create --name nuevo_env --clone env_a_clonar`                         Clona un nuevo env a partir de otro env
+`conda create --name nuevo_env --clone env_a_clonar` Clona un nuevo env a partir de otro env
 
 ### Estado del env. Conda actuando como git, revisiones y el archivo enviroment.yml
 _Revisiones_
