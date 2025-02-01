@@ -44,9 +44,10 @@ _Automatización de la obtención de datos desde un sitio web_
 _Descarga y carga automática de archivos en un diccionario_  
 `dataset_dfs = {}`	                                Inicializa un diccionario vacío para almacenar los dataframes descargados.  
 `for dataset in datasets_names:`	                Itera sobre la lista de datasets para descargarlos y cargarlos.  
-    `file_name = f"{dataset}{extension}"`	            Construye el nombre del archivo combinando el nombre del dataset con su extensión `.rda`.  
-    `output_path = f"./data/{file_name}"`	            Define la ruta donde se guardará cada archivo descargado.  
-    `subprocess.run(["wget", "-O", output_path, f"{base_url}{file_name}", "-q"])`	Descarga el archivo desde el sitio web y lo guarda en la carpeta `./data/`.  
+&nbsp;&nbsp;&nbsp;&nbsp;`file_name = f"{dataset}{extension}"`	            Construye el nombre del archivo combinando el nombre del dataset con su extensión `.rda`.  
+&nbsp;&nbsp;&nbsp;&nbsp;`output_path = f"./data/{file_name}"`	            Define la ruta donde se guardará cada archivo descargado.  
+&nbsp;&nbsp;&nbsp;&nbsp;`subprocess.run(["wget", "-O", output_path, f"{base_url}{file_name}", "-q"])`	Descarga el archivo desde el sitio web y lo guarda en la carpeta `./data/`.  
+
 
 _Lectura de archivos `.rda` y almacenamiento en un diccionario_  
 `result = pyreadr.read_r(output_path)`	            Lee el archivo `.rda` con `pyreadr`, devolviendo un diccionario con los objetos almacenados en el archivo.  
@@ -61,6 +62,31 @@ _Extracción de DataFrames desde el diccionario_
 `oceanbuoys_df = dataset_dfs["oceanbuoys"]`	    Extrae el DataFrame correspondiente a `"oceanbuoys"`.  
 `pedestrian_df = dataset_dfs["pedestrian"]`	    Extrae el DataFrame correspondiente a `"pedestrian"`.  
 `riskfactors_df = dataset_dfs["riskfactors"]`	Extrae el DataFrame correspondiente a `"riskfactors"`.  
+
+_Jupyter Notebooks_
+ _Descarga y carga automática de datasets en Jupyter Notebooks_  
+`datasets_dfs = {}`	Inicializa un diccionario vacío para almacenar los dataframes descargados.  
+
+_Iteración sobre la lista de datasets_  
+`for dataset_name in datasets_names:`	Itera sobre los nombres de los datasets para descargarlos y cargarlos en un diccionario.  
+
+_Definición de nombres y rutas de archivos_  
+&nbsp;&nbsp;&nbsp;&nbsp;`dataset_file = f"{dataset_name}{extension}"`	Construye el nombre del archivo combinando el nombre del dataset con la extensión `.rda`.  
+&nbsp;&nbsp;&nbsp;&nbsp;`dataset_output_file = f"~/datos_faltantes/curso-datos-faltantes-main/data/{dataset_file}"`	Define la ruta donde se guardará cada archivo descargado.  
+&nbsp;&nbsp;&nbsp;&nbsp;`dataset_url = f"{base_url}{dataset_file}"`	Define la URL completa desde donde se descargará el dataset.  
+
+_Descarga del dataset usando Jupyter Notebooks (`!wget`)_  
+&nbsp;&nbsp;&nbsp;&nbsp;`!wget -q -O {dataset_output_file} {dataset_url}`	Descarga el archivo desde la URL y lo guarda en `dataset_output_file` sin mostrar salida en la terminal (`-q`).  
+
+_Lectura del archivo `.rda` y almacenamiento en un diccionario_  
+&nbsp;&nbsp;&nbsp;&nbsp;`datasets_dfs[f"{dataset_name}_df"] = pyreadr.read_r(dataset_output_file).get(dataset_name)`	Lee el archivo `.rda` con `pyreadr`, extrae el dataframe y lo guarda en `datasets_dfs` con un nombre clave (`oceanbuoys_df`, `pedestrian_df`, etc.).  
+
+_Visualización de las claves del diccionario_  
+`datasets_dfs.keys()`	Muestra todas las claves almacenadas en `datasets_dfs`, indicando los nombres de los datasets cargados.  
+
+_Acceso a un dataframe específico_  
+`datasets_dfs['oceanbuoys_df']`	Muestra el contenido del dataframe `"oceanbuoys_df"`, cargado desde el archivo `.rda`.   
+
 
 # Resúmenes tabulares de valores faltantes
 # Variables/Columnas
