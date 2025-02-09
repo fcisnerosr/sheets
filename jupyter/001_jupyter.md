@@ -1,4 +1,4 @@
-# Comandoab
+# Comandos
 esc + z                 deshacer
 dd                      borrar bloque de código
 shift + r               divide la pantalla entre codigo y datos de salida
@@ -11,6 +11,8 @@ esc + a                 crear una celda arriba
 ctl + b                 desplegar el explorador de archivos
 shift + tab             para centrar el foco en el explorador de archivos
 backspace               para ir un nivel atrás en el explorador de archivos 
+ctrl+shift+{            ir a la pestaña de la terminal
+ctrl+tab                pasa a la siguiente pestaña
 
 flecha derecha          oculta bloques
 flecha izquierda        muestra bloques
@@ -21,3 +23,24 @@ ctrl + shift + l        abre el launcher
 
 alt + f                 abre el menu de brave para poner el modo de pantalla completa
 f11                     quita la pantalla completa
+
+## Pasos para abrir un entorno específico de conda mediante un kernel para un notebook de jupyter lab
+conda env list          para ver los envs creados en conda
+conda install -n mi_env ipykernel instala ipykernel para en mi_env para que pueda ser usado como un kernel en juypter lab (este comando se ejecuta una vez por entorno creado)
+python -m ipykernel install --user --name=mi_env --display-name "Python (mi_env)" registra el entorno mi_env como kernel en jupyter y así se podrá seleccionar en jupyter lab
+
+## nbdime
+nbdiff-web notebook_original.ipynb notebook_modificado.ipynb    compara visualmente las diferencias entre los dos Jupyter Notebooks especificados abriendo una interfaz interactiva en un navegador web.
+
+## Comandos mágicos
+%ls                     ejecuta un comando de la terminal en jupyter
+%%bash                  ejecuta multiples líneas como un script de terminal dentro de una celda de código.
+ls
+echo "Hola"
+mkdir "carpeta_nueva"
+
+
+
+
+
+
