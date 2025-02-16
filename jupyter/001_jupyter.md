@@ -2,7 +2,8 @@
 esc + z                 deshacer
 dd                      borrar bloque de código
 shift + r               divide la pantalla entre codigo y datos de salida
-esc + shift + enter     ejecutar el bloque actual 
+esc + shift + enter     ejecutar el bloque actual y agrega un bloque nuevo abajo
+esc + ctrl + enter      ejecutar el bloque actual sin agregar ningún bloque por debajo
 esc + y                 convierte un bloque a código 
 esc + m                 convierte un bloque en código
 esc + b                 crear una celda debajo
@@ -50,3 +51,5 @@ ctrl + B                abrir y cerrar el explorador de archivos
 ctrl + N                crear un nuevo archivo
 Ctrl + M, M             convierte una celda de códido a Markdown
 Ctrl + M, Y             convierte una celda a código
+Ctrl + J                abrir y cerrar la terminal
+
