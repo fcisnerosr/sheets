@@ -19,7 +19,8 @@ flecha izquierda        muestra bloques
 
 shift + m               fuciona el bloque en el que estás con el de abajo 
 
-ctrl + shift + l        abre el launcher
+ctrl + shift + L        abre el launcher
+ctrl + s                guardar el archivo
 
 alt + f                 abre el menu de brave para poner el modo de pantalla completa
 f11                     quita la pantalla completa
@@ -30,6 +31,7 @@ conda install -n mi_env ipykernel instala ipykernel para en mi_env para que pued
 python -m ipykernel install --user --name=mi_env --display-name "Python (mi_env)" registra el entorno mi_env como kernel en jupyter y así se podrá seleccionar en jupyter lab
 
 ## nbdime
+nbdiff notebook_original.ipynb notebook_modificado.ipynb        compara los dos Jupyter Notebooks especificados y muestra las diferencias como texto plano en la terminal,
 nbdiff-web notebook_original.ipynb notebook_modificado.ipynb    compara visualmente las diferencias entre los dos Jupyter Notebooks especificados abriendo una interfaz interactiva en un navegador web.
 
 ## Comandos mágicos
@@ -39,8 +41,12 @@ ls
 echo "Hola"
 mkdir "carpeta_nueva"
 
-
-
-
-
-
+# Visual Studio Code
+conda activate my_env   activar el env
+code .                  abrir code desde la terminal de WSL
+ctrl + shift + X        abrir el buscador de extensiones
+ctrl + shift + E        abrir el explorador de archivos
+ctrl + B                abrir y cerrar el explorador de archivos
+ctrl + N                crear un nuevo archivo
+Ctrl + M, M             convierte una celda de códido a Markdown
+Ctrl + M, Y             convierte una celda a código
