@@ -16,6 +16,7 @@ _Comandos básicos_
 `git commit -am "mensaje"`    realiza un git add de los cambios realizados, solo funciona con archivos con add previamente no con archivos nuevos
 `git commit -a`               Lo mismo que el comando de arriba pero levanta vim para ingresar el mensaje
 `git commit --amend`          Editar el último commit, siempre que no se haya enviado al repositorio remoto mediante push.
+`git commit --amend -m "Nuevo mensaje && git push --force"`          Editar el último commit aunque ya se haya enviado al repositorio remoto  s y sobreescribe el commit remoto
 `git config --global core.abbrev 4`  configuración de número de dígitos en los commits de log
 `git log archivo.py`            muestra la lista de commits realizados en un archivo
 `git log --stat --oneline`      muestra cambios detallados de cuántas líneas se agregaron y borraron en cada commit
