@@ -58,7 +58,7 @@ Ctrl + J                abrir y cerrar la terminal
 2. Ctrl + Shift + Alt + Enter   Debug Cell
 
 | Action         | Description |
-|----------------|------------|
+|----------------|-------------|
 | **Continue**   | Resumes code execution until the next breakpoint or the end of the program. |
 | **Step Back**  | Moves execution back to the previous line (if enabled). |
 | **Step Over**  | Executes the next line of code without stepping into functions. |
@@ -83,6 +83,24 @@ Pasos básicos:
 1. Instalar cookie cutter
 2. Clonar el repositorio
 3. personalizar en nuestro entorno de trabajo
+_Instalación_
+`conda install conda-forge::cookiecutter`     instalar cookiecutter con conda mediante el canal forge
 
-conda install conda-forge::cookiecutter     instalar cookiecutter con conda mediante el canal forge
+_Ejecución de plantillas creadas en Github_
+`cookiecutter https://github.com/drivendataorg/cookiecutter-data-science -c v1` Creará un nuevo proyecto basado en la plantilla de ciencia de datos definida en cookiecutter-data-science, solicitando al usuario información como el nombre del proyecto, el autor, la licencia y otros detalles de configuración
+
+_Personalización de plantillas en cookiecutter_
+1. Crear directorio COOKIE-CUTTER
+    1. cookiecutter.json (archivo para...)
+    2. {{cookiecutter.project_name}}
+        - data (directorio personal)
+        - src (directorio personal)
+        - notebook (directorio personal)
+        - test (directorio personal)
+        - enviroments.yml
+        - requirements.txt
+        - README.md
+        - LICENSE
+
+2. s
 
