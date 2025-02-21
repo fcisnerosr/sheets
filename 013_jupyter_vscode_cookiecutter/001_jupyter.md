@@ -92,15 +92,75 @@ _Ejecución de plantillas creadas en Github_
 _Personalización de plantillas en cookiecutter_
 1. Crear directorio COOKIE-CUTTER
     1. cookiecutter.json (archivo para...)
-    2. {{cookiecutter.project_name}}
-        - data (directorio personal)
-        - src (directorio personal)
-        - notebook (directorio personal)
-        - test (directorio personal)
-        - enviroments.yml
-        - requirements.txt
-        - README.md
-        - LICENSE
+        {
+            "project_name": "My Project",
+            "author_name": "Paco Cisneros",
+            "python_version": "3.8",
+            "license": ["MIT", "GPL", "Apache"]
+        }
+    2. {{cookiecutter.project_name}} (directorio con toda la plantilla con la estructura personalizada)
+        1. data (directorio personal)
+        2. src (directorio personal)
+        3. notebook (directorio personal)
+        4. test (directorio personal)
+        5. enviroments.yml
+            name: {cookiecutter.project_name}
+            channels:
+              - conda-forge
+              - defaults
+            dependencies:
+              - python=3.8
+              - numpy
+              - pandas
+        6. requirements.txt
+        7. README.md
+            -  # {{cookiecutter.project_name}}
+                Proyecto de Machine Learning creado por {cookiecutter.author_name}
 
-2. s
+                ## Descripción
+
+                Este proyecto contiene el flujo completo para entrenar y evaluar un modelo de machine learning. Está organizado en las siguientes secciones:
+
+                - **data/**: Contiene los datos sin procesar y los datos procesados.
+                - **notebooks/**: Jupyter Notebooks para análisis exploratorio y modelado.
+                - **src/**: Código fuente que contiene scripts para procesamiento de datos y modelos.
+                - **tests/**: Pruebas unitarias para asegurar la calidad del código.
+                
+                ## Requisitos
+
+                - Python {{cookiecutter.python_version}}
+                - Dependencias: Ver `environment.yml` o `requirements.txt` para instalar todas las bibliotecas necesarias.
+
+                ## Instalación
+
+                Para configurar el entorno, ejecuta el siguiente comando:
+
+                ```bash
+                conda env create -f environment.yml
+        8. LICENSE
+            {% if cookiecutter.license == "MIT" %}
+            MIT License
+            copyright {cookiecutter.author_name}
+            Información de la licencia correspondiente
+
+            {% elif cookiecutter.license == "GPL" %}
+            Información de la licencia correspondiente
+
+            {% elif cookiecutter.license == "Apache" %}
+            Información de la licencia correspondiente
+
+            {% endif %}
+
+2. Ejecución:
+    1. En nuestro proyecyo ejemplo: "my_ml_template" movemos el directorio {{cookiecutter.project_name}} y el archivo cookiecutter.json
+    2. En la terminal se ejecuta: coockiecutter my_ml_template
+        [1/4] project_name (My Project): new_project
+        [2/4] author_name (Paco Cisneros): 
+        [3/4] python_version (3.8): 3.12
+        [4/4] Select license
+          1 - MIT
+          2 - GPL
+          3 - Apache
+        Choose from [1/2/3] (1): 1
+
 
