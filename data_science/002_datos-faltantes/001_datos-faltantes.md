@@ -53,7 +53,7 @@ _Lectura de archivos `.rda` y almacenamiento en un diccionario_
 `result = pyreadr.read_r(output_path)`	            Lee el archivo `.rda` con `pyreadr`, devolviendo un diccionario con los objetos almacenados en el archivo.  
 `dataset_dfs[dataset] = result[next(iter(result))]`	Extrae el primer dataframe del diccionario y lo almacena en `dataset_dfs` con su nombre correspondiente.  
 
-📌 **Ejemplo de lo que sucede en la primera iteración:**  
+**Ejemplo de lo que sucede en la primera iteración:**  
 `next(iter(result))`	                            Retorna `"oceanbuoys"` (nombre del objeto en `.rda`).  
 `result[next(iter(result))]`	                    Retorna el dataframe asociado a `"oceanbuoys"`.  
 `dataset_dfs["oceanbuoys"] = result["oceanbuoys"]`	Guarda el dataframe en el diccionario.  
@@ -63,7 +63,23 @@ _Extracción de DataFrames desde el diccionario_
 `pedestrian_df = dataset_dfs["pedestrian"]`	    Extrae el DataFrame correspondiente a `"pedestrian"`.  
 `riskfactors_df = dataset_dfs["riskfactors"]`	Extrae el DataFrame correspondiente a `"riskfactors"`.  
 
-_Jupyter Notebooks_
+**Archivo: main_03.py**
+_Resúmenes básicos de valores faltantes_
+`valores_completos = riskfactors_df.missing.number_complete()`  Cuenta el número total de valores no faltantes en riskfactors_df
+`valores_faltantes = riskfactors_df.missing.number_missing()`   Cuenta el número total de valores faltantes (NaN o None) en riskfactors_df
+
+_Resúmenes tabulares de valores faltantes_
+Nota: las variables son las columnas
+`print(riskfactors_df.missing.missing_variable_summary())`      Realiza un análisis de valores faltantes a nivel de columna en el DataFrame.
+    # La tabla resultante proporciona, para cada variable tres columnas que son:
+    #   - El número de valores considerados como faltantes.
+    #   - La cuenta total de observaciones en la columna.
+    #   - El porcentaje que representan los valores faltantes en la columna.
+
+`print(riskfactors_df.missing.missing_variable_table())`        Imprime una tabla que agrupa variables por la cantidad de valores faltantes que contienen y su porcentaje.
+`print(riskfactors_df.missing.missing_case_summary())`          Imprime una tabla con tres columnas: la primera indica el índice de cada observación, la segunda muestra la cantidad de valores faltantes en esa observación y la tercera presenta el porcentaje de valores faltantes con respecto al total de variables.
+
+# Jupyter Notebooks
  _Descarga y carga automática de datasets en Jupyter Notebooks_  
 `datasets_dfs = {}`	Inicializa un diccionario vacío para almacenar los dataframes descargados.  
 
