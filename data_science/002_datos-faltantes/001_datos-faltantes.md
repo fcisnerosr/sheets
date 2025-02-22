@@ -78,6 +78,7 @@ Nota: las variables son las columnas
 
 `print(riskfactors_df.missing.missing_variable_table())`        Imprime una tabla que agrupa variables por la cantidad de valores faltantes que contienen y su porcentaje.
 `print(riskfactors_df.missing.missing_case_summary())`          Imprime una tabla con tres columnas: la primera indica el índice de cada observación, la segunda muestra la cantidad de valores faltantes en esa observación y la tercera presenta el porcentaje de valores faltantes con respecto al total de variables.
+`print(riskfactors_df.missing.missing_case_table())`            Imprime una tabla que agrupa las observaciones según la cantidad de valores faltantes que tienen, mostrando cuántas filas pertenecen a cada grupo y el porcentaje que representan en el total del dataset.
 
 # Jupyter Notebooks
  _Descarga y carga automática de datasets en Jupyter Notebooks_  
