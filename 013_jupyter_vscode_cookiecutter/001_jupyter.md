@@ -99,11 +99,11 @@ _Personalización de plantillas en cookiecutter_
             "license": ["MIT", "GPL", "Apache"]
         }
     2. {{cookiecutter.project_name}} (directorio con toda la plantilla con la estructura personalizada)
-        1. data (directorio personal)
-        2. src (directorio personal)
-        3. notebook (directorio personal)
-        4. test (directorio personal)
-        5. enviroments.yml
+        - data (directorio personal)
+        - src (directorio personal)
+        - notebook (directorio personal)
+        - test (directorio personal)
+        - enviroments.yml
             name: {cookiecutter.project_name}
             channels:
               - conda-forge
@@ -112,8 +112,8 @@ _Personalización de plantillas en cookiecutter_
               - python=3.8
               - numpy
               - pandas
-        6. requirements.txt
-        7. README.md
+        - requirements.txt
+        - README.md
             -  # {{cookiecutter.project_name}}
                 Proyecto de Machine Learning creado por {cookiecutter.author_name}
 
@@ -137,7 +137,7 @@ _Personalización de plantillas en cookiecutter_
 
                 ```bash
                 conda env create -f environment.yml
-        8. LICENSE
+        - LICENSE
             {% if cookiecutter.license == "MIT" %}
             MIT License
             copyright {cookiecutter.author_name}
@@ -163,4 +163,82 @@ _Personalización de plantillas en cookiecutter_
           3 - Apache
         Choose from [1/2/3] (1): 1
 
+## Hooks en cookiecutter (scripts que se ejecutan antes y después de la estructra del proyecto)
+1. Crea un directorio `hooks` dentro de la plantilla y añade `pre_gen_project.py` (ejecutado antes para validaciones) y `post_gen_project.py` (ejecutado después para configuraciones finales).
+    - pre-hook (pre_gen_project.py)
+        tmport sys
+
+        project_name = '{{cookiecutter.project_name }}'
+
+        if ' ' in project_name:
+            print('Error: Project name should not contain spaces')
+            sys,exir(1)
+    - post-hooks (post_gen_project.py)
+        import os
+        import subprocess
+
+        # Create a Conda environment from environments.yml
+        def create_conda_env():
+            if os.path.isfile("environments.yml"):
+                print("Creating Conda environment from environments.yml...")
+                subprocess.run(["conda", "env", "create", "-f", "environments.yml"], check=True)
+            else:
+                print("environments.yml not found. Please ensure the file exists in the project directory.")
+
+        # Initialize a Git repository
+        def initialize_git():
+            print("Initializing Git repository...")
+            subprocess.run(["git", "init"], check=True)
+            subprocess.run(["git", "add", "."], check=True)
+            subprocess.run(["git", "commit", "-m", "Initial commit"], check=True)
+
+        # Main script where user decides whether to create a Conda environment or not
+        def main():
+            print("Do you want to create a Conda environment using environments.yml? (y/n)")
+            choice = input("Enter y or n: ").strip().lower()
+
+            if choice == "y":
+                create_conda_env()
+            elif choice == "n":
+                print("Skipping environment setup.")
+            else:
+                print("Invalid choice, please run the script again and choose y or n.")
+
+            # Initialize Git after the decision
+            initialize_git()
+
+        if __name__ == "__main__":
+            main()
+
+# Múltiples entornos en un proyecto de Data Science (DS)  
+**_Divide y vencerás_**  
+
+En un proyecto de **Data Science**, es común dividir el trabajo en distintas etapas, como:  
+1. **Análisis de datos**  
+2. **Preprocesamiento**  
+3. **Machine Learning (aprendizaje automático)**  
+
+Cada una de estas etapas puede requerir **versiones específicas de librerías**, lo que hace esencial el uso de múltiples entornos virtuales.  
+
+Por ejemplo, durante el análisis de datos se puede usar **NumPy**, pero en la fase de Machine Learning podría ser necesario **otra versión de NumPy**, diferente a la anterior. Si todo se actualiza indiscriminadamente, el proyecto podría romperse.  
+
+La solución es definir múltiples entornos en **diferentes procesos**, en lugar de un único ambiente para todo el proyecto.  
+
+### Ejemplo de estructura del proyecto con entornos separados:  
+proyecto_1/
+│── data/
+│── models/
+│── notebooks/
+│── envs/
+│   │── analisis.yml
+│   │── preprocesamiento.yml
+│   │── machine learning.yml
+
+Cada `.yml` define un entorno con versiones específicas para cada proceso, asegurando **independencia y estabilidad**.  
+Cuando un colaborador recibe el proyecto, solo necesita instalar el `.yml` con Conda en un entorno virtual, sin preocuparse por conflictos de dependencias con su propio sistema.  
+
+---
+
+### **Resumen:**  
+Dividir un proyecto de Data Science en múltiples entornos ayuda a mantener **compatibilidad y reproducibilidad** en cada fase del desarrollo. En lugar de un solo entorno global, cada etapa (análisis, preprocesamiento y machine learning) tiene su propio `.yml` con versiones específicas de librerías. Esto evita conflictos y permite compartir el proyecto sin preocuparse por diferencias en dependencias.
 

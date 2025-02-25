@@ -106,42 +106,14 @@ _Acceso a un dataframe específico_
 
 
 # Resúmenes tabulares de valores faltantes
-# Variables/Columnas
-# Resumen por variable
-print(riskfactors_df.missing.missing_variable_summary()) 
-# Realiza un análisis de valores faltantes a nivel de columna en el DataFrame.
-# La tabla resultante proporciona, para cada variable:
-#   - El número de valores considerados como faltantes.
-#   - La cuenta total de observaciones en la columna.
-#   - El porcentaje que representan los valores faltantes en la columna.
-
-print(riskfactors_df.missing.missing_variable_table())  # Imprime una tabla que agrupa variables por la cantidad de valores faltantes que contienen y su porcentaje.
-#  print((
-#      riskfactors_df
-#      .missing
-#      .missing_variable_span(
-#          variable='weight_lbs',
-#          span_every=50
-#      )
-#  ))
-# Genera un análisis de valores faltantes en un DataFrame, dividiendo los datos en intervalos definidos.
-# Para cada intervalo, la función calcula:
-#   - La cantidad de valores faltantes.
-#   - La cantidad de valores completos.
-#   - El porcentaje de completitud (valores completos / total de valores)
-#  # La función devuelve una tabla resumen que facilita la identificación de patrones de datos faltantes en el DataFrame.
-
-print((
-    riskfactors_df
-    .missing
-    .missing_variable_run(
-        variable='weight_lbs',
-    )
-))
-# Crea una tabla con información sobre las rachas de datos faltantes y completos en una columna. 
-# La tabla muestra, para cada racha:
-#   - El tipo de racha (faltante o completo).
-#   - La longitud de la racha actual.
+Variables/Columnas
+Resumen por variable
+`print(riskfactors_df.missing.missing_variable_summary())`  Analiza los valores faltantes en cada columna del DataFrame, mostrando cuántos valores faltan, cuántas observaciones hay en total por columna y el porcentaje de datos faltantes en cada una.
+`print(riskfactors_df.missing.missing_variable_table())`    Imprime una tabla que agrupa variables por la cantidad de valores faltantes que contienen y su porcentaje.
+`print(riskfactors_df.missing.missing_case_summary())`      Imprime una tabla con tres columnas: la primera indica el índice de cada observación, la segunda muestra la cantidad de valores faltantes en esa observación y la tercera presenta el porcentaje de valores faltantes con respecto al total de variables.
+`print(riskfactors_df.missing.missing_case_table())`        Imprime una tabla que agrupa las observaciones según la cantidad de valores faltantes que tienen, mostrando cuántas filas pertenecen a cada grupo y el porcentaje que representan en el total del dataset.
+`print(riskfactors_df.missing.missing_variable_span(variable='weight_lbs', span_every=50))` Imprime una tabla que divide una variable en intervalos de tamaño `span_every`, mostrando en la primera columna el número de intervalo, en la segunda la cantidad de valores faltantes, en la tercera la cantidad de valores completos, y en la cuarta y quinta los porcentajes de valores faltantes y completos, respectivamente, los cuales son complementarios.     
+`print(riskfactors_df.missing.missing_variable_run(variable='weight_lbs'))` Imprime una tabla que analiza las rachas de valores faltantes y completos en una variable o columna, mostrando en la primera columna la longitud de cada racha y en la segunda si la racha corresponde a valores faltantes o completos.
 
 _Requirements_
 cycler==0.12.1
