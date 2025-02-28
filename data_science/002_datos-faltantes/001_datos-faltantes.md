@@ -104,7 +104,6 @@ _Visualización de las claves del diccionario_
 _Acceso a un dataframe específico_  
 `datasets_dfs['oceanbuoys_df']`	Muestra el contenido del dataframe `"oceanbuoys_df"`, cargado desde el archivo `.rda`.   
 
-
 # Resúmenes tabulares de valores faltantes
 Variables/Columnas
 Resumen por variable
@@ -114,6 +113,12 @@ Resumen por variable
 `print(riskfactors_df.missing.missing_case_table())`        Imprime una tabla que agrupa las observaciones según la cantidad de valores faltantes que tienen, mostrando cuántas filas pertenecen a cada grupo y el porcentaje que representan en el total del dataset.
 `print(riskfactors_df.missing.missing_variable_span(variable='weight_lbs', span_every=50))` Imprime una tabla que divide una variable en intervalos de tamaño `span_every`, mostrando en la primera columna el número de intervalo, en la segunda la cantidad de valores faltantes, en la tercera la cantidad de valores completos, y en la cuarta y quinta los porcentajes de valores faltantes y completos, respectivamente, los cuales son complementarios.     
 `print(riskfactors_df.missing.missing_variable_run(variable='weight_lbs'))` Imprime una tabla que analiza las rachas de valores faltantes y completos en una variable o columna, mostrando en la primera columna la longitud de cada racha y en la segunda si la racha corresponde a valores faltantes o completos.
+
+# Gráficas de valores faltantes
+`riskfactors_df.missing.missing_variable_plot()`            Grafico de líneas horizontales que muestra la cantidad de valores faltantes por variable en el dataset, donde cada línea representa una variable y su longitud indica el número de datos ausentes
+`riskfactors_df.missing.missing_variable_span_plot(variable='weight_lbs', span_every=10, rot=0)` Genera una gráfica de barras apiladas que muestra el porcentaje de valores faltantes y presentes en una variable a lo largo de intervalos regulares de observaciones.
+`msno.bar(df = riskfactors_df)`                             Gráfico de barras verticales que muestra la proporción de valores presentes en cada variable del DataFrame
+
 
 _Requirements_
 cycler==0.12.1
