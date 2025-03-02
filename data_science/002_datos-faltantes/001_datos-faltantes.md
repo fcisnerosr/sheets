@@ -118,6 +118,8 @@ Resumen por variable
 `riskfactors_df.missing.missing_variable_plot()`            Grafico de líneas horizontales que muestra la cantidad de valores faltantes por variable en el dataset, donde cada línea representa una variable y su longitud indica el número de datos ausentes
 `riskfactors_df.missing.missing_variable_span_plot(variable='weight_lbs', span_every=10, rot=0)` Genera una gráfica de barras apiladas que muestra el porcentaje de valores faltantes y presentes en una variable a lo largo de intervalos regulares de observaciones.
 `msno.bar(df = riskfactors_df)`                             Gráfico de barras verticales que muestra la proporción de valores presentes en cada variable del DataFrame
+`msno.matrix(df = riskfactors_df)`                          Genera un gráfico de matriz donde los valores presentes se muestran en negro, los valores faltantes en blanco y una línea de concentración a la derecha indica la distribución de los datos ausentes en el DataFrame
+
 
 
 _Requirements_
