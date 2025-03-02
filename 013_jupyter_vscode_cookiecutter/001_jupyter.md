@@ -91,7 +91,7 @@ _Ejecución de plantillas creadas en Github_
 
 _Personalización de plantillas en cookiecutter_
 1. Crear directorio COOKIE-CUTTER
-    1. cookiecutter.json (archivo para...)
+    1. cookiecutter.json (archivo que define las variables que se utilizarán para personalizar el proyecto generado)
         {
             "project_name": "My Project",
             "author_name": "Paco Cisneros",

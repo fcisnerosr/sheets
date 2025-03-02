@@ -1,10 +1,32 @@
 _Instalación de Cookiecutter_ 
-conda install mamba -n base -c conda-forge instala mamba globalmente
-mamba --version verificar la versión de mamba instalada
-mamba config --add channels conda-forge     agrega a conda-forge a la lista de canales desde los cuales Conda puede buscar e instalar paquetes
-mamba create --name cookiecutter-personal cookiecutter=1.7.3    creación del nuevo env para cookiecutter, siempre especificar la versión para evitar problemas en el futuro
+`conda install mamba -n base -c conda-forge`    instala mamba globalmente
+`mamba --version`                               verificar la versión de mamba instalada
+`mamba config --add channels conda-forge`       agrega a conda-forge a la lista de canales desde los cuales Conda puede buscar e instalar paquetes
+`mamba create --name cookiecutter-personal cookiecutter=1.7.3`    creación del nuevo env para cookiecutter, siempre especificar la versión para evitar problemas en el futuro
+`mamba env export --from-history --file enviroment.yml` exportar la lista de paquetes instalados en un entorno de mamba a un archivo YML
 
-{{ cookiecutter.project_slug }} Crear archivos de configuración
+_Descargar una plantilla de Github_
+Ejemplo:
+{{ cookiecutter.project_slug }}
+    ├── data
+    │   ├── processed      <- The final, canonical data sets for modeling.
+    │   └── raw            <- The original, immutable data dump.
+    │
+    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
+    │                         the creator's initials, and a short `-` delimited description, e.g.
+    │                         `1.0-jvelezmagic-initial-data-exploration`.
+    │
+    ├── .gitignore         <- Files to ignore by `git`.
+    │
+    ├── environment.yml    <- The requirements file for reproducing the analysis environment.
+    │
+    └── README.md          <- The top-level README for developers using this project.
+Link: https://github.com/platzi/curso-entorno-avanzado-ds/tree/cookiecutter-personal-platzi
+`cookiecutter https://github.com/platzi/curso-entorno-avanzado-ds --checkout cookiecutter-personal-platzi`      descarga, instala y ejecuta la plantilla predefinida en el curso. El `--checkout cookiecutter-personal-platzi` es para migrar a otra rama distinta a la main pero esto no es una práctica común
+repositorio de github original: https://github.com/jesusdevelope/Plantilla_Personal_Python
+
+_Personaliza tu propia plantilla de cookie cutter_
+`mkdir '{{ cookiecutter.project_slug }}`  Crea un directorio cuyo nombre se genera dinámicamente a partir de la variable project_slug de Cookiecutter durante la ejecución de la plantilla
 touch README.md environment.yml cookiecutter.json
 mkdir notebooks
 
