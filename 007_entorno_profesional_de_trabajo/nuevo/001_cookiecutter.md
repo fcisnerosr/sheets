@@ -1,29 +1,67 @@
 _Instalación de Cookiecutter_ 
-`conda install mamba -n base -c conda-forge`    instala mamba globalmente
-`mamba --version`                               verificar la versión de mamba instalada
-`mamba config --add channels conda-forge`       agrega a conda-forge a la lista de canales desde los cuales Conda puede buscar e instalar paquetes
-`mamba create --name cookiecutter-personal cookiecutter=1.7.3`    creación del nuevo env para cookiecutter, siempre especificar la versión para evitar problemas en el futuro
-`mamba env export --from-history --file enviroment.yml` exportar la lista de paquetes instalados en un entorno de mamba a un archivo YML
+`conda install mamba -n base -c conda-forge`    instala mamba globalmente  
+`mamba --version`                               verificar la versión de mamba instalada  
+`mamba config --add channels conda-forge`       agrega a conda-forge a la lista de canales desde los cuales Conda puede buscar e instalar paquetes  
+`mamba create --name cookiecutter-personal cookiecutter=1.7.3`    creación del nuevo env para cookiecutter, siempre especificar la versión para evitar problemas en el futuro  
+`mamba env export --from-history --file enviroment.yml` exportar la lista de paquetes instalados en un entorno de mamba a un archivo YML  
 
-_s_
+_Estructura del archivo cookiecutter_
+- COOKIECUTTER-PERSONAL
+    - {{ cookiecutter-project_slug }}
+        - data
+        - notebooks
+        - README.md
+             # {{ cookiecutter.project_title }}
 
-{{ cookiecutter.project_slug }} Crear archivos de configuración
-touch README.md environment.yml cookiecutter.json
-mkdir notebooks
+            By: {{ cookiecutter.project_author_name }}
 
-_Dentro de REAMDE.md_ 
-# {{ cookiecutter.project_title }}
+            {{ cookiecutter.project_description }}
 
-By: {{ coockiecutter.project_author_name }} 
+            ## License
+        - enviroment.yml
+            name: {{ cookiecutter.project_slug }}
 
-{{ cookiecutter.project_description }}
+            channels:
+              - anaconda
+              - conda-forge
+              - defaults
 
-_Dentro de environment.yml_
-# Establece el nombre del entorno usando una variable de cookiecutter para personalización
-name: {{ cookiecutter.project_slug }}
+            dependencies:
+            {% if cookiecutter.project_packages == "All" -%}
+              - fs
+              - jupyter
+              - jupyterlab
+              - pathlib
+            {% endif -%}
+              - pip
+            {% if cookiecutter.project_packages == "All" -%}
+              - pyproj
+              - root
+            {% endif %}
+              - python={{ cookiecutter.python_version }}
+              - pip:
+                {% if cookiecutter.project_packages == "All" -%}
+                  - pyhere
+                {% endif %}
+                - enviroment.yml
 
-# Lista de canales desde donde buscar los paquetes
-channels:
+{{ cookiecutter.project_slug }} Crear archivos de configuración  
+touch README.md environment.yml cookiecutter.json                    
+mkdir notebooks  
+
+_Dentro de REAMDE.md_  
+# {{ cookiecutter.project_title }}  
+
+By: {{ coockiecutter.project_author_name }}   
+
+{{ cookiecutter.project_description }}  
+
+_Dentro de environment.yml_  
+# Establece el nombre del entorno usando una variable de cookiecutter para personalización  
+name: {{ cookiecutter.project_slug }}  
+
+# Lista de canales desde donde buscar los paquetes  
+channels:  
   - anaconda       # Canal anaconda con paquetes optimizados para ciencia de datos
   - conda-forge    # Canal comunitario con paquetes actualizados
   - defaults       # Canal predeterminado de conda con paquetes estables
