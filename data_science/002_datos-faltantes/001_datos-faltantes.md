@@ -116,11 +116,14 @@ Resumen por variable
 
 # Gráficas de valores faltantes
 `riskfactors_df.missing.missing_variable_plot()`            Grafico de líneas horizontales que muestra la cantidad de valores faltantes por variable en el dataset, donde cada línea representa una variable y su longitud indica el número de datos ausentes
+![Valores faltantes por variable](./graficas_valores_faltantes/001_valores_faltantes_variables.png)
 `riskfactors_df.missing.missing_variable_span_plot(variable='weight_lbs', span_every=10, rot=0)` Genera una gráfica de barras apiladas que muestra el porcentaje de valores faltantes y presentes en una variable a lo largo de intervalos regulares de observaciones.
 `msno.bar(df = riskfactors_df)`                             Gráfico de barras verticales que muestra la proporción de valores presentes en cada variable del DataFrame
+![Porcentaje de valores faltantes en intervalos](./graficas_valores_faltantes/003_porcentaje_valores_faltantes_variable_span.png)
 `msno.matrix(df = riskfactors_df)`                          Genera un gráfico de matriz donde los valores presentes se muestran en negro, los valores faltantes en blanco y una línea de concentración a la derecha indica la distribución de los datos ausentes en el DataFrame
-
-
+![Valores presentes en el DataFrame](./graficas_valores_faltantes/004_valores_presentes_df.png)
+`msno.heatmap(df = riskfactors_df)`                         Si dos variables tienen alta correlación en valores faltantes (azul oscuro, cercano a 1.0), puedes eliminarlas juntas o usar una para inferir la otra; si siempre faltan en conjunto (tonos azul claro o blancos cercanos a 0), puede indicar un patrón en la recopilación de datos; si la correlación es negativa (tonos anaranjados o rojos), una variable puede predecir los valores ausentes de otra, permitiendo tomar decisiones sobre imputación o eliminación de datos.
+![Heatmap de valores faltantes](./graficas_valores_faltantes/005_heatmap.png)
 
 _Requirements_
 cycler==0.12.1
