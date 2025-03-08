@@ -7,10 +7,10 @@ _Instalación de Cookiecutter_
 
 _Estructura del archivo cookiecutter_
 - COOKIECUTTER-PERSONAL
-    - {{ cookiecutter-project_slug }}
+    - {{ cookiecutter.project_slug }}
         - data
         - notebooks
-        - README.md
+        - README.md ( plantilla que Cookiecutter usa para generar el README de cada proyecto, reemplazando variables asignadas en cookiecutter.json)
              # {{ cookiecutter.project_title }}
 
             By: {{ cookiecutter.project_author_name }}
@@ -18,7 +18,7 @@ _Estructura del archivo cookiecutter_
             {{ cookiecutter.project_description }}
 
             ## License
-        - enviroment.yml
+        - enviroment.yml (define las librerías necesarias para cada proyecto generado)
             name: {{ cookiecutter.project_slug }}
 
             channels:
@@ -27,74 +27,61 @@ _Estructura del archivo cookiecutter_
               - defaults
 
             dependencies:
-            {% if cookiecutter.project_packages == "All" -%}
+            {% if cookiecutter.project_packages == "all" -%}
               - fs
               - jupyter
               - jupyterlab
               - pathlib
             {% endif -%}
               - pip
-            {% if cookiecutter.project_packages == "All" -%}
+            {% if cookiecutter.project_packages == "all" -%}
               - pyproj
               - root
             {% endif %}
               - python={{ cookiecutter.python_version }}
               - pip:
-                {% if cookiecutter.project_packages == "All" -%}
+                {% if cookiecutter.project_packages == "all" -%}
                   - pyhere
                 {% endif %}
                 - enviroment.yml
+- environment.yml (archivo destinado a configurar el entorno donde ejecutarás Cookiecutter para generar nuevos proyectos)
+    name: cookiecutter-personal
+    channels:
+      - conda-forge
+      - defaults
+    dependencies:
+      - cookiecutter=1.7.3
+    prefix: /home/fcisnerosr/miniforge3/envs/cookiecutter-personal
+- cookiecutter.json (Define las variables y valores predeterminados para personalizar cada proyecto mediante {{cookiecutter.project_slug}})
+    {
+      "project_title": "Cookiecutter Personal",
+      "project_slug": "cookiecutter_personal",
+      "project_description": "Something cool",
+      "project_author_name": "Your name",
+      "project_packages": ["All", "Minimal"],
+      "python_version": "3.7"
+    }
 
-{{ cookiecutter.project_slug }} Crear archivos de configuración  
-touch README.md environment.yml cookiecutter.json                    
-mkdir notebooks  
+_Pasos para activar la plantilla personalizada de cookicutter_
+Ejemplo proyecto: Proyecto_AI en directorio Proyecto_AI
+**NOTA: en el directorio Proyecto_AI debe ir {{ coockiecutter.project_slug }}, cookiecutter.json y environment.yml**
+cookiecutter .          ejecuta cookiecutter en este directorio
+se irá llenando a mano cada campo solicitado: 
+project_title [Cookiecutter Personal]: Proyecto_AI
+project_slug [cookiecutter_personal]: testing
+project_description [Something cool]: proyecto de IA
+project_author_name [Your name]: Paco Cisneros
+Select project_packages:
+1 - All
+2 - Minimal
+Choose from 1, 2 [1]: 1
+python_version [3.7]: 
 
-_Dentro de REAMDE.md_  
-# {{ cookiecutter.project_title }}  
-
-By: {{ coockiecutter.project_author_name }}   
-
-{{ cookiecutter.project_description }}  
-
-_Dentro de environment.yml_  
-# Establece el nombre del entorno usando una variable de cookiecutter para personalización  
-name: {{ cookiecutter.project_slug }}  
-
-# Lista de canales desde donde buscar los paquetes  
-channels:  
-  - anaconda       # Canal anaconda con paquetes optimizados para ciencia de datos
-  - conda-forge    # Canal comunitario con paquetes actualizados
-  - defaults       # Canal predeterminado de conda con paquetes estables
-
-# Lista de dependencias que se instalarán en el entorno
-dependencies:
-  {% if cookiecutter.project_packages == "all" %}
-    - fs             # Sistema de archivos abstracto para Python
-    - jupyter        # Ejecuta notebooks de Jupyter, útil para análisis interactivo
-    - jupyterlab     # Interfaz mejorada para trabajar con notebooks Jupyter
-    - pathlib        # Manejo de rutas de archivos en Python (incluido desde Python 3.4+)
-  {% endif %}
-  - pip             # Gestor de paquetes de Python para instalar desde PyPI
-  {% if cookiecutter.project_packages == "all" %}
-    - pyprojroot     # Facilita el acceso a la raíz del proyecto
-  {% endif %}
-  - python={{ cookiecutter.python_version }}  # Instala la versión específica de Python
-
-  - pip:             # Lista de paquetes que se instalarán usando pip
-    {% if cookiecutter.project_packages == "all" %}
-      - pyhere       # Facilita la referencia de rutas relativas a la raíz del proyecto
-    {% endif %}
-
-_Dentro de cookiecutter.json_
-{
-  "project_title": "Cookiecutter Personal",
-  "project_slug": "cookiecutter_personal",
-  "project_description": "Something cool",
-  "project_author_name": "Your name",
-  "project_packages": ["All", "Minimal"],
-  "python_version": "3.7",
-  "_comment": "Este campo es solo para propósitos descriptivos y no se usa en el código"
-}
-
+Resultado (tree):
+    testing/
+    ├── README.md
+    ├── data
+    ├── enviroment.yml
+    └── notebooks
 
 
