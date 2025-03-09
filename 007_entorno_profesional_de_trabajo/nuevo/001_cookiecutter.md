@@ -42,12 +42,45 @@ _Estructura del archivo cookiecutter_
               - pip:
                 {% if cookiecutter.project_packages == "all" -%}
                   - pyhere
-                {% endif %}
+               {% endif %}
                 - enviroment.yml
 - hoooks (directorio)
-    post_gen_project.py
-        
-    pre_gen_project.py
+    - pre_gen_project.py
+        import os
+        import sys
+
+        project_slug = "{{ cookiecutter.project_slug }}"
+        ERROR_COLOR = "\x1b[31m"
+        MESSAGE_COLOR = "\x1b[34m"
+        RESET_ALL = "\x1b[0m"
+
+        if project_slug.startswith("x"):
+          print(f"{ERROR_COLOR}ERROR: {project_slug=} is not a valid name for this template.{RESET_ALL}")
+          sys.exit(1)
+
+        print(f"{MESSAGE_COLOR}Let's do it! You're are going to create something awesome!")
+        print(f"Creating project at {os.getcwd()}{RESET_ALL}")
+    - post_gen_project.py
+        import subprocess
+
+        MESSAGE_COLOR = "\x1b[34m"
+        RESET_ALL = "\x1b[0m"
+
+        print(f"{MESSAGE_COLOR}Almost done!")
+        print(f"Initializing a git repository...{RESET_ALL}")
+
+        subprocess.call('git', 'init')
+        subprocess.call('git', 'add', '*')
+        subprocess.call('git', 'commit', '-m', 'Initial commit')
+
+        print(f"{MESSAGE_COLOR}The beginning of your destiny is defined now! Create and have fun!{RESET_ALL}")
+
+        # De los dos métodos para instalar dependencias seleccionar uno nada más
+        # Pip
+        # subprocess.call(['pip', 'install', '-r', 'requirements.txt'])
+
+        # Conda
+        # subprocess.call(['conda', 'env', 'create', '--file', 'environment.yml'])
 - environment.yml (archivo destinado a configurar el entorno donde ejecutarás Cookiecutter para generar nuevos proyectos)
     name: cookiecutter-personal
     channels:
@@ -81,12 +114,20 @@ se irá llenando a mano cada campo solicitado:
     Choose from 1, 2 [1]: 1
     python_version [3.7]: 
 
-Resultado (tree):
-    testing/
+**Plantilla de Cookiecutter**
+mi-plantilla-cookiecutter/              # --> Tu plantilla de Cookiecutter
+├── cookiecutter.json                   # --> Variables del proyecto (ej. project_slug, author)
+├── hooks/                             # --> Scripts que se ejecutan antes o después
+│   ├── pre_gen_project.py              # --> (opcional) Código a ejecutar antes de generar
+│   └── post_gen_project.py             # --> Código a ejecutar después (ej. instalar dependencias)
+└── {{ cookiecutter.project_slug }}/    # --> Carpeta que será el proyecto generado (personalizado)
+    ├── README.md                       # --> Archivo final que verá el usuario
+    ├── environment.yml                 # --> Dependencias específicas del proyecto generado
+    └── otros_archivos/                 # --> Otros archivos (notebooks, src, data, etc.)
+
+**Resultado del proyecto generado (tree):**
+    Proyecto_AI/
     ├── README.md
     ├── data
     ├── enviroment.yml
     └── notebooks
-
-_Hooks_
-
