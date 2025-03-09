@@ -7,7 +7,7 @@ _Instalación de Cookiecutter_
 
 _Estructura del archivo cookiecutter_
 - COOKIECUTTER-PERSONAL
-    - {{ cookiecutter.project_slug }}
+    - {{ cookiecutter.project_slug }} (directorio)
         - data
         - notebooks
         - README.md ( plantilla que Cookiecutter usa para generar el README de cada proyecto, reemplazando variables asignadas en cookiecutter.json)
@@ -44,6 +44,10 @@ _Estructura del archivo cookiecutter_
                   - pyhere
                 {% endif %}
                 - enviroment.yml
+- hoooks (directorio)
+    post_gen_project.py
+        
+    pre_gen_project.py
 - environment.yml (archivo destinado a configurar el entorno donde ejecutarás Cookiecutter para generar nuevos proyectos)
     name: cookiecutter-personal
     channels:
@@ -54,8 +58,8 @@ _Estructura del archivo cookiecutter_
     prefix: /home/fcisnerosr/miniforge3/envs/cookiecutter-personal
 - cookiecutter.json (Define las variables y valores predeterminados para personalizar cada proyecto mediante {{cookiecutter.project_slug}})
     {
-      "project_title": "Cookiecutter Personal",
-      "project_slug": "cookiecutter_personal",
+      "project_title": "Cookiecutter Personal", (Valor que ingresa el usuario)
+      "project_slug": "{{ cookiecutter.project_title.lower().replace(' ', '_').replace('-', '_') }}", (línea que transforma el nombre ingresado por el usuario para manejarlo en minusculas y reemplazando espacios por _ y los - por _)
       "project_description": "Something cool",
       "project_author_name": "Your name",
       "project_packages": ["All", "Minimal"],
@@ -67,15 +71,15 @@ Ejemplo proyecto: Proyecto_AI en directorio Proyecto_AI
 **NOTA: en el directorio Proyecto_AI debe ir {{ coockiecutter.project_slug }}, cookiecutter.json y environment.yml**
 cookiecutter .          ejecuta cookiecutter en este directorio
 se irá llenando a mano cada campo solicitado: 
-project_title [Cookiecutter Personal]: Proyecto_AI
-project_slug [cookiecutter_personal]: testing
-project_description [Something cool]: proyecto de IA
-project_author_name [Your name]: Paco Cisneros
-Select project_packages:
-1 - All
-2 - Minimal
-Choose from 1, 2 [1]: 1
-python_version [3.7]: 
+    project_title [Cookiecutter Personal]: Proyecto_AI
+    project_slug [cookiecutter_personal]: testing
+    project_description [Something cool]: proyecto de IA
+    project_author_name [Your name]: Paco Cisneros
+    Select project_packages:
+    1 - All
+    2 - Minimal
+    Choose from 1, 2 [1]: 1
+    python_version [3.7]: 
 
 Resultado (tree):
     testing/
@@ -84,4 +88,5 @@ Resultado (tree):
     ├── enviroment.yml
     └── notebooks
 
+_Hooks_
 
