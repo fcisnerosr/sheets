@@ -133,6 +133,8 @@ _Estructura del archivo cookiecutter_
 _Pasos para activar la plantilla personalizada de cookicutter_
 1. cd ~/ruta/a/mi/carpeta/proyectos                             Ubicarte en el directorio donde quieres que se genere el proyecto (por ejemplo, tu carpeta de proyectos)
 2. cookiecutter ~/ruta/completa/a/plantillas_personalizadas/    Ejecutar Cookiecutter apuntando a la ruta completa de tu plantilla personalizada
+Alternativa de instalación de una plantilla en Github:    
+3. cookiecutter https://github.com/platzi/curso-entorno-avanzado-ds --checkout cookiecutter-personal-platzi     uso de plantilla alojada en ese repo de Github, en lugar de usar la de la rama principal usa la de la rama cookiecutter-personal-platzi
 
 Ejemplo proyecto: Proyecto_AI en directorio Proyecto_AI
 **NOTA: en el directorio Proyecto_AI debe ir {{ coockiecutter.project_slug }}, cookiecutter.json y environment.yml**
@@ -165,3 +167,6 @@ mi-plantilla-cookiecutter/              # --> Tu plantilla de Cookiecutter
     ├── data
     ├── enviroment.yml
     └── notebooks
+
+_Problemas de rutas en diferentes OS_
+
