@@ -46,41 +46,72 @@ _Estructura del archivo cookiecutter_
                 - enviroment.yml
 - hoooks (directorio)
     - pre_gen_project.py
+        import sys
+        import re
+
+        # Obtener las variables definidas en cookiecutter.json
+        project_slug = '{{ cookiecutter.project_slug }}'
+        author_name = '{{ cookiecutter.project_author_name }}'
+
+        # Validar que el nombre del proyecto no tenga espacios ni caracteres raros
+        if not re.match(r'^[a-zA-Z0-9_-]+$', project_slug):
+            print(f"ERROR: El nombre del proyecto '{project_slug}' contiene caracteres no permitidos.")
+            print("Usa solo letras, números, guiones y guiones bajos (a-z, A-Z, 0-9, -, _).")
+            sys.exit(1)  # Termina la ejecución si no pasa la validación
+
+        # Validar que el nombre del autor no esté vacío
+        if not author_name.strip():
+            print("ERROR: El nombre del autor no puede estar vacío.")
+            sys.exit(1)
+
+        print("✔ Validaciones completadas con éxito.")
+        
+    - post_gen_project.py
         import os
+        import subprocess
         import sys
 
-        project_slug = "{{ cookiecutter.project_slug }}"
-        ERROR_COLOR = "\x1b[31m"
+        # Colores para mensajes bonitos
         MESSAGE_COLOR = "\x1b[34m"
         RESET_ALL = "\x1b[0m"
 
-        if project_slug.startswith("x"):
-          print(f"{ERROR_COLOR}ERROR: {project_slug=} is not a valid name for this template.{RESET_ALL}")
-          sys.exit(1)
+        # Mensaje de inicio
+        print(f"{MESSAGE_COLOR}Proyecto creado exitosamente. Ejecutando pasos posteriores...{RESET_ALL}")
 
-        print(f"{MESSAGE_COLOR}Let's do it! You're are going to create something awesome!")
-        print(f"Creating project at {os.getcwd()}{RESET_ALL}")
-    - post_gen_project.py
-        import subprocess
+        # -------------------------------------------------
+        # 1. Inicializar repositorio Git
+        # -------------------------------------------------
+        print(f"{MESSAGE_COLOR}Inicializando repositorio Git...{RESET_ALL}")
+        subprocess.call(['git', 'init'])
+        subprocess.call(['git', 'add', '.'])
+        subprocess.call(['git', 'commit', '-m', 'Initial commit'])
 
-        MESSAGE_COLOR = "\x1b[34m"
-        RESET_ALL = "\x1b[0m"
+        # -------------------------------------------------
+        # 2. Crear carpetas necesarias (si no existen)
+        # -------------------------------------------------
+        print(f"{MESSAGE_COLOR}Creando carpetas necesarias...{RESET_ALL}")
+        folders = ['data/raw', 'data/processed', 'notebooks', 'src', 'reports']
+        for folder in folders:
+            os.makedirs(folder, exist_ok=True)
+            print(f"{MESSAGE_COLOR}Carpeta creada: {folder}{RESET_ALL}")
 
-        print(f"{MESSAGE_COLOR}Almost done!")
-        print(f"Initializing a git repository...{RESET_ALL}")
+        # -------------------------------------------------
+        # 3. Instalar dependencias (opcional: pip o conda)
+        # -------------------------------------------------
+        # NOTA: Descomenta solo uno de los dos métodos siguientes según lo que uses
 
-        subprocess.call('git', 'init')
-        subprocess.call('git', 'add', '*')
-        subprocess.call('git', 'commit', '-m', 'Initial commit')
-
-        print(f"{MESSAGE_COLOR}The beginning of your destiny is defined now! Create and have fun!{RESET_ALL}")
-
-        # De los dos métodos para instalar dependencias seleccionar uno nada más
-        # Pip
+        # ---- Método 1: Pip ----
+        # print(f"{MESSAGE_COLOR}Instalando dependencias con pip...{RESET_ALL}")
         # subprocess.call(['pip', 'install', '-r', 'requirements.txt'])
 
-        # Conda
-        # subprocess.call(['conda', 'env', 'create', '--file', 'environment.yml'])
+        # ---- Método 2: Conda ----
+        print(f"{MESSAGE_COLOR}Creando entorno con Conda...{RESET_ALL}")
+        subprocess.call(['conda', 'env', 'create', '--file', 'environment.yml'])
+
+        # -------------------------------------------------
+        # 4. Mensaje final
+        # -------------------------------------------------
+        print(f"{MESSAGE_COLOR}Proyecto listo. ¡A trabajar!{RESET_ALL}")
 - environment.yml (archivo destinado a configurar el entorno donde ejecutarás Cookiecutter para generar nuevos proyectos)
     name: cookiecutter-personal
     channels:
@@ -100,6 +131,9 @@ _Estructura del archivo cookiecutter_
     }
 
 _Pasos para activar la plantilla personalizada de cookicutter_
+1. cd ~/ruta/a/mi/carpeta/proyectos                             Ubicarte en el directorio donde quieres que se genere el proyecto (por ejemplo, tu carpeta de proyectos)
+2. cookiecutter ~/ruta/completa/a/plantillas_personalizadas/    Ejecutar Cookiecutter apuntando a la ruta completa de tu plantilla personalizada
+
 Ejemplo proyecto: Proyecto_AI en directorio Proyecto_AI
 **NOTA: en el directorio Proyecto_AI debe ir {{ coockiecutter.project_slug }}, cookiecutter.json y environment.yml**
 cookiecutter .          ejecuta cookiecutter en este directorio
