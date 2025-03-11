@@ -168,5 +168,13 @@ mi-plantilla-cookiecutter/              # --> Tu plantilla de Cookiecutter
     ├── enviroment.yml
     └── notebooks
 
+_Distribución de plantillas en Github_
+1. crear repo en github
+2. cd plantillas_personalizadas/ && git init .        plantillas_personalizadas es el directorio con todas las configuraciones de nuestra plantilla de cookiecutter
+3. Crea archivos '.gitkeep' en los directorios vacíos usando el comando 'touch .gitkeep'. Esto asegura que GitHub incluya estos directorios en el repositorio, ya que GitHub omite directorios vacíos por defecto.
+4. git remote add origin git@github.com:fcisnerosr/cookiecutter-personal.git && git branch -M main && git push -u origin main   crea el repositorio remoto en local y actualiza los cambios en el repo remoto
+5. git add . && git commit -m "initial commit"  crea el primer commit
+6. cookiecutter https://github.com/fcisnerosr/cookiecutter-personal     Instala plantilla que está alojado en Github
+
 _Problemas de rutas en diferentes OS_
 
