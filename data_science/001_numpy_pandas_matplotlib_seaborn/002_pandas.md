@@ -39,7 +39,6 @@ _Valores estadísticos_
 `mediana = series_priced.median()`             # Calcula la mediana de los datos en la Serie 'Quantity'.
 `suma = series_priced.sum()`                   # Calcula la suma total de los datos en la Serie 'Quantity'.
 `count = series_priced.count()`                # Cuenta el número de elementos no nulos en la Serie 'Quantity'.
-kkkkkkkkkkkkkkkkkkkkkkkk
 
 _Seleccionar datos de un dataframe_
 _iloc (index location)_
