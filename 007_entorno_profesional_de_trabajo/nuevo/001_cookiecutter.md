@@ -177,4 +177,8 @@ _Distribución de plantillas en Github_
 6. cookiecutter https://github.com/fcisnerosr/cookiecutter-personal     Instala plantilla que está alojado en Github
 
 _Problemas de rutas en diferentes OS_
-
+CURRENT_DIR = pathlib.Path().resolve()      Objeto de tipo Path que devuelve la ruta absoluta desde donde se ejecuta
+CURRENT_DIR.parent                          Devuelve la ruta absoluta del directorio padre del directorio actual (un nivel arriba desde donde se ejecutó)
+DATA_DIR = CURRENT_DIR.parent.joinpath('data', 'raw')   Devuelve la ruta absoluta del directorio padre desde donde se ejecutó, añadiendo 'data/raw' al final
+DATA_DIR.is_dir()                           Devuelve True si DATA_DIR es un directorio real (no solo una ruta), y existe
+DATA_DIR.exists()                           Devuelve True si DATA_DIR existe (ya sea archivo o carpeta).
