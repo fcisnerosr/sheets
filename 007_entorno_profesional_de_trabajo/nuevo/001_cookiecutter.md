@@ -177,8 +177,27 @@ _Distribución de plantillas en Github_
 6. cookiecutter https://github.com/fcisnerosr/cookiecutter-personal     Instala plantilla que está alojado en Github
 
 _Problemas de rutas en diferentes OS_
-CURRENT_DIR = pathlib.Path().resolve()      Objeto de tipo Path que devuelve la ruta absoluta desde donde se ejecuta
-CURRENT_DIR.parent                          Devuelve la ruta absoluta del directorio padre del directorio actual (un nivel arriba desde donde se ejecutó)
-DATA_DIR = CURRENT_DIR.parent.joinpath('data', 'raw')   Devuelve la ruta absoluta del directorio padre desde donde se ejecutó, añadiendo 'data/raw' al final
-DATA_DIR.is_dir()                           Devuelve True si DATA_DIR es un directorio real (no solo una ruta), y existe
-DATA_DIR.exists()                           Devuelve True si DATA_DIR existe (ya sea archivo o carpeta).
+_pathlib_
+`CURRENT_DIR = pathlib.Path().resolve()`      objeto de tipo Path que devuelve la ruta absoluta desde donde se ejecuta
+`CURRENT_DIR.parent`                          devuelve la ruta absoluta del directorio padre del directorio actual (un nivel arriba desde donde se ejecutó)
+`DATA_DIR = CURRENT_DIR.parent.joinpath('data', 'raw')`   devuelve la ruta absoluta del directorio padre desde donde se ejecutó, añadiendo 'data/raw' al final
+`DATA_DIR.is_dir()`                           devuelve True si DATA_DIR es un directorio real (no solo una ruta), y existe
+`DATA_DIR.exists()`                           devuelve True si DATA_DIR existe (ya sea archivo o carpeta)
+_PyFilesystem2_
+`CURRENT_DIR = fs.open_fs('.')`                       abre el sistema de archivos desde donde se ejecuta el script
+`print(CURRENT_DIR)`                                  imprime el objeto FS correspondiente al directorio actual (tipo <osfs '...'>)
+`print(CURRENT_DIR.exists('.'))`                      devuelve True si el directorio actual existe
+
+`DATA_DIR = fs.open_fs('../data/raw')`                abre el sistema de archivos ubicado en ../data/raw (directorio padre + data/raw)
+`print(DATA_DIR)`                                     imprime el objeto FS correspondiente a la ruta ../data/raw
+`print(DATA_DIR.listdir('.'))`                        imprime una lista con los archivos y carpetas dentro de data/raw
+
+`for path in DATA_DIR.walk.files():`                  recorre todos los archivos (no carpetas) dentro de data/raw de forma recursiva
+`    print(path)`                                     imprime la ruta relativa de cada archivo encontrado
+`    with DATA_DIR.open(path) as data_file:`          abre el archivo encontrado dentro del FS para lectura
+`        print(data_file.readlines())`                imprime todas las líneas del archivo como una lista
+
+`print(DATA_DIR.makedir('dir_prueba_creado', recreate=True))`   crea una carpeta llamada dir_prueba_creado dentro de data/raw (sin error si ya existe)
+
+_Problemas de la raiz de los archivos_
+_pyprojroot_
