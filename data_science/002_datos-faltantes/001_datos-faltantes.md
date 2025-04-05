@@ -63,7 +63,6 @@ _Extracción de DataFrames desde el diccionario_
 `pedestrian_df = dataset_dfs["pedestrian"]`	    Extrae el DataFrame correspondiente a `"pedestrian"`.  
 `riskfactors_df = dataset_dfs["riskfactors"]`	Extrae el DataFrame correspondiente a `"riskfactors"`.  
 
-**Archivo: main_03.py**
 _Resúmenes básicos de valores faltantes_
 `valores_completos = riskfactors_df.missing.number_complete()`  Cuenta el número total de valores no faltantes en riskfactors_df
 `valores_faltantes = riskfactors_df.missing.number_missing()`   Cuenta el número total de valores faltantes (NaN o None) en riskfactors_df
@@ -79,30 +78,6 @@ Nota: las variables son las columnas
 `print(riskfactors_df.missing.missing_variable_table())`        Imprime una tabla que agrupa variables por la cantidad de valores faltantes que contienen y su porcentaje.
 `print(riskfactors_df.missing.missing_case_summary())`          Imprime una tabla con tres columnas: la primera indica el índice de cada observación, la segunda muestra la cantidad de valores faltantes en esa observación y la tercera presenta el porcentaje de valores faltantes con respecto al total de variables.
 `print(riskfactors_df.missing.missing_case_table())`            Imprime una tabla que agrupa las observaciones según la cantidad de valores faltantes que tienen, mostrando cuántas filas pertenecen a cada grupo y el porcentaje que representan en el total del dataset.
-
-# Jupyter Notebooks
- _Descarga y carga automática de datasets en Jupyter Notebooks_  
-`datasets_dfs = {}`	Inicializa un diccionario vacío para almacenar los dataframes descargados.  
-
-_Iteración sobre la lista de datasets_  
-`for dataset_name in datasets_names:`	Itera sobre los nombres de los datasets para descargarlos y cargarlos en un diccionario.  
-
-_Definición de nombres y rutas de archivos_  
-&nbsp;&nbsp;&nbsp;&nbsp;`dataset_file = f"{dataset_name}{extension}"`	Construye el nombre del archivo combinando el nombre del dataset con la extensión `.rda`.  
-&nbsp;&nbsp;&nbsp;&nbsp;`dataset_output_file = f"~/datos_faltantes/curso-datos-faltantes-main/data/{dataset_file}"`	Define la ruta donde se guardará cada archivo descargado.  
-&nbsp;&nbsp;&nbsp;&nbsp;`dataset_url = f"{base_url}{dataset_file}"`	Define la URL completa desde donde se descargará el dataset.  
-
-_Descarga del dataset usando Jupyter Notebooks (`!wget`)_  
-&nbsp;&nbsp;&nbsp;&nbsp;`!wget -q -O {dataset_output_file} {dataset_url}`	Descarga el archivo desde la URL y lo guarda en `dataset_output_file` sin mostrar salida en la terminal (`-q`).  
-
-_Lectura del archivo `.rda` y almacenamiento en un diccionario_  
-&nbsp;&nbsp;&nbsp;&nbsp;`datasets_dfs[f"{dataset_name}_df"] = pyreadr.read_r(dataset_output_file).get(dataset_name)`	Lee el archivo `.rda` con `pyreadr`, extrae el dataframe y lo guarda en `datasets_dfs` con un nombre clave (`oceanbuoys_df`, `pedestrian_df`, etc.).  
-
-_Visualización de las claves del diccionario_  
-`datasets_dfs.keys()`	Muestra todas las claves almacenadas en `datasets_dfs`, indicando los nombres de los datasets cargados.  
-
-_Acceso a un dataframe específico_  
-`datasets_dfs['oceanbuoys_df']`	Muestra el contenido del dataframe `"oceanbuoys_df"`, cargado desde el archivo `.rda`.   
 
 # Resúmenes tabulares de valores faltantes
 Variables/Columnas
@@ -124,6 +99,8 @@ Resumen por variable
 ![Valores presentes en el DataFrame](./graficas_valores_faltantes/004_valores_presentes_df.png)
 `msno.heatmap(df = riskfactors_df)`                         Si dos variables tienen alta correlación en valores faltantes (azul oscuro, cercano a 1.0), puedes eliminarlas juntas o usar una para inferir la otra; si siempre faltan en conjunto (tonos azul claro o blancos cercanos a 0), puede indicar un patrón en la recopilación de datos; si la correlación es negativa (tonos anaranjados o rojos), una variable puede predecir los valores ausentes de otra, permitiendo tomar decisiones sobre imputación o eliminación de datos.
 ![Heatmap de valores faltantes](./graficas_valores_faltantes/005_heatmap.png)
+
+# Codificación de valores faltantes
 
 _Requirements_
 cycler==0.12.1
