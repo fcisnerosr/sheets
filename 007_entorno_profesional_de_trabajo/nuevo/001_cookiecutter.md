@@ -184,7 +184,7 @@ _pathlib_
 `DATA_DIR.is_dir()`                           devuelve True si DATA_DIR es un directorio real (no solo una ruta), y existe
 `DATA_DIR.exists()`                           devuelve True si DATA_DIR existe (ya sea archivo o carpeta)
 _PyFilesystem2_
-`CURRENT_DIR = fs.open_fs('.')`                       abre el sistema de archivos desde donde se ejecuta el script
+`CURRENT_DIR = fs.open_fs('.')`                       abre el sistema de archivos desde donde se ejecuta el script, para rutas es mejor opción usar _pyprojroot_
 `print(CURRENT_DIR)`                                  imprime el objeto FS correspondiente al directorio actual (tipo <osfs '...'>)
 `print(CURRENT_DIR.exists('.'))`                      devuelve True si el directorio actual existe
 
@@ -200,4 +200,22 @@ _PyFilesystem2_
 `print(DATA_DIR.makedir('dir_prueba_creado', recreate=True))`   crea una carpeta llamada dir_prueba_creado dentro de data/raw (sin error si ya existe)
 
 _Problemas de la raiz de los archivos_
-_pyprojroot_
+_Pyprojroot y pyhere (rutas absolutas de proyecto)_
+`print(pyprojroot.here("data").joinpath("raw"))`              construye la ruta absoluta a data/raw desde la raíz del proyecto
+`print(pyhere.here())`                                        devuelve la ruta absoluta del directorio raíz del proyecto
+`print(pyhere.here().resolve())`                              igual que arriba, pero convierte symlinks y normaliza la ruta final
+# Atajo para crear funciones de acceso a subdirectorios
+`def make_dir_function(dir_name):`                            función que permite crear funciones para rutas dentro del proyecto
+`    def dir_function(*args):`                                función interna que recibe subrutas opcionales
+`        return pyprojroot.here().joinpath(dir_name, *args)`  devuelve la ruta absoluta del subdirectorio con lo que se le agregue
+`    return dir_function`                                     devuelve la función lista para usarse
+
+`data_dir = make_dir_function('data')`                        crea una función para construir rutas dentro de la carpeta 'data'
+`print(data_dir())`                                           imprime la ruta absoluta a 'data' en el proyecto
+`notebooks_dir = make_dir_function('notebooks')`             crea función para acceder a 'notebooks'
+`print(notebooks_dir())`                                     imprime la ruta absoluta a 'notebooks'
+# Verificación de existencia de archivo
+`data_dir = Path(here("data"))`                               convierte la ruta 'data' en objeto Path para seguir componiendo
+`ruta = data_dir / "raw" / "pathlib" / ".gitkeep"`            construye la ruta completa a data/raw/pathlib/.gitkeep
+`print(ruta.exists())`                                        imprime True si esa ruta existe, False si no
+
