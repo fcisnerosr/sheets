@@ -204,7 +204,7 @@ _Pyprojroot y pyhere (rutas absolutas de proyecto)_
 `print(pyprojroot.here("data").joinpath("raw"))`              construye la ruta absoluta a data/raw desde la raíz del proyecto
 `print(pyhere.here())`                                        devuelve la ruta absoluta del directorio raíz del proyecto
 `print(pyhere.here().resolve())`                              igual que arriba, pero convierte symlinks y normaliza la ruta final
-# Atajo para crear funciones de acceso a subdirectorios
+_Atajo para crear funciones de acceso a subdirectorios_
 `def make_dir_function(dir_name):`                            función que permite crear funciones para rutas dentro del proyecto
 `    def dir_function(*args):`                                función interna que recibe subrutas opcionales
 `        return pyprojroot.here().joinpath(dir_name, *args)`  devuelve la ruta absoluta del subdirectorio con lo que se le agregue
@@ -214,8 +214,12 @@ _Pyprojroot y pyhere (rutas absolutas de proyecto)_
 `print(data_dir())`                                           imprime la ruta absoluta a 'data' en el proyecto
 `notebooks_dir = make_dir_function('notebooks')`             crea función para acceder a 'notebooks'
 `print(notebooks_dir())`                                     imprime la ruta absoluta a 'notebooks'
-# Verificación de existencia de archivo
+_Verificación de existencia de archivo_
 `data_dir = Path(here("data"))`                               convierte la ruta 'data' en objeto Path para seguir componiendo
 `ruta = data_dir / "raw" / "pathlib" / ".gitkeep"`            construye la ruta completa a data/raw/pathlib/.gitkeep
 `print(ruta.exists())`                                        imprime True si esa ruta existe, False si no
 
+_Centralización de rutas mediante scripts en jupyter notebooks_
+`Path("../../data/raw/archivo.csv")`                              ejemplo tradicional
+`import final_project.utils.paths as path`                        ejemplo centralizado
+`path.data_raw_dir("archivo.csv")`
