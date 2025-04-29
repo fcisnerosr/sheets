@@ -223,3 +223,9 @@ _Centralización de rutas mediante scripts en jupyter notebooks_
 `Path("../../data/raw/archivo.csv")`                              ejemplo tradicional
 `import final_project.utils.paths as path`                        ejemplo centralizado
 `path.data_raw_dir("archivo.csv")`
+
+_Instalación en modo editable_
+`pip install --editable .`                                 instala tu proyecto localmente sin copiarlo; permite que los cambios al código fuente se reflejen de inmediato sin reinstalar
+
+_Importación del módulo_
+`import final_project.utils.paths as path`                  importa el módulo `paths.py` ubicado en `final_project/utils` para usar sus funciones, clases o variables
