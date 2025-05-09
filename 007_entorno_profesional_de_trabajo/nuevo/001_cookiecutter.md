@@ -205,7 +205,7 @@ _Pyprojroot y pyhere (rutas absolutas de proyecto)_
 `print(pyhere.here())`                                        devuelve la ruta absoluta del directorio raíz del proyecto
 `print(pyhere.here().resolve())`                              igual que arriba, pero convierte symlinks y normaliza la ruta final
 _Atajo para crear funciones de acceso a subdirectorios_
-`def make_dir_function(dir_name):`                            función que permite crear funciones para rutas dentro del proyecto
+`def make_dir_functi:on(dir_name):`                            función que permite crear funciones para rutas dentro del proyecto
 `    def dir_function(*args):`                                función interna que recibe subrutas opcionales
 `        return pyprojroot.here().joinpath(dir_name, *args)`  devuelve la ruta absoluta del subdirectorio con lo que se le agregue
 `    return dir_function`                                     devuelve la función lista para usarse
@@ -228,4 +228,6 @@ _Instalación en modo editable_
 `pip install --editable .`                                 instala tu proyecto localmente sin copiarlo; permite que los cambios al código fuente se reflejen de inmediato sin reinstalar
 
 _Importación del módulo_
-`import final_project.utils.paths as path`                  importa el módulo `paths.py` ubicado en `final_project/utils` para usar sus funciones, clases o variables
+`import final_project.utils.paths as path`                  importa el módulo `paths.py` ubicado en `final_project/utils` para usar sus funciones, clases o variables en notebooks
+
+_
