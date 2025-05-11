@@ -6,10 +6,12 @@ _Instalación de Cookiecutter_
 `mamba env export --from-history --file enviroment.yml` exportar la lista de paquetes instalados en un entorno de mamba a un archivo YML  
 
 _Estructura del archivo cookiecutter_
-- COOKIECUTTER-PERSONAL
-    - {{ cookiecutter.project_slug }} (directorio)
+- COOKIECUTTER-PERSONAL (directorio donde va alojado la plantilla a crear)
+    - cookiecutter.json
+    - {{ cookiecutter.project_slug }} (directorio, mkdir '{{ cookiecutter.project_slug')
         - data
         - notebooks
+        - otros directorios y subdirectorios que conformen el proyecto (todos estos directorios van creados uno a uno mediante mkdir, hay un ejemplo que se muestra más abajo)
         - README.md ( plantilla que Cookiecutter usa para generar el README de cada proyecto, reemplazando variables asignadas en cookiecutter.json)
              # {{ cookiecutter.project_title }}
 
@@ -44,6 +46,51 @@ _Estructura del archivo cookiecutter_
                   - pyhere
                {% endif %}
                 - enviroment.yml
+
+_Creación de directorios en cada proyecto_
+Para la creación de los directorios para cada proyecto deben de estar dentro de cookiecutter.project_slug, y para una ruta como la que sigue, se debe ejecutar en terminal lo siguiente:
+mkdir -p data/raw
+mkdir -p data/interim
+mkdir -p data/processed
+mkdir -p data/external
+mkdir -p notebooks
+mkdir -p src/data
+mkdir -p src/features
+mkdir -p src/models
+mkdir -p src/visualization
+mkdir -p tests
+mkdir -p references
+mkdir -p reports/figures
+mkdir -p environment
+Ejemplo de rutas de proyecto ejemplo visual:
+📁 mi_proyecto/
+├── data/
+│   ├── raw/
+│   ├── interim/
+│   ├── processed/
+│   └── external/
+│
+├── notebooks/
+├── src/
+│   ├── data/
+│   ├── features/
+│   ├── models/
+│   └── visualization/
+│
+├── tests/
+├── references/
+├── reports/
+│   └── figures/
+│
+├── environment/
+│   └── environment.yml
+│
+├── README.md
+├── requirements.txt
+├── setup.py
+└── .gitignore
+
+_Hooks_
 - hoooks (directorio)
     - pre_gen_project.py
         import sys
