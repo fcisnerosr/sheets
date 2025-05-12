@@ -7,13 +7,16 @@ _Instalación de Cookiecutter_
 
 _Estructura del archivo cookiecutter_
 - COOKIECUTTER-PERSONAL (directorio donde va alojado la plantilla a crear)
-    - cookiecutter.json
+    - cookiecutter.json (archivo.json con todos los nombres de variables que el README.md va a jalar)
     - {{ cookiecutter.project_slug }} (directorio, mkdir '{{ cookiecutter.project_slug')
         - data
         - notebooks
-        - otros directorios y subdirectorios que conformen el proyecto (todos estos directorios van creados uno a uno mediante mkdir, hay un ejemplo que se muestra más abajo)
+        - reports
+        - references
+        - environment
+        - y otros directorios y subdirectorios que conformen el proyecto (todos estos directorios van creados uno a uno mediante mkdir, hay un ejemplo que se muestra más abajo)
         - README.md ( plantilla que Cookiecutter usa para generar el README de cada proyecto, reemplazando variables asignadas en cookiecutter.json)
-             # {{ cookiecutter.project_title }}
+            # {{ cookiecutter.project_title }}
 
             By: {{ cookiecutter.project_author_name }}
 
