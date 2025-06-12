@@ -5,10 +5,37 @@ _Instalación de Cookiecutter_
 `mamba create --name cookiecutter-personal cookiecutter=1.7.3`    creación del nuevo env para cookiecutter, siempre especificar la versión para evitar problemas en el futuro  
 `mamba env export --from-history --file enviroment.yml` exportar la lista de paquetes instalados en un entorno de mamba a un archivo YML  
 
-_Estructura del archivo cookiecutter_
-- COOKIECUTTER-PERSONAL (directorio donde va alojado la plantilla a crear)
+_Estructura general de cualquier plantilla de cookiecutter_
+mi-plantilla-ds/                   # <--- Este es el directorio RAÍZ de TU PLANTILLA Cookiecutter
+├── cookiecutter.json              # <--- ¡FUNDAMENTAL! Define las variables de la plantilla.
+├── hooks/                         # <--- OPCIONAL, pero RECOMENDADO. Contiene scripts Python de Cookiecutter.
+│   ├── pre_gen_project.py         # Se ejecuta ANTES de que Cookiecutter genere el proyecto.
+│   └── post_gen_project.py        # Se ejecuta DESPUÉS de que Cookiecutter genera el proyecto.
+│
+└── {{ cookiecutter.project_slug }}/ # <--- ¡FUNDAMENTAL! Este es el directorio de TU PROYECTO GENERADO.
+    |                                # Su nombre dinámico con `{{ }}` es clave para Cookiecutter.
+    ├── .gitignore                   # Archivo Gitignore para el proyecto generado.
+    ├── .pre-commit-config.yaml      # Configuración de los Git hooks (se ejecuta POST-GENERACIÓN).
+    ├── README.md                    # Plantilla del README para el proyecto generado.
+    ├── environment.yml              # Plantilla para el archivo de entorno Conda.
+    ├── pyproject.toml               # Configuración de metadatos y herramientas (opcional, pero útil).
+    ├── data/                        # Directorio para los datos (raw, interim, processed).
+    │   ├── raw/
+    │   ├── interim/
+    │   └── processed/
+    ├── notebooks/                   # Directorio para notebooks Jupyter.
+    ├── src/                         # Directorio para código fuente Python (scripts).
+    │   ├── __init__.py
+    │   ├── data/
+    │   └── features/
+    └── reports/                     # Directorio para informes y figuras.
+        ├── figures/
+        └── project_report.md
+
+_Estructura más específica del archivo cookiecutter_
+- Plantilla (directorio donde va alojado la plantilla a crear)
     - cookiecutter.json (archivo.json con todos los nombres de variables que el README.md va a jalar)
-    - {{ cookiecutter.project_slug }} (directorio, mkdir '{{ cookiecutter.project_slug')
+    - {{ cookiecutter.project_slug }} (directorio, mkdir '{{ cookiecutter.project_slug }}')
         - data
         - notebooks
         - reports
