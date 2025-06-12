@@ -42,40 +42,40 @@ _Estructura más específica del archivo cookiecutter_
         - references
         - environment
         - y otros directorios y subdirectorios que conformen el proyecto (todos estos directorios van creados uno a uno mediante mkdir, hay un ejemplo que se muestra más abajo)
-        - README.md ( plantilla que Cookiecutter usa para generar el README de cada proyecto, reemplazando variables asignadas en cookiecutter.json)
-            # {{ cookiecutter.project_title }}
+    - README.md ( plantilla que Cookiecutter usa para generar el README de cada proyecto, reemplazando variables asignadas en cookiecutter.json)
+        # {{ cookiecutter.project_title }}
 
-            By: {{ cookiecutter.project_author_name }}
+        By: {{ cookiecutter.project_author_name }}
 
-            {{ cookiecutter.project_description }}
+        {{ cookiecutter.project_description }}
 
-            ## License
-        - enviroment.yml (define las librerías necesarias para cada proyecto generado)
-            name: {{ cookiecutter.project_slug }}
+        ## License
+    - enviroment.yml (define las librerías necesarias para cada proyecto generado)
+        name: {{ cookiecutter.project_slug }}
 
-            channels:
-              - anaconda
-              - conda-forge
-              - defaults
+        channels:
+          - anaconda
+          - conda-forge
+          - defaults
 
-            dependencies:
+        dependencies:
+        {% if cookiecutter.project_packages == "all" -%}
+          - fs
+          - jupyter
+          - jupyterlab
+          - pathlib
+        {% endif -%}
+          - pip
+        {% if cookiecutter.project_packages == "all" -%}
+          - pyproj
+          - root
+        {% endif %}
+          - python={{ cookiecutter.python_version }}
+          - pip:
             {% if cookiecutter.project_packages == "all" -%}
-              - fs
-              - jupyter
-              - jupyterlab
-              - pathlib
-            {% endif -%}
-              - pip
-            {% if cookiecutter.project_packages == "all" -%}
-              - pyproj
-              - root
-            {% endif %}
-              - python={{ cookiecutter.python_version }}
-              - pip:
-                {% if cookiecutter.project_packages == "all" -%}
-                  - pyhere
-               {% endif %}
-                - enviroment.yml
+              - pyhere
+           {% endif %}
+            - enviroment.yml
 
 _Creación de directorios en cada proyecto_
 Para la creación de los directorios para cada proyecto deben de estar dentro de cookiecutter.project_slug, y para una ruta como la que sigue, se debe ejecutar en terminal lo siguiente:
