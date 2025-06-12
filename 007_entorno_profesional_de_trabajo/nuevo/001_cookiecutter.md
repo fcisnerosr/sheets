@@ -6,6 +6,7 @@ _Instalación de Cookiecutter_
 `mamba env export --from-history --file enviroment.yml` exportar la lista de paquetes instalados en un entorno de mamba a un archivo YML  
 
 _Estructura general de cualquier plantilla de cookiecutter_
+`mkdir my_general_template && cd my_general_template && touch cookiecutter.json && mkdir hooks && touch hooks/pre_gen_project.py hooks/post_gen_project.py && mkdir '{{ cookiecutter.project_slug }}' && cd '{{ cookiecutter.project_slug }}' && touch README.md environment.yml` Pegar en línea de comandos para generar la estrucutra general de cualquier plantilla de cookiecutter
 mi-plantilla-ds/                   # <--- Este es el directorio RAÍZ de TU PLANTILLA Cookiecutter
 ├── cookiecutter.json              # <--- ¡FUNDAMENTAL! Define las variables de la plantilla.
 ├── hooks/                         # <--- OPCIONAL, pero RECOMENDADO. Contiene scripts Python de Cookiecutter.
