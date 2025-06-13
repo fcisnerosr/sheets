@@ -32,6 +32,8 @@ _Manejo de Datos Faltantes y Descarga de Datos con Pandas_
 `pima_indians_diabetes_url = "https://nrvis.com/data/mldata/pima-indians-diabetes.csv"`	Define la URL del archivo CSV con los datos de diabetes.  
 `output_path = "./data/prima_indians-diabetes.csv"`	Especifica la ruta donde se guardará el archivo descargado.  
 `subprocess.run(["wget", "-O", output_path, pima_indians_diabetes_url, "-q"])`	Descarga el archivo desde la URL y lo guarda en la ruta `output_path`.  
+*VS CODE*
+`!wget -O ./data/pima-indians-diabetes.csv { pima_indians_diabetes_url } -q`	Descarga el archivo desde la URL y lo guarda en el directorio 'data'
 
 _Lectura del archivo CSV con Pandas_  
 `diabetes_df = pd.read_csv('~/datos_faltantes/curso-datos-faltantes-main/data/pima-indians-diabetes.csv', sep=',', names=[...])`	Carga el dataset en un DataFrame de Pandas, especificando los nombres de las columnas.  
