@@ -102,7 +102,73 @@ Resumen por variable
 `msno.heatmap(df = riskfactors_df)`                         Si dos variables tienen alta correlación en valores faltantes (azul oscuro, cercano a 1.0), puedes eliminarlas juntas o usar una para inferir la otra; si siempre faltan en conjunto (tonos azul claro o blancos cercanos a 0), puede indicar un patrón en la recopilación de datos; si la correlación es negativa (tonos anaranjados o rojos), una variable puede predecir los valores ausentes de otra, permitiendo tomar decisiones sobre imputación o eliminación de datos.
 ![Heatmap de valores faltantes](./graficas_valores_faltantes/005_heatmap.png)
 
-# Codificación de valores faltantes
+# Reemplazo de datos faltantes
+_Reemplazo de multiples formas de reemplazar datos faltantes_
+```python
+df_missing_data = (                               # Asigna el resultado a df_missing_data
+  df                                               # Parte del DataFrame original df
+  .replace(                                       # Aplica el método replace para hacer sustituciones
+    to_replace=[                                  # Lista de cadenas que representan valores faltantes
+      'missing',                                  # Forma textual común para indicar ausencia
+      'N/A',                                      # Formato frecuente en archivos CSV
+      'NA',                                       # Variante corta también común
+      'n/a',                                      # Variante en minúsculas
+      'null',                                     # Valor nulo usado en muchos lenguajes
+      'NULL',                                     # Variante en mayúsculas
+      '--',                                       # Marcador visual usado a veces
+      '-',                                        # Un solo guion también puede representar falta de datos
+      '',                                         # Cadena vacía
+      ' '                                         # Espacio en blanco
+    ],
+    value=np.nan                                  # Reemplaza todas estas formas por np.nan
+  )                                               # Fin del método replace
+)                                                 # Fin de la asignación
+```
+_Reemplazo dirigido y global, respectivamente_
+```python
+df_missing_data = (                             # Asigna a df_missing_data el DataFrame resultante del reemplazo
+  df                                             # Parte del DataFrame original llamado df
+  .replace(                                     # Aplica el método replace para hacer sustituciones
+    to_replace={                                # Define un diccionario de sustitución
+      'Calificaciones_Espanol': {               # Solo aplica el reemplazo a la columna 'Calificaciones_Espanol'
+        'missing': np.nan                       # Reemplaza el string 'missing' por np.nan (valor faltante)
+      }                                         # Fin del diccionario de la columna
+    }                                           # Fin del diccionario to_replace
+  )                                             # Cierra el método replace
+)                                               # Cierra la asignación a df_missing_data
+
+df_missing_data = (                             # Asigna el resultado a df_missing_data
+  df                                             # Parte del DataFrame original df
+  .replace(                                     # Aplica el método replace para hacer sustituciones
+    to_replace=['missing'],                     # Busca todas las apariciones del string 'missing' en el DataFrame
+    value=np.nan                                # Reemplaza todas las coincidencias por np.nan (valor faltante)
+  )                                             # Fin del método replace
+)                                               # Fin de la asignación
+```
+
+# Valores faltantes implicitos
+_Pivoteo de tabla, a fin de encontrar valores faltantes implícitos_
+```python
+(                                               # Inicio de una expresión multilínea
+  df_missing_data                               # Se trabaja sobre el DataFrame con datos faltantes ya limpiados
+  .pivot_wider(                                 # Aplica una transformación de formato ancho (tipo tabla dinámica)
+    index=['Nombre', 'Actividades'],            # Define las columnas clave para mantener como índices (identificadores únicos)
+    names_from='Grado',                         # Las categorías únicas de 'Grado' se convertirán en nuevas columnas
+    values_from='Faltas'                        # Los valores de la columna 'Faltas' se distribuirán entre las nuevas columnas
+  )                                             # Fin de la función pivot_wider
+)                                               # Fin de la expresión
+```
+_Contados de n-tuplas a fin de encontrar valores faltantes implícitos_
+```python
+(                                       # Inicio de la expresión multilínea
+  df_missing_data                       # Se trabaja sobre el DataFrame con valores faltantes tratados
+  .value_counts(                        # Cuenta cuántas veces aparece cada valor en la columna indicada
+    subset=['Calificaciones_Espanol']  # Se especifica que se cuenten los valores en esta columna
+  )
+  .reset_index(name='count')           # Convierte el índice de la serie en una columna llamada 'count'
+  .query('count > 1')                  # Filtra solo las filas con más de una ocurrencia (posibles duplicados)
+)                                       # Fin de la expresión
+```
 
 _Requirements_
 cycler==0.12.1
