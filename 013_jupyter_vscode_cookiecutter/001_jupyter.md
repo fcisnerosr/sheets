@@ -1,4 +1,4 @@
-# Comandos
+# Comandos para VS Code
 esc + z                 deshacer
 dd                      borrar bloque de código
 shift + r               divide la pantalla entre codigo y datos de salida
@@ -15,7 +15,7 @@ backspace               para ir un nivel atrás en el explorador de archivos
 ctrl+shift+{            ir a la pestaña de la terminal
 ctrl+tab                pasa a la siguiente pestaña
 
-flecha derecha          oculta bloques
+flecha derecha          oculta bloque
 flecha izquierda        muestra bloques
 
 shift + m               fuciona el bloque en el que estás con el de abajo 
