@@ -32,8 +32,6 @@ _Manejo de Datos Faltantes y Descarga de Datos con Pandas_
 `pima_indians_diabetes_url = "https://nrvis.com/data/mldata/pima-indians-diabetes.csv"`	Define la URL del archivo CSV con los datos de diabetes.  
 `output_path = "./data/prima_indians-diabetes.csv"`	Especifica la ruta donde se guardará el archivo descargado.  
 `subprocess.run(["wget", "-O", output_path, pima_indians_diabetes_url, "-q"])`	Descarga el archivo desde la URL y lo guarda en la ruta `output_path`.  
-*VS CODE*
-`!wget -O ./data/pima-indians-diabetes.csv { pima_indians_diabetes_url } -q`	Descarga el archivo desde la URL y lo guarda en el directorio 'data'
 
 _Lectura del archivo CSV con Pandas_  
 `diabetes_df = pd.read_csv('~/datos_faltantes/curso-datos-faltantes-main/data/pima-indians-diabetes.csv', sep=',', names=[...])`	Carga el dataset en un DataFrame de Pandas, especificando los nombres de las columnas.  
@@ -102,7 +100,30 @@ Resumen por variable
 `msno.heatmap(df = riskfactors_df)`                         Si dos variables tienen alta correlación en valores faltantes (azul oscuro, cercano a 1.0), puedes eliminarlas juntas o usar una para inferir la otra; si siempre faltan en conjunto (tonos azul claro o blancos cercanos a 0), puede indicar un patrón en la recopilación de datos; si la correlación es negativa (tonos anaranjados o rojos), una variable puede predecir los valores ausentes de otra, permitiendo tomar decisiones sobre imputación o eliminación de datos.
 ![Heatmap de valores faltantes](./graficas_valores_faltantes/005_heatmap.png)
 
-# Codificación de valores faltantes
+# Extensión de la API de pandas mediante acessor .missing
+--- Gráficas y Visualizaciones ---
+`missing_variable_span_plot()`	Genera un gráfico de barras apiladas que visualiza el porcentaje de valores faltantes y completos para una variable.
+`missing_variable_plot()`		Genera un gráfico de piruleta (lollipop plot) que visualiza el número de valores faltantes por cada variable.
+`missing_upsetplot()`		Crea un gráfico UpSet para visualizar las intersecciones y agregaciones de valores faltantes entre las variables.
+`missing_case_plot()`		Crea un histograma que muestra la distribución del número de valores faltantes por cada caso (fila).
+
+--- Resúmenes y Tablas ---
+`missing_variable_summary()`	Devuelve un DataFrame que resume por cada variable (columna) el recuento y porcentaje de valores faltantes.
+`missing_variable_table()`	Proporciona una tabla que agrupa las variables según el número de valores faltantes que contienen.
+`missing_variable_span()`		Calcula estadísticas de valores faltantes para una variable específica sobre tramos (spans) de filas.
+`missing_case_summary()`		Devuelve un DataFrame que resume por cada caso (fila) el recuento y porcentaje de valores faltantes.
+`missing_variable_run()`		Identifica y cuenta las secuencias consecutivas (rachas) de valores faltantes o completos en una variable.
+`missing_case_table()`		Proporciona una tabla que agrupa los casos (filas) según el número de valores faltantes que contienen.
+`missing_scan_count()`		Cuenta la frecuencia de aparición de valores específicos que pueden representar datos faltantes en cada columna.
+
+--- Manipulación de Datos ---
+`sort_variables_by_missingness()`	Reordena las columnas del DataFrame según la cantidad de valores faltantes que contienen.
+`create_shadow_matrix()`		Genera una matriz sombra que indica la ubicación de los valores faltantes en el DataFrame original.
+`bind_shadow_matrix()`		Concatena el DataFrame original con su matriz sombra, añadiendo columnas que indican la ausencia o presencia de NaNs.
+
+--- Cálculos Simples ---
+`number_complete()`		Calcula el número total de valores no faltantes en todo el DataFrame.
+`number_missing()`		Calcula el número total de valores faltantes (NaN) en todo el DataFrame.
 
 _Requirements_
 cycler==0.12.1
