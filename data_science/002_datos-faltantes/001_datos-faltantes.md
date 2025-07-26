@@ -191,7 +191,26 @@ _Contados de n-tuplas a fin de encontrar valores faltantes implícitos_
   .query('count > 1')                  # Filtra solo las filas con más de una ocurrencia (posibles duplicados)
 )                                       # Fin de la expresión
 ```
+_Mecanísmos de datos faltantes_
 
+_Matriz de sombras (Shadow Matrix)_
+```python
+(                                                   # Inicio de la expresión multilínea
+    riskfactors_df                                  # Se trabaja sobre el DataFrame original con posibles valores faltantes
+    .isna()                                         # Se crea una matriz booleana: True donde hay NaN (faltante), False donde hay datos
+    .replace({                                      # Se reemplazan los valores booleanos por etiquetas textuales
+        False: 'Not missing',                       # False (no faltante) se convierte en la cadena 'Not missing'
+        True: 'Missing'                             # True (faltante) se convierte en la cadena 'Missing'
+    })
+    .add_suffix('_NA')                              # A todas las columnas se les agrega el sufijo '_NA' para identificar la matriz de sombra
+    .pipe(                                          # Se utiliza pipe para encadenar funciones de forma más legible
+        lambda shadow_matrix: pd.concat(            # Se define una función lambda que concatena:
+            [riskfactors_df, shadow_matrix],        # El DataFrame original y la matriz de sombra (side-by-side)
+            axis='columns'                          # La concatenación se realiza por columnas (column-wise)
+        )
+    )                                               # Fin de pipe y de la lambda
+)                                                   # Fin de la expresión
+```
 _Requirements_
 cycler==0.12.1
 fonttools==4.55.3
