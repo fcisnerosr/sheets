@@ -241,7 +241,7 @@ _Visualización de bloxplot de resumen estadístico por estado de datos faltante
   )                                           # Fin de la llamada a pipe
 )                                             # Fin de la expresión multilínea
 ```
-![Visualización de datos faltantes](./data_science/002_datos-faltantes/001_datos-faltantes.png)
+![Visualización de datos faltantes](./graficas_valores_faltantes/001_datos-faltantes.png)
 
 _Requirements_
 cycler==0.12.1
