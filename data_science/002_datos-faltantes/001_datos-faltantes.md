@@ -243,6 +243,25 @@ _Visualización de bloxplot de resumen estadístico por estado de datos faltante
 ```
 ![Visualización de datos faltantes](./graficas_valores_faltantes/006.png)
 
+_Distribución de edad con sombreado según valores faltantes en la variable 'pregnant'_
+```python
+(                                                    # Inicio de la expresión multilínea
+    riskfactors_df                                   # Se parte del DataFrame original con posibles valores faltantes
+    .missing                                         # Se activa la interfaz de tratamiento de datos faltantes con pyjanitor
+    .bind_shadow_matrix(only_missing=True)          # Crea y une una matriz de sombras con columnas adicionales que indican dónde hay valores faltantes; solo se agregan columnas para variables con datos faltantes
+    .pipe(                                           # Se utiliza pipe para aplicar una función personalizada de forma encadenada
+        lambda df:(                                  # Se define una función lambda que recibe el DataFrame extendido con sombras
+            sns.displot(                             # Se crea un gráfico de distribución usando seaborn
+                data = df,                           # Se especifica el DataFrame de entrada
+                x = 'age',                           # Variable numérica para el eje x (edad)
+                kind = 'kde',                        # Tipo de gráfico: estimación de densidad kernel (curva suave)
+                hue = 'pregnant_NA',                 # Se colorean las curvas según si hay o no datos faltantes en la columna 'pregnant'
+                fill = True                          # Se rellena el área bajo las curvas de densidad
+            )                                        # Fin de sns.displot
+        )                                            # Fin de la función lambda
+    )                                                # Fin de pipe
+)                                                    # Fin de la expresión completa
+
 _Requirements_
 cycler==0.12.1
 fonttools==4.55.3
