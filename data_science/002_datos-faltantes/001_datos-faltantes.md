@@ -193,7 +193,7 @@ _Contados de n-tuplas a fin de encontrar valores faltantes implícitos_
 ```
 _Mecanísmos de datos faltantes_
 
-_Matriz de sombras (Shadow Matrix)_
+_Construcción de Matriz de sombras (Shadow Matrix)_
 ```python
 (                                                   # Inicio de la expresión multilínea
     riskfactors_df                                  # Se trabaja sobre el DataFrame original con posibles valores faltantes
@@ -211,6 +211,38 @@ _Matriz de sombras (Shadow Matrix)_
     )                                               # Fin de pipe y de la lambda
 )                                                   # Fin de la expresión
 ```
+
+_Agrupación y resumen estadístico por estado de datos faltantes de una variable con respecto a otra_
+```python
+(                                                   # Inicio de la expresión multilínea
+    riskfactors_df                                  # DataFrame original con datos y posibles NaN
+    .missing                                        # Entra al namespace de la extensión de datos faltantes
+    .bind_shadow_matrix(only_missing=True)          # Añade solo columnas sombra para variables con NaN, p.ej. 'weight_lbs_NA'
+    .groupby(["weight_lbs_NA"])                     # Agrupa el DataFrame en dos grupos: Missing vs Not Missing de weight_lbs
+    ["age"]                                         # Selecciona la serie 'age' dentro de cada uno de esos grupos
+    .describe()                                     # Calcula estadísticas descriptivas (count, mean, std, min, cuartiles, max)
+    .reset_index()                                  # Convierte el índice (Missing/Not Missing) en la columna 'weight_lbs_NA'
+)                                                   # Fin de la expresión
+```
+_Visualización de bloxplot de resumen estadístico por estado de datos faltantes de una variable con respecto a otra_
+```python
+(  # Inicio de la expresión multilínea
+  riskfactors_df                             # DataFrame original con datos y posibles NaN
+  .missing                                   # Accede al namespace de la extensión de datos faltantes
+  .bind_shadow_matrix(only_missing=True)     # Añade solo columnas sombra para variables con NaN, p.ej. 'weight_lbs_NA'
+  .pipe(                                     # Encadena una función externa para estructurar mejor la llamada
+    lambda df: (                             
+      sns.boxenplot(                         # Genera un boxenplot avanzado con Seaborn
+        data=df,                             #    Usa el DataFrame enriquecido con la matriz de sombra
+        x='weight_lbs_NA',                   #    Agrupa por categoría Missing vs Not Missing de weight_lbs
+        y='age'                              #    Muestra la distribución de la edad para cada grupo
+      )
+    )
+  )                                           # Fin de la llamada a pipe
+)                                             # Fin de la expresión multilínea
+```
+![Visualización de datos faltantes](./data_science/002_datos-faltantes/001_datos-faltantes.png)
+
 _Requirements_
 cycler==0.12.1
 fonttools==4.55.3
