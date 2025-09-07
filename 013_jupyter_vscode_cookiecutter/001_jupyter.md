@@ -5,7 +5,7 @@ shift + r               divide la pantalla entre codigo y datos de salida
 esc + shift + enter     ejecutar el bloque actual y agrega un bloque nuevo abajo
 esc + ctrl + enter      ejecutar el bloque actual sin agregar ningún bloque por debajo
 esc + y                 convierte un bloque a código 
-esc + m                 convierte un bloque en código
+esc + m                 convierte un bloque en markdown
 esc + b                 crear una celda debajo
 esc + a                 crear una celda arriba
 
