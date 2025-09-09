@@ -119,14 +119,14 @@ fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/fcisnerosr/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/fcisnerosr/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/fcisnerosr/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/fcisnerosr/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/fcisnerosr/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/fcisnerosr/miniforge3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/fcisnerosr/anaconda3/bin:$PATH"
+        export PATH="/home/fcisnerosr/miniforge3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -155,7 +155,7 @@ alias cda="conda deactivate && clear"
 # Git
 alias g="git"
 alias gsta="git status"
-alias gac="git add . && git comit -m "
+alias gac="git add . && git commit -m "
 alias gitac="git add . && git commit -m "
 alias com="git add . && git commit -m "
 alias gc="git clone"
@@ -177,6 +177,7 @@ alias vi="nvim"
 alias vim="nvim"
 
 # bash
+alias el="ls"
 alias cl="clear"
 alias acbsh="source ~/.bashrc"
 alias acv="source ~/.vimrc"
@@ -195,4 +196,12 @@ alias sus="systemctl suspend"
 #}
 
 
+eval "$(mamba shell hook --shell bash)"
 
+# Alias para compilar la tesis en latex
+# alias coo='latexmk -C && latexmk -pdf -interaction=nonstopmode main.tex && clear && echo -e "\e[1;32m  ¡Compilación de main.tex completada sin errores! REALIZA UN COMMIT POR FAVOR\e[0m" && echo -e "\a"'
+# alias coo='latexmk -C && latexmk -pdf -interaction=nonstopmode main.tex'
+alias coo='latexmk -pdf -interaction=nonstopmode -file-line-error -synctex=1 main.tex && clear && echo -e "\e[1;32m  ¡Compilación de main.tex completada sin errores! REALIZA UN COMMIT POR FAVOR\e[0m" && echo -e "\a'
+
+# Alias para copiar output
+alias cpp='clip.exe'
