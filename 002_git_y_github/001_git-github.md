@@ -50,7 +50,7 @@ _Configuraciones para Github_
 
 _Repositorios remotos_
 `git clone https://github.com/user/repositorio.git` Si no se tiene el permismo mediante llaves SSH, descarga todos los archivos y cambios y los guarda en un nuevo repositorio local creado y en el working directory
-`git clone --branch <rama> --single-branch git @github.com:usuario/repo.git`  clona solo una rama específica del repositorio remoto
+`git clone --branch <rama> --single-branch gi@github.com:usuario/repo.git`  clona solo una rama específica del repositorio remoto
 `git push`                                  enviar cambios a un reposotorio remoto
 `git push --force`                          Después de hacer un `git reset --hard` se pueden reenviar los cambios para que el repositorio remoto refleje exactamente lo que se hizo en el repositorio local. _Puede ser peligroso, así que tomar precausiones_
 `git push origin <branchnoamain>`           enviar al repositorio remoto una rama distinta a la rama _main_
