@@ -25,10 +25,15 @@
   - **Voz:** tono reflexivo, ritmo lento.  
   - **Lenguaje corporal:** mirar al suelo unos segundos.  
 
+- Agregar: *“Hace un año me paré aquí, muy empoderado… lo malo de las redes sociales, casi que vine a darles cátedra de por qué debían dejarlas. ¿Y saben qué pasó?”*  
+  - **Voz:** tono alegre-irónico al inicio, subir volumen en “muy empoderado”, pausa dramática en “¿Y saben qué pasó?”.  
+  - **Lenguaje corporal:** postura erguida con gesto de manos abiertas al inicio (como profesor), luego encoger hombros y levantar cejas en la pregunta.  
+
 - *“No logré dejar YouTube.”*  
   - **Voz:** grave, pausada.  
   - **Lenguaje corporal:** manos abiertas al frente (gesto descriptivo de honestidad).  
 
+- Razón: Caricía de disciplina
 ---
 
 ### 2.5. Metáfora de John Maxwell – El león y la silla (1:40–2:40)
@@ -98,5 +103,5 @@
 
 - Última mirada al espejo → pausa → sonrisa ligera.  
 - *“Gracias.”*  
-  - **Voz:** suave, firme.  
+  - **Voz:** suave, firm. 
   - **Lenguaje corporal:** leve inclinación de cabeza (gesto de gratitud).  
