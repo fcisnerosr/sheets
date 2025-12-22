@@ -163,8 +163,8 @@ alias dg="git clone git@github.com:fcisnerosr"
 alias gpsh="git pull && git push"
 alias config="/usr/bin/git --git-dir=$HOME/.config-files/ --work-tree=$HOME" # Turns my home in a git repo
 alias ginit="git init;touch README.md; git add README.md;git commit -m 'first commit';git branch -M main"
-alias glgg="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
-alias glggg="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all | head -n 5"
+alias glggg="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+alias glgg='git log --graph --oneline --all --decorate --color=always -n 5'
 alias cko="git checkout"
 alias crea="git switch -c"
 
@@ -206,3 +206,5 @@ alias coo='latexmk -pdf -interaction=nonstopmode -file-line-error -synctex=1 mai
 
 # Alias para copiar output
 alias cpp='clip.exe'
+alias nnb='mamba run -n nvimnb NVIM_APPNAME=nvim_nb nvim'
+
